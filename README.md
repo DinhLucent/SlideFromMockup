@@ -36,13 +36,13 @@ npx skills add alchaincyf/huashu-design
 ---
 
 <p align="center">
-  <img src="demos/hero-animation-v10-en.gif" alt="huashu-design Hero · 打字 → 选方向 → 画廊展开 → 聚焦 → 品牌显形" width="100%">
+  <img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.gif" alt="huashu-design Hero · 打字 → 选方向 → 画廊展开 → 聚焦 → 品牌显形" width="100%">
 </p>
 
 <p align="center"><sub>
   ▲ 25 秒 · Terminal → 4 方向 → Gallery ripple → 4 次 Focus → Brand reveal<br>
   👉 <a href="https://www.huasheng.ai/huashu-design-hero/">访问带音效的 HTML 互动版</a> ·
-  <a href="demos/hero-animation-v10-en.mp4">下载 MP4（含 BGM+SFX · 10MB）</a>
+  <a href="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/hero-animation-v10-en.mp4">下载 MP4（含 BGM+SFX · 10MB）</a>
 </sub></p>
 
 ---
@@ -86,55 +86,55 @@ npx skills add alchaincyf/huashu-design
 
 模糊需求时的 fallback：从 5 流派 × 20 种设计哲学里挑 3 个差异化方向，并行生成 3 个 Demo 让你选。
 
-<p align="center"><img src="demos/w3-fallback-advisor.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w3-fallback-advisor.gif" width="100%"></p>
 
 ### iOS App 原型
 
 iPhone 15 Pro 精确机身（灵动岛 / 状态栏 / Home Indicator）· 状态驱动多屏切换 · 真图从 Wikimedia/Met/Unsplash 取 · Playwright 自动点击测试。
 
-<p align="center"><img src="demos/c1-ios-prototype.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c1-ios-prototype.gif" width="100%"></p>
 
 ### Motion Design 引擎
 
 Stage + Sprite 时间片段模型 · `useTime` / `useSprite` / `interpolate` / `Easing` 四 API 覆盖所有动画需求 · 一条命令导出 MP4 / GIF / 60fps 插帧 / 带 BGM 的成片。
 
-<p align="center"><img src="demos/c3-motion-design.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c3-motion-design.gif" width="100%"></p>
 
 ### HTML Slides → 可编辑 PPTX
 
 HTML deck 浏览器演讲 · `html2pptx.js` 读 DOM 的 computedStyle 逐元素翻译成 PowerPoint 对象 · 导出的是**真文本框**，不是图片铺底。
 
-<p align="center"><img src="demos/c2-slides-pptx.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c2-slides-pptx.gif" width="100%"></p>
 
 ### Tweaks · 实时变体切换
 
 配色 / 字型 / 信息密度等参数化 · 侧边面板切换 · 纯前端 + `localStorage` 持久化 · 刷新不丢。
 
-<p align="center"><img src="demos/c4-tweaks.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c4-tweaks.gif" width="100%"></p>
 
 ### 信息图 / 数据可视化
 
 杂志级排版 · CSS Grid 精准分栏 · `text-wrap: pretty` 排印细节 · 真数据驱动 · 可导 PDF 矢量 / PNG 300dpi / SVG。
 
-<p align="center"><img src="demos/c5-infographic.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c5-infographic.gif" width="100%"></p>
 
 ### 5 维度专家评审
 
 哲学一致性 · 视觉层级 · 细节执行 · 功能性 · 创新性 各 0–10 分 · 雷达图可视化 · 输出 Keep / Fix / Quick Wins 清单。
 
-<p align="center"><img src="demos/c6-expert-review.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c6-expert-review.gif" width="100%"></p>
 
 ### Junior Designer 工作流
 
 不闷头做大招：先写 assumptions + placeholders + reasoning，尽早 show 给你，再迭代。理解错了早改比晚改便宜 100 倍。
 
-<p align="center"><img src="demos/w2-junior-designer.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w2-junior-designer.gif" width="100%"></p>
 
 ### 品牌资产协议 5 步硬流程
 
 涉及具体品牌时强制执行：问 → 搜 → 下载（三条兜底）→ grep 色值 → 写 `brand-spec.md`。
 
-<p align="center"><img src="demos/w1-brand-protocol.gif" width="100%"></p>
+<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w1-brand-protocol.gif" width="100%"></p>
 
 ---
 
