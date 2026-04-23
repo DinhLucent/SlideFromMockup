@@ -82,41 +82,73 @@ npm run export:video
 
 ## 🖼️ Demo Gallery
 
+> [!NOTE] 🎥 Placeholder: Hero Animation Video
+> **Script for Video/GIF Production**:
+> - **Duration**: ~25 seconds.
+> - **Flow**: Terminal typing simulation -> Opens 4 design directions -> Gallery expands via ripple effect -> Camera focuses on 4 specific frames -> Final reveal of the SHIELD DESIGN brand logo.
+
 ### Design Direction Consultant
 The ultimate fallback for vague prompts: Selects 3 differentiated directions from 5 schools × 20 design philosophies, spinning parallel demos allowing you to confidently select a visual boundary.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w3-fallback-advisor.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 📸 Placeholder: Fallback Advisor Demo
+> **Script for GIF Production**:
+> - **Flow**: Shows the AI recommending 3 distinct design philosophies (e.g., East-Asian Minimalism, Motion Poetics). The AI spins up 3 different style previews side-by-side using the Design Canvas.
 
 ### iOS App Prototypes
 Accurate iPhone 15 Pro chassis (Dynamic Island / StatusBar / Home Indicator) · State-driven multi-screen routing · Automated Playwright interaction testing.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c1-ios-prototype.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 📱 Placeholder: iOS Prototype Interaction
+> **Script for GIF Production**:
+> - **Flow**: Displays an iPhone 15 Pro mockup running an app natively in the browser. The cursor clicks through bottom tabs, highlighting smooth transitions without loading external assets, concluding with an automated Playwright click-test popup.
 
 ### Motion Design Engine
 Stage + Sprite chronological fragment framework · 4 simple APIs (`useTime` / `useSprite` / `interpolate` / `Easing`) execute any animation physics natively.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c3-motion-design.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 🎬 Placeholder: Motion Engine Showcase
+> **Script for GIF Production**:
+> - **Flow**: Demonstrates a smooth 60fps animation featuring typography fade-ins, elements sliding in with Expo-Out easing rhythms, and components scaling up on a dark background perfectly synced to a simulated timeline. 
 
 ### HTML Slides → Editable PPTX
 Deliver HTML decks directly from your browser, leveraging `html2pptx.js` bridging the actual DOM `computedStyle` into native PowerPoint blocks.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c2-slides-pptx.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 📊 Placeholder: HTML to PPTX Conversion
+> **Script for GIF Production**:
+> - **Flow**: Split-screen view. Left side: an HTML presentation running in the browser. Right side: A terminal command `npm run export:pptx` is executed. PowerPoint opens with the presentation, showing the user natively clicking and editing text boxes.
 
 ### Tweaks · Real-Time Variation Toggles
 Parameterize your palettes / typography / information density effortlessly · Modular side-panel controls.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c4-tweaks.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 🎛️ Placeholder: Tweaks UI Interface
+> **Script for GIF Production**:
+> - **Flow**: Shows a web prototype with a collapsible side panel. The user clicks "Dark Mode", "High Density", and changes the "Primary Accent" color to solid Red. The main UI updates in absolute real-time without reloading. 
 
 ### Infographics / Data Viz
 Magazine-quality publication grids · CSS Grid precision · `text-wrap: pretty` typographic refinement.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c5-infographic.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 📰 Placeholder: Infographic Export
+> **Script for GIF Production**:
+> - **Flow**: Camera pans down a highly dense, elegantly structured vertical data infographic using precise CSS columns. The end of the GIF shows the page seamlessly being printed to a high-resolution Vector PDF.
 
 ### 5-Dimension Expert Reviews
 Philosophical Consistency · Visual Hierarchy · Detail Execution · Functionality · Innovation (Scaled 0-10) · Visual Radar Charts.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/c6-expert-review.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 🎯 Placeholder: Expert Review Radar
+> **Script for GIF Production**:
+> - **Flow**: Shows the LLM spitting out a dynamic Radar Chart displaying 5 dimensions, plotting a score of 8/10 across all bounds. Beside the chart, a strict remediation checklist (Keep / Fix / Quick Wins) renders flawlessly.
 
 ### The Junior Designer Workflow
 Formulate assumptions + placeholders + reasoning first, present it for user review early, and then iterate correctly.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w2-junior-designer.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 🧑‍💻 Placeholder: Junior Designer Process
+> **Script for GIF Production**:
+> - **Flow**: An animation of the agent returning HTML comments (`<!-- Assumption: Mobile View -->`, `<!-- Placeholder: Banner Image -->`) and displaying a gray-box layout. After the user approves, the gray boxes resolve into completely detailed UI elements.
 
 ### The Core Asset Protocol
 Strict enforcement sequence mandatory for all client brands: Ask → Search Channels → Download → Extract precise Hex profiles natively → Bake into `brand-spec.md`.
-<p align="center"><img src="https://github.com/alchaincyf/huashu-design/releases/download/v2.0/w1-brand-protocol.gif" width="100%" style="border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></p>
+
+> [!NOTE] 🛡️ Placeholder: Brand Asset Protocol
+> **Script for GIF Production**:
+> - **Flow**: Shows the AI initiating a Search for a brand's logo. It successfully downloads an SVG, parses it, extracts the primary Hex colors, and generates a `brand-spec.md` with strict color variables seamlessly. 
 
 ---
 
