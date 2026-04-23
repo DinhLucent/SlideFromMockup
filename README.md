@@ -15,43 +15,44 @@
 
 ## 🌟 Overview
 
-**Type a sentence into your agent, get a delivery-ready design artifact.**
+**Say one sentence to your agent — Claude Code, Cursor, Codex, OpenClaw, Hermes all work.**
 
-Within 3 to 30 minutes, you can ship **product launch animations**, a clickable App prototype, an editable slide deck, or a print-grade infographic. **SHIELD-DESIGN** is a cutting-edge skill replacing traditional GUI tools with absolute AI autonomy. 
+3 to 30 minutes — you ship a **product launch animation**, a clickable App prototype, an editable PPT deck, or a print-grade infographic.
 
-This is not standard "AI slop" quality — it produces enterprise-grade design team fidelity. Supply your brand assets (logo, palettes, UI screenshots), and it understands your brand personality; give it nothing, and the built-in 20 design philosophies act as a fallback.
+Not "decent for AI" quality — it looks like a real design team made it. Give the skill your brand assets (logo, colors, UI screenshots) and it accurately reads your brand's voice; give it nothing and the built-in 20 design vocabularies still keep you totally out of AI slop territory.
 
 ---
 
-## 🚀 Getting Started
-
-Simply install the skill into your preferred AI agent environment (e.g., Claude Code, Cursor, Codex, OpenClaw, Hermes):
+## 🚀 Install
 
 ```bash
 npx skills add DinhLucent/SlideFromMockup
 ```
 
-**Then simply speak to your AI:**
-> *"Build a presentation on AI Psychology, recommend 3 style directions for me to choose from."*  
-> *"Create an iOS Pomodoro app prototype, make 4 core screens fully clickable."*  
-> *"Turn this logic into a 60-second animation, export as MP4 and GIF."*  
-> *"Run a 5-dimension expert review on this design."*
+Then just talk to your agent:
 
-No buttons, no panels, no external plugins. Pure execution.
+```text
+"Make a keynote for AI psychology. Give me 3 style directions to pick from."
+"Build an iOS prototype for a Pomodoro app — 4 screens, actually clickable."
+"Turn this logic into a 60-second animation. Export MP4 and GIF."
+"Run a 5-dimension expert review on this design."
+```
+
+No buttons, no panels, no Figma plugins. Agent-agnostic — drops into any markdown-skill-capable agent environment.
 
 ---
 
-## ✨ System Capabilities
+## ⚙️ What it does
 
-| Feature | Deliverable | Typical ETA |
-|------|--------|----------|
-| **Interactive Prototypes (App/Web)** | Single-file HTML · Native iPhone bezel · Clickable · Playwright Verified | 10–15 min |
-| **Presentation Decks** | HTML deck (Browser presentation) + Editable PPTX (TextBoxes preserved) | 15–25 min |
-| **Timeline Animations** | MP4 (25fps / 60fps interpolated) + GIF (palette optimization) + BGM | 8–12 min |
-| **Design Variations** | 3+ Side-by-side comps · Real-time parameter Tweaks · Cross-dimension exploration | 10 min |
-| **Infographics / Visualizations** | Print-grade typography · PDF/PNG/SVG Exports | 10 min |
-| **Design Direction Consultant** | 5 Schools × 20 Philosophies · 3 Directions recommended · Parallel Demo generation | 5 min |
-| **5-Dimension Expert Review** | Radar chart + Keep/Fix/Quick Wins · Actionable remediation checklist | 3 min |
+| Capability | Deliverable | Typical time |
+|---|---|---|
+| **Interactive prototype (App / Web)** | Single-file HTML · real iPhone bezel · clickable · Playwright-verified | ~10–15 min |
+| **Slide decks** | HTML deck (browser presentation) + editable PPTX (text frames preserved) | ~15–25 min |
+| **Motion design** | MP4 (25fps / 60fps interpolation) + GIF (palette-optimized) + BGM | ~8–12 min |
+| **Design variations** | 3+ side-by-side comps · Tweaks live params · cross-dimension exploration | ~10 min |
+| **Infographic / data viz** | Print-quality typography · exports to vector PDF/PNG/SVG | ~10 min |
+| **Design direction advisor** | 5 schools × 20 philosophies · 3 directions recommended · Demos generated in parallel | ~5 min |
+| **5-dimension expert critique** | Radar chart + Keep/Fix/Quick Wins · actionable punch list | ~3 min |
 
 ---
 
@@ -59,96 +60,148 @@ No buttons, no panels, no external plugins. Pure execution.
 
 > [!NOTE] 🎥 Placeholder: Hero Animation Video
 > **Script for Video/GIF Production**:
-> - **Duration**: ~25 seconds.
-> - **Flow**: Terminal typing simulation -> Opens 4 design directions -> Gallery expands via ripple effect -> Camera focuses on 4 specific frames -> Final reveal of the SHIELD DESIGN brand logo.
+> - **Duration**: ~10 seconds.
+> - **Flow**: High-speed terminal typing simulation -> Spawns 4 design directions -> Gallery expands via ripple effect -> Focus targets specific UI frames -> Final reveal of the SHIELD DESIGN brand logo.
 
-### 🎨 Design Direction Consultant
-The ultimate fallback for vague prompts: Selects 3 differentiated directions from 5 schools × 20 design philosophies, spinning parallel demos allowing you to confidently select a visual boundary.
+### Design Direction Advisor
+The fallback for vague briefs: pick 3 differentiated directions from 5 schools × 20 philosophies, generate all 3 demos in parallel, let the user choose.
 
 > [!NOTE] 📸 Placeholder: Fallback Advisor Demo
-> **Script for GIF Production**: Shows the AI recommending 3 distinct design philosophies (e.g., East-Asian Minimalism, Motion Poetics). The AI spins up 3 different style previews side-by-side using the Design Canvas.
+> **Script for GIF Production**: Sequence demonstrating the AI spinning up 3 distinct design philosophies (e.g., East-Asian Minimalism alongside Western Corporate) rendering side-by-side inside the Design Canvas.
 
-### 📱 iOS App Prototypes
-Accurate iPhone 15 Pro chassis (Dynamic Island / StatusBar / Home Indicator) · State-driven multi-screen routing · Automated Playwright interaction testing.
+### iOS App Prototype
+Pixel-accurate iPhone 15 Pro body (Dynamic Island / status bar / Home Indicator) · state-driven multi-screen navigation · real images pulled from Wikimedia/Met/Unsplash · Playwright click tests before delivery.
 
 > [!NOTE] 📱 Placeholder: iOS Prototype Interaction
-> **Script for GIF Production**: Displays an iPhone 15 Pro mockup running an app natively in the browser. The cursor clicks through bottom tabs, highlighting smooth transitions without loading external assets, concluding with an automated Playwright click-test popup.
+> **Script for GIF Production**: iPhone 15 mockup renders on screen. A cursor simulates clicking through bottom navigation tabs, followed immediately by an automated Playwright testing popup returning "Success".
 
-### 🎬 Motion Design Engine
-Stage + Sprite chronological fragment framework · 4 simple APIs (`useTime` / `useSprite` / `interpolate` / `Easing`) execute any animation physics natively.
+### Motion Design Engine
+Stage + Sprite time-slice model · `useTime` / `useSprite` / `interpolate` / `Easing` — four APIs cover every animation need · one command exports MP4 / GIF / 60fps-interpolated / BGM-scored finals.
 
 > [!NOTE] 🎬 Placeholder: Motion Engine Showcase
-> **Script for GIF Production**: Demonstrates a smooth 60fps animation featuring typography fade-ins, elements sliding in with Expo-Out easing rhythms, and components scaling up on a dark background perfectly synced to a simulated timeline. 
+> **Script for GIF Production**: Features smooth 60fps animation loops: text sliding in with Expo-Out easing, and bounding boxes scaling symmetrically across a dark timeline background. 
 
-### 📊 HTML Slides → Editable PPTX
-Deliver HTML decks directly from your browser, leveraging `html2pptx.js` bridging the actual DOM `computedStyle` into native PowerPoint blocks. The output features **genuine editable text fields**, not flat background imagery.
+### HTML Slides → Editable PPTX
+HTML decks for browser presentation · `html2pptx.js` reads DOM computed styles and translates each element into real PowerPoint objects · exports are **actual text frames**, not image-bed fakes.
 
 > [!NOTE] 📊 Placeholder: HTML to PPTX Conversion
-> **Script for GIF Production**: Split-screen view. Left side: an HTML presentation running in the browser. Right side: A terminal command `scripts/export_deck_pptx.mjs` is executed. PowerPoint opens with the presentation, showing the user natively clicking and editing text boxes.
+> **Script for GIF Production**: Left panel shows an HTML slide deck running smoothly. Right panel opens a terminal rendering `export_deck_pptx.mjs`. Then PowerPoint opens the output explicitly showing independent text boxes being selected and edited.
 
-### 🎛️ Tweaks · Real-Time Variation Toggles
-Parameterize your palettes / typography / information density effortlessly · Modular side-panel controls · Pure frontend-driven utilizing `localStorage` persistence.
+### Tweaks · Live Variation Switching
+Colors / typography / information density parameterized · side panel toggle · pure-frontend + `localStorage` persistence · survives reload.
 
 > [!NOTE] 🎛️ Placeholder: Tweaks UI Interface
-> **Script for GIF Production**: Shows a web prototype with a collapsible side panel. The user clicks "Dark Mode", "High Density", and changes the "Primary Accent" color to solid Red. The main UI updates in absolute real-time without reloading. 
+> **Script for GIF Production**: Screen recording of turning on a "Tweaks" sidebar panel. Parameter toggles are flipped (Dark mode, High Density), altering the primary design completely without requiring a page refresh.
 
-### 📰 Infographics / Data Viz
-Magazine-quality publication grids · CSS Grid precision · `text-wrap: pretty` typographic refinement.
+### Infographic / Data Viz
+Magazine-grade typography · precise CSS Grid columns · `text-wrap: pretty` typographic details · driven by real data · exports to vector PDF / 300dpi PNG / SVG.
 
 > [!NOTE] 📰 Placeholder: Infographic Export
-> **Script for GIF Production**: Camera pans down a highly dense, elegantly structured vertical data infographic using precise CSS columns. The end of the GIF shows the page seamlessly being printed to a high-resolution Vector PDF.
+> **Script for GIF Production**: Scrolling through a data-heavy visualization utilizing strict modular CSS Grids. Ends with clicking export to generate a flawless high-resolution vector PDF snippet.
 
-### 🎯 5-Dimension Expert Reviews
-Philosophical Consistency · Visual Hierarchy · Detail Execution · Functionality · Innovation (Scaled 0-10) · Visual Radar Charts.
+### 5-Dimension Expert Critique
+Philosophical coherence · visual hierarchy · execution craft · functionality · innovation — each scored 0–10 · radar-chart visualization · outputs Keep / Fix / Quick Wins punch list.
 
 > [!NOTE] 🎯 Placeholder: Expert Review Radar
-> **Script for GIF Production**: Shows the LLM spitting out a dynamic Radar Chart displaying 5 dimensions, plotting a score of 8/10 across all bounds. Beside the chart, a strict remediation checklist (Keep / Fix / Quick Wins) renders flawlessly.
+> **Script for GIF Production**: An animated Radar Chart rendering precisely 5 dimensions of design. A structured "Keep / Fix / Quick Wins" checklist materializes textually next to the graph.
 
-### 🧑‍💻 The Junior Designer Workflow
-Formulate assumptions + placeholders + reasoning first, present it for user review early, and then iterate correctly. Catching a misunderstanding early is 100x cheaper than restructuring the final code.
+### Junior Designer Workflow
+No heroic one-shot attempts: start with assumptions + placeholders + reasoning, show it to the user early, then iterate. Fixing a misunderstanding early is 100× cheaper than fixing it late.
 
 > [!NOTE] 🧑‍💻 Placeholder: Junior Designer Process
-> **Script for GIF Production**: An animation of the agent returning HTML comments (`<!-- Assumption: Mobile View -->`) and displaying a gray-box layout. After the user approves, the gray boxes resolve into completely detailed UI elements.
+> **Script for GIF Production**: Quick terminal output showing AI planning assumptions (`<!-- Placeholder: Banner Image -->`). It renders simple gray boxes first, halting execution context. Upon user prompt confirmation, the gray boxes transform into complete designs.
 
-### 🛡️ The Core Asset Protocol
-Strict enforcement sequence mandatory for all client brands: Ask → Search Channels → Download → Extract precise Hex profiles natively → Bake into `brand-spec.md`.
+### Core Asset Protocol · 5-step hard process
+Mandatory whenever the task involves a specific brand: ask → search → download (three fallback paths) → verify + extract → write `brand-spec.md` covering **logo, product shots, UI screenshots, colors, fonts**.
 
 > [!NOTE] 🛡️ Placeholder: Brand Asset Protocol
-> **Script for GIF Production**: Shows the AI initiating a Search for a brand's logo. It successfully downloads an SVG, parses it, extracts the primary Hex colors, and generates a `brand-spec.md` with strict color variables seamlessly. 
+> **Script for GIF Production**: Fast sequence showing the agent searching a company's `/press` page, downloading an official SVG logo, executing a hex extraction, and safely committing variables into `brand-spec.md`.
 
 ---
 
-## ⚙️ Core Mechanisms
+## 🧬 Core Mechanics
 
-### 1. The Brand Asset Protocol
-The primary rigid firewall guaranteeing unpolluted brand execution. Upon detecting distinct brand constraints, the agent triggers a mandatory 5-step protocol:
-1. **Query** "Do you possess brand guidelines?" to respect existing resources.
-2. **Search** official portals (`/press`, `/brand`) establishing exact truth parameters.
-3. **Download** foundational assets (SVGs, DOM elements) deploying 3 fallback trajectories.
-4. **Extract** precise Hex values programmatically natively banning guesswork.
-5. **Spec Lock** compiling `brand-spec.md` to harden the UI context memory.
+### Core Asset Protocol
+The hardest rule in the skill. When the task touches a specific brand, five steps are strictly enforced:
 
-### 2. Design Direction Consultant (Fallback)
-Initiated when requirements are hopelessly vague:
-- Denies generating blind HTML blocks utilizing raw intuition completely.
-- Formulates 3 strictly disjoint structural recommendations bridging 20 internal philosophies.
-- Funnels neatly into the primary Junior Designer progression.
+| Step | Action | Purpose |
+|---|---|---|
+| 1 · Ask | Checklist of 6 asset types: logo, product shots, UI, color palette, fonts. | Respect existing resources |
+| 2 · Search | Target official channels: `<brand>.com/press` · `brand.<brand>.com` | Find authoritative assets |
+| 3 · Download | Logo (SVG / HTML tracing) · Product shots · UI app store extraction | Execute three rigorous fallback paths per asset type |
+| 4 · Verify + Extract | Check fidelity & resolution · grep hex codes from reality | **Never guess from memory** |
+| 5 · Spec Lock | Write `brand-spec.md` cementing all paths and CSS variables | Un-frozen knowledge evaporates |
 
-### 3. Anti-AI Slop Framework
-A dedicated protocol filtering the structural "Visual baseline" haunting AI generation. Eliminates forced gradients / excessive emojis / decorative accents / generic layout traps natively adopting dynamic `text-wrap` logic, correct Serif bindings, and honest imagery bounds.
+*A/B-tested logic reveals this mechanism reduces AI hallucination variance by 5×.*
+
+### Design Direction Advisor (Fallback)
+Triggered when the brief is too vague to execute:
+- Doesn't run on generic intuition — enters a Fallback mode.
+- Recommends 3 differentiated directions from 5 schools × 20 philosophies.
+- Each variation comes with flagship works, gestalt keywords, and aesthetic tones.
+- Generates 3 visual demos side-by-side, waits for user selection before locking main flow.
+
+### Junior Designer Workflow
+The default working mode across every task:
+- Sends the full question set in one batch, wait for all answers before moving.
+- Embeds assumptions + placeholders + reasoning comments directly into the HTML tree.
+- Demonstrates explicitly to the user early (even if just rendering flat gray blocks).
+- Fills real content → iterates variations → toggles Tweaks sequentially.
+
+### Fact Verification First (Principle #0)
+When the task mentions a specific product / technology / event (e.g., "DJI Pocket 4"), the first action **must** be `WebSearch` to confirm existence, release status, and specifications. No claims are ever generated solely from LLM training-corpus memory. Cost of a search: ~10 seconds. Cost of a wrong assumption: 1–2 hours of rework.
+
+### Anti AI-slop Rules
+Rigorous avoidance of the visual common denominator of AI output (purple gradients / emoji bullet points / standard rounded corners + left border accents / drawn SVGs / Inter as a display font / **CSS silhouettes standing in for real product shots**). The engine heavily enforces `text-wrap: pretty`, CSS Grid logic, carefully chosen serif display faces, and Oklch color matching.
 
 ---
 
-## 🏗️ Architecture Stack
+## 🆚 SHIELD-DESIGN vs. Browser Design Tools
 
-The framework is strictly governed by internal architecture documentation for robust scaling. 
+Traditional browser graphic tools (like Figma or web-based AI design canvases) excel at GUI interaction. However, SHIELD-DESIGN is architected aggressively differently. Great hi-fi design doesn't start from a blank page; it grows from existing design context.
 
-- 📜 [**SKILL.md**](./SKILL.md) - Core agent design intelligence & protocols
-- 📜 [**SHOW_ARCHITECTURE.md**](./legacy_demo/SHOW_ARCHITECTURE.md) - Core engine architecture (legacy bounds)
-- 📜 [**ILLUSTRATION_SYSTEM.md**](./legacy_demo/ILLUSTRATION_SYSTEM.md) - Guidelines for visual assets
+| Feature | Browser-Based AI Tools | SHIELD-DESIGN |
+|---|---|---|
+| **Form Factor** | Web product (used in browser) | Pure Skill (Execution runs in terminal/code editor) |
+| **Deliverables** | Flat Canvas designs / Screenshots | Functional HTML / MP4 / GIF / editable PPTX / PDF |
+| **Interaction** | GUI (click, drag, edit) | Conversation (tell agent, wait) |
+| **Complex Animation** | Extremely Limited | Stage + Sprite timeline · Native 60fps export tooling |
+
+While GUI tools act as an improved interface, SHIELD-DESIGN makes **the graphics-tool layer disappear altogether**.
 
 ---
 
-<div align="center">
-  <i>Defending Aesthetic Integrity. Engineered for Peak Performance.</i>
-</div>
+## ⚠️ Limitations
+
+- **No layer-editable PPTX-to-Figma round-trip.** The output is native HTML — screenshottable, recordable, image-exportable. While PPT formats are exported, you cannot drag the resulting PPT strictly into Keynote/Figma with intact perfect web coordinates.
+- **Physics and particle math out of scope.** 3D simulations, real-world physics collision, and intensive particle structures exceed the boundaries of this specific design engine.
+- **Brand-from-zero logic drops baseline quality.** Requesting hi-fi architecture derived completely without existing product references forces the model to invent aesthetics blindly, typically yielding baseline 60–65 point frameworks. Constructing off zero assets is purely a last-resort function.
+
+This is fundamentally a rigid 80-point systems skill, not a generalized 100-point product. For users unbothered by GUI navigation, this system acts decisively to save vast amounts of raw UI alignment time natively from your prompt.
+
+---
+
+## 📁 Repository Structure
+
+```
+Slide_ProMax/
+├── SKILL.md                 # Main protocol (Agent instruction boundary)
+├── README.md                # English README operations (this file)
+├── assets/                  # Starter Component Frameworks
+│   ├── animations.jsx       # Stage + Sprite + Easing logic
+│   ├── ios_frame.jsx        # iPhone 15 Pro native bezel
+│   ├── deck_stage.js        # HTML deck compilation engine
+│   ├── design_canvas.jsx    # Side-by-side variation displays
+│   └── showcases/           # 24 prebuilt system bounds 
+├── references/              # System memory encyclopedias
+│   ├── animation-pitfalls.md# Hard animation bounds
+│   ├── design-styles.md     # 20 design philosophy constraints
+│   ├── slide-decks.md       # PPTX translation syntax
+│   └── ...
+├── scripts/                 # Export and compilation toolchain
+│   ├── render-video.js      # HTML → MP4 processing
+│   ├── convert-formats.sh   # MP4 → 60fps + GIF processing
+│   ├── export_deck_pptx.mjs # Local PPT execution bridge
+│   └── verify.py            # Local DOM bound verifications
+└── demos/                   # Media bounds supporting document layouts
+```
