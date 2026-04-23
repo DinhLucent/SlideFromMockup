@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=SHIELD%20DESIGN&fontSize=80&fontAlignY=35&desc=AI-Powered%20Presentation%20%26%20Design%20Engine&descAlignY=55&descAlign=50" alt="header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=SHIELD%20DESIGN&fontSize=80&fontAlignY=35&desc=AI-Powered%20Presentation%20Engine&descAlignY=55&descAlign=50" alt="header" />
 
 # 💎 SHIELD-DESIGN
 
