@@ -1,20 +1,20 @@
-# Animations：时间轴动画引擎
+# Animations: Timeline Animation Engine
 
-做动画/motion design HTML时读这个。原理、用法、典型模式。
+Read this when creating HTML animations/motion designs. Covers principles, usage, and typical patterns.
 
-## 核心模式：Stage + Sprite
+## Core Pattern: Stage + Sprite
 
-我们的动画系统（`assets/animations.jsx`）提供一个时间轴驱动的引擎：
+Our animation system (`assets/animations.jsx`) provides a timeline-driven engine:
 
-- **`<Stage>`**：整个动画的容器，自动提供auto-scale（fit viewport）+ scrubber + play/pause/loop控制
-- **`<Sprite start end>`**：时间片段。一个Sprite只在`start`到`end`这段时间内显示。内部可以通过`useSprite()` hook读取自己的本地进度`t` (0→1)
-- **`useTime()`**：读当前全局时间（秒）
-- **`Easing.easeInOut` / `Easing.easeOut` / ...**：缓动函数
-- **`interpolate(t, from, to, easing?)`**：根据t插值
+- **`<Stage>`**: The container for the entire animation. Automatically provides auto-scale (fit viewport) + scrubber + play/pause/loop controls.
+- **`<Sprite start end>`**: A time segment. A Sprite is only visible between its `start` and `end` times. Internally, you can read its local progress `t` (0→1) via the `useSprite()` hook.
+- **`useTime()`**: Reads the current global time (in seconds).
+- **`Easing.easeInOut` / `Easing.easeOut` / ...**: Easing functions.
+- **`interpolate(t, from, to, easing?)`**: Interpolates values based on `t`.
 
-这套模式借鉴Remotion/After Effects思路，但轻量、零依赖。
+This pattern borrows from Remotion/After Effects logic but is lightweight and zero-dependency.
 
-## 起手
+## Getting Started
 
 ```html
 <script type="text/babel" src="animations.jsx"></script>
@@ -22,7 +22,7 @@
   const { Stage, Sprite, useTime, useSprite, Easing, interpolate } = window.Animations;
 
   function Title() {
-    const { t } = useSprite();  // 本地进度 0→1
+    const { t } = useSprite();  // Local progress 0→1
     const opacity = interpolate(t, [0, 1], [0, 1], Easing.easeOut);
     const y = interpolate(t, [0, 1], [40, 0], Easing.easeOut);
     return (
@@ -39,7 +39,7 @@
 
   function Scene() {
     return (
-      <Stage duration={10}>  {/* 10秒动画 */}
+      <Stage duration={10}>  {/* 10 seconds total */}
         <Sprite start={0} end={3}>
           <Title />
         </Sprite>
@@ -56,7 +56,7 @@
 </script>
 ```
 
-## 常用动画模式
+## Common Animation Patterns
 
 ### 1. Fade In / Fade Out
 
@@ -68,7 +68,7 @@ function FadeIn({ children }) {
 }
 ```
 
-**注意范围**：`[0, 0.3]`意思是在sprite的前30%时间完成渐入，后面保持opacity=1。
+**Scope Warning**: `[0, 0.3]` means fading in during the first 30% of the sprite's lifecycle, and keeping opacity=1 for the remainder.
 
 ### 2. Slide In
 
@@ -94,7 +94,7 @@ function SlideIn({ children, from = 'left' }) {
 }
 ```
 
-### 3. 逐字打字机
+### 3. Word-by-Word Typewriter
 
 ```jsx
 function Typewriter({ text }) {
@@ -104,7 +104,7 @@ function Typewriter({ text }) {
 }
 ```
 
-### 4. 数字计数
+### 4. Number Counter Up
 
 ```jsx
 function CountUp({ from = 0, to = 100, duration = 0.6 }) {
@@ -115,28 +115,28 @@ function CountUp({ from = 0, to = 100, duration = 0.6 }) {
 }
 ```
 
-### 5. 分段解释（典型教学动画）
+### 5. Phased Explanation (Typical Educational Animation)
 
 ```jsx
 function Scene() {
   return (
     <Stage duration={20}>
-      {/* Phase 1: 展示问题 */}
+      {/* Phase 1: Display Problem */}
       <Sprite start={0} end={4}>
         <Problem />
       </Sprite>
 
-      {/* Phase 2: 展示思路 */}
+      {/* Phase 2: Display Approach */}
       <Sprite start={4} end={10}>
         <Approach />
       </Sprite>
 
-      {/* Phase 3: 展示结果 */}
+      {/* Phase 3: Display Result */}
       <Sprite start={10} end={16}>
         <Result />
       </Sprite>
 
-      {/* 全程显示的字幕 */}
+      {/* Captions visible throughout */}
       <Sprite start={0} end={20}>
         <Caption />
       </Sprite>
@@ -145,105 +145,105 @@ function Scene() {
 }
 ```
 
-## Easing函数
+## Easing Functions
 
-预设的easing curves：
+Preset easing curves:
 
-| Easing | 特性 | 用在 |
+| Easing | Characteristic | Applied In |
 |--------|------|------|
-| `linear` | 匀速 | 滚动字幕、持续动画 |
-| `easeIn` | 慢→快 | 退场消失 |
-| `easeOut` | 快→慢 | 入场出现 |
-| `easeInOut` | 慢→快→慢 | 位置变化 |
-| **`expoOut`** ⭐ | **指数缓出** | **Anthropic 级主 easing**（物理重量感）|
-| **`overshoot`** ⭐ | **弹性回弹** | **Toggle / 按钮弹出 / 强调交互** |
-| `spring` | 弹簧 | 交互反馈、几何体归位 |
-| `anticipation` | 先反向再正向 | 强调动作 |
+| `linear` | Constant speed | Scrolling marquees, continuous motions |
+| `easeIn` | Slow → Fast | Exits / Disappearances |
+| `easeOut` | Fast → Slow | Entrances / Appearances |
+| `easeInOut` | Slow → Fast → Slow | Positional changes |
+| **`expoOut`** ⭐ | **Exponential ease-out** | **The Anthropic-tier primary easing** (Feel of physical weight) |
+| **`overshoot`** ⭐ | **Elastic rebound** | **Toggles / Button popups / Emphasized interactions** |
+| `spring` | Spring physics | Interactive feedback, geometry snapping back |
+| `anticipation` | Reverse first, then forward | Emphasizing an upcoming action |
 
-**默认主 easing 用 `expoOut`**（不是 `easeOut`）—— 见 `animation-best-practices.md` §2。
-入场用 `expoOut`、出场用 `easeIn`、toggle 用 `overshoot`——Anthropic 级动画的基础规律。
+**The default primary easing is `expoOut`** (not `easeOut`) — see `animation-best-practices.md` §2. 
+Entrances use `expoOut`, exits use `easeIn`, toggles use `overshoot` — This is the fundamental rule of Anthropic-tier animations.
 
-## 节奏和时长指南
+## Rhythm and Duration Guidelines
 
-### 微交互（0.1-0.3秒）
-- 按钮hover
-- 卡片expand
-- Tooltip出现
+### Micro-interactions (0.1-0.3 sec)
+- Button hover
+- Card expand
+- Tooltip appearance
 
-### UI过渡（0.3-0.8秒）
-- 页面切换
-- 模态框出现
-- 列表item加入
+### UI Transitions (0.3-0.8 sec)
+- Page switching
+- Modal appearances
+- List item insertions
 
-### 叙事动画（2-10秒每段）
-- 概念解释的一个phase
-- 数据图表的reveal
-- 场景转换
+### Narrative Animations (2-10 sec per segment)
+- One phase of a conceptual explanation
+- Data chart reveals
+- Scene transformations
 
-### 单段叙事动画最长不超过10秒
-人类注意力有限。10秒讲一件事，讲完换下一件。
+### **A single narrative segment must never exceed 10 seconds.**
+Human attention spans are limited. Speak one concept within 10 seconds, and once done, switch immediately to the next.
 
-## 设计动画的思考顺序
+## Design Processing Order
 
-### 1. 先有内容/故事，再有动画
+### 1. Let Content/Story precede Animation
 
-**错误**：先想要做fancy动画，再塞内容进去
-**正确**：先想清楚要传达什么信息，再用动画手段serve这个信息
+**Incorrect**: wanting to do a fancy animation first, then stuffing content into it.
+**Correct**: clarifying exactly what message to deliver, then using animation to serve that message.
 
-动画是**signal**，不是**装饰**。一个fade-in强调的是"这里很重要，请看"——如果什么都fade-in，signal就失效。
+Animation is a **signal**, not a **decoration**. Fading in emphasizes "this is important, look here"—if everything fades in, the signal dies.
 
-### 2. 分Scene写时间轴
+### 2. Time-blocking by Scene
 
 ```
-0:00 - 0:03   问题出现（fade in）
-0:03 - 0:06   问题放大/展开（zoom+pan）
-0:06 - 0:09   解法出现（slide in from right）
-0:09 - 0:12   解法展开说明（typewriter）
-0:12 - 0:15   结果演示（counter up + chart reveal）
-0:15 - 0:18   总结一句话（static，读3秒）
-0:18 - 0:20   CTA或fade out
+0:00 - 0:03   Problem emerges (fade in)
+0:03 - 0:06   Problem scales/expands (zoom+pan)
+0:06 - 0:09   Solution arrives (slide in from right)
+0:09 - 0:12   Solution details unravel (typewriter)
+0:12 - 0:15   Results demo (counter up + chart reveal)
+0:15 - 0:18   Summary sentence (static, read for 3s)
+0:18 - 0:20   CTA or fade out
 ```
 
-写完时间轴再写组件。
+Write the timeline first, then write the components.
 
-### 3. 资源先行
+### 3. Assets First
 
-动画要用的图片/图标/字体**先**准备好。不要画到一半去找素材——打断节奏。
+Gather the images/icons/fonts you need for the animation **early on**. Do not pause midway through drawing to search for assets—it breaks the rhythmic flow.
 
-## 常见问题
+## Common Triage
 
-**动画卡顿**
-→ 主要是layout thrashing。用`transform`和`opacity`，不要动`top`/`left`/`width`/`height`/`margin`。浏览器GPU加速`transform`。
+**Animation stuttering / Jittery**
+→ Primarily layout thrashing. Utilize `transform` and `opacity`. Never animate `top`/`left`/`width`/`height`/`margin`. The browser GPU accelerates `transform` natively.
 
-**动画太快，看不清楚**
-→ 人读一个汉字需要100-150ms，一个词300-500ms。如果你用文字讲故事，单句至少留3秒。
+**Animation is too fast, unable to read.**
+→ Humans decode characters at roughly 100-150ms per letter, 300-500ms per word. If narrating using text, leave an absolute minimum of 3 seconds per sentence.
 
-**动画太慢，观众无聊**
-→ 有趣的视觉变化要密集。静态画面超过5秒就会闷。
+**Animation is too slow, audience is bored.**
+→ Interesting visual shifts must be dense. A static screen held for over 5 seconds inherently feels slow.
 
-**多个动画互相影响**
-→ 用CSS的`will-change: transform`提前告诉浏览器这个元素会动，减少reflow。
+**Multiple animations interfering with each other**
+→ Utilize CSS `will-change: transform` to preemptively alert the browser that an element will shift, minimizing reflows.
 
-**录制成视频**
-→ 用 skill 自带工具链（一条命令出三种格式）：见 `video-export.md`
-- `scripts/render-video.js` — HTML → 25fps MP4（Playwright + ffmpeg）
-- `scripts/convert-formats.sh` — 25fps MP4 → 60fps MP4 + 优化 GIF
-- 想要更精确的帧渲染？让 render(t) 成为 pure function，见 `animation-pitfalls.md` 第 5 条
+**Recording to Video**
+→ Utilize the skill's inherent toolchains (1 command produces 3 formats): See `video-export.md`
+- `scripts/render-video.js` — HTML → 25fps MP4 (Playwright + ffmpeg)
+- `scripts/convert-formats.sh` — 25fps MP4 → 60fps MP4 + Optimized GIF
+- Need frame-perfect rendering precision? Turn `render(t)` into a pure function. See `animation-pitfalls.md` rule #5.
 
-## 和视频工具的配合
+## Collaborating with Video Tools
 
-这个skill做的是**HTML动画**（在浏览器里跑的）。如果最终产出要作为视频素材：
+This skill constructs **HTML animations** (running natively in browser). If your final output operates as video materials:
 
-- **短动画/concept demo**：用这里的方法做HTML动画 → 屏幕录制
-- **长视频/叙事**：本 skill 专注 HTML 动画，长视频用 AI 视频生成类 skill 或专业视频软件
-- **motion graphics**：专业的After Effects/Motion Canvas更合适
+- **Short animations / Concept Demos**: Build HTML animations directly here → Export via screen recording.
+- **Long videos / Heavy Narratives**: This skill focuses heavily on HTML animation formats. For long videos, utilize AI video generator skills or professional NLE software.
+- **Motion Graphics**: Distinctly geared toward professional Adobe After Effects / Motion Canvas tooling.
 
-## 关于Popmotion等库
+## On Popmotion and physics libraries
 
-如果你真的需要物理动画（spring、decay、keyframes with precise timing），我们的engine搞不定，可以fallback到Popmotion：
+If you severely require true underlying physics calculation engines (springs, decay, keyframes with precise physics), and our engine falls short, you can immediately fallback onto Popmotion:
 
 ```html
 <script src="https://unpkg.com/popmotion@11.0.5/dist/popmotion.min.js"></script>
 ```
 
-但**先试试我们的engine**。90%的情况够用。
+However, **try our engine first**. 90% of real-world scenarios are decisively covered natively.

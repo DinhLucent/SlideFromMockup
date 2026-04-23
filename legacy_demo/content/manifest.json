@@ -1,0 +1,9 @@
+{
+  "deckId": "parents-ai-companion",
+  "title": "Slide ProMax Watercolor Editorial System",
+  "subtitle": "Manifest-driven HTML presentation engine built from SHOW_ARCHITECTURE.md",
+  "theme": "watercolor-editorial",
+  "language": "vi-VN",
+  "deck": "src/content/deck.ts",
+  "docs": ["SHOW_ARCHITECTURE.md", "DESIGN.md", "slide_system.md", "SKILL.md"]
+}
