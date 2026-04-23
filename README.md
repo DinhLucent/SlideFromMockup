@@ -26,7 +26,7 @@ Not "decent for AI" quality — it looks like a real design team made it. Give t
 ## 🚀 Install
 
 ```bash
-npx skills add DinhLucent/SlideFromMockup
+npx skills add DinhLucent/SHIELD-DESIGN
 ```
 
 Then just talk to your agent:
