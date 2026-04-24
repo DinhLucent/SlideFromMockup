@@ -9,6 +9,9 @@
 [![Skills Compatible](https://img.shields.io/badge/Skills.sh-Compatible-green.svg?style=for-the-badge)](#)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6.svg?style=for-the-badge&logo=typescript&logoColor=white)](#)
 [![Playwright Validation](https://img.shields.io/badge/Playwright-Automated_Testing-2EAD33.svg?style=for-the-badge&logo=playwright&logoColor=white)](#)
+
+<br />
+<img src="./src/hero-banner.png" width="100%" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" alt="SHIELD-DESIGN Engine Architecture" />
 </div>
 
 <br />
