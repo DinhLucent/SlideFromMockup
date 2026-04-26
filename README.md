@@ -32,11 +32,7 @@ Not "decent for AI" quality — it looks like a real design team made it. Give t
 
 ## 🚀 Install
 
-```bash
-npx skills add DinhLucent/Slide_ProMax
-```
-
-Install globally to the common agents without prompts:
+Recommended one-line install for Codex, Antigravity, Claude Code, and Cursor:
 
 ```bash
 npx skills add DinhLucent/Slide_ProMax -g -y --copy --skill slide-promax --agent codex antigravity claude-code cursor
@@ -48,7 +44,13 @@ Install globally to every supported agent:
 npx skills add DinhLucent/Slide_ProMax -g --all --copy
 ```
 
-If you use the interactive installer, the **Universal** group already covers Codex, Antigravity, Cursor, Cline, and several other agents. Select **Claude Code** manually from "Additional agents" if you want the skill installed into `~/.claude/skills`.
+Interactive install:
+
+```bash
+npx skills add DinhLucent/Slide_ProMax
+```
+
+In interactive mode, the **Universal** group is already selected and covers Codex, Antigravity, Cursor, Cline, and several other agents. Use ↑/↓ to move, Space to select **Claude Code** from "Additional agents", then Enter to confirm.
 
 Then just talk to your agent:
 
