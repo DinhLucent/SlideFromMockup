@@ -1,8 +1,8 @@
-﻿<!doctype html>
-<html lang="zh-Hans">
+<!doctype html>
+<html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>shield-design V2 Â· c1-ios-prototype Â· ä¸­æ–‡ç‰ˆ</title>
+<title>slide-promax V2 · c1-ios-prototype · EN</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Noto+Serif+SC:wght@300;400;500;600&family=Inter:wght@100;200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
     z-index: 200;
   }
 
-  /* Watermark â€” always on top, adapts in brand reveal (handled by JS) */
+  /* Watermark — always on top, adapts in brand reveal (handled by JS) */
   .watermark {
     position: absolute;
     top: 36px; left: 48px;
@@ -127,7 +127,7 @@
   }
   @keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
 
-  /* Arrow connector terminal â†’ iPhone */
+  /* Arrow connector terminal → iPhone */
   .connector {
     position: absolute;
     top: 50%;
@@ -276,7 +276,7 @@
   .wire .g4 { height: 20px; width: 50%; }
   .wire .g5 { height: 52px; margin-top: 24px; }
 
-  /* 2. Home screen â€” ä¸»å± Â· pomodoro */
+  /* 2. Home screen — pomodoro */
   .home-screen { padding: 40px 28px; color: var(--cd-ink); }
   .home-screen .kicker {
     font-family: var(--mono);
@@ -286,12 +286,13 @@
     text-transform: uppercase;
   }
   .home-screen .title {
-    font-family: var(--serif-cn);
-    font-size: 40px;
-    font-weight: 500;
-    line-height: 1.15;
-    margin-top: 10px;
-    letter-spacing: -0.01em;
+    font-family: var(--serif-en);
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.02;
+    margin-top: 14px;
+    letter-spacing: -0.035em;
+    font-style: italic;
   }
   .home-screen .time-big {
     margin-top: 50px;
@@ -332,7 +333,7 @@
     margin-right: 10px;
   }
 
-  /* 3. Timer Â· è®¡æ—¶ Â· ring */
+  /* 3. Timer · focus ring */
   .timer-screen {
     padding: 40px 28px;
     color: var(--cd-ink);
@@ -406,7 +407,7 @@
     border-color: transparent;
   }
 
-  /* 4. Stats Â· ç»Ÿè®¡ Â· bar chart */
+  /* 4. Stats · bar chart */
   .stats-screen { padding: 40px 28px; color: var(--cd-ink); }
   .stats-screen .stats-label {
     font-family: var(--mono);
@@ -464,13 +465,14 @@
     padding: 0 4px;
   }
 
-  /* 5. Settings Â· è®¾ç½® Â· list */
+  /* 5. Settings · list */
   .settings-screen { padding: 40px 28px; color: var(--cd-ink); }
   .settings-screen .title-row {
-    font-family: var(--serif-cn);
-    font-size: 40px;
-    font-weight: 500;
-    letter-spacing: -0.01em;
+    font-family: var(--serif-en);
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: -0.035em;
+    font-style: italic;
   }
   .settings-screen .list {
     margin-top: 40px;
@@ -617,11 +619,12 @@
   }
   .brand-cn {
     margin-top: 30px;
-    font-family: var(--serif-cn);
-    font-size: 18px;
+    font-family: var(--serif-en);
+    font-style: italic;
+    font-size: 22px;
     font-weight: 300;
     color: var(--cd-dim);
-    letter-spacing: 0.4em;
+    letter-spacing: 0.12em;
     opacity: 0;
     will-change: opacity;
   }
@@ -631,7 +634,7 @@
 
 <div class="stage" id="stage">
 
-  <div class="watermark">HUASHU Â· DESIGN</div>
+  <div class="watermark">SLIDE PROMAX · DESIGN</div>
 
   <!-- Terminal -->
   <div class="terminal" id="terminal">
@@ -642,7 +645,7 @@
       <div class="title">~/projects</div>
     </div>
     <div class="tty-body">
-      <div class="comment" id="comment" style="opacity:0">&gt; è¯´ä¸€å¥è¯ï¼Œæ‹¿å›žä¸€ä¸ªèƒ½ç‚¹çš„ App</div>
+      <div class="comment" id="comment" style="opacity:0">&gt; Type a sentence, get a clickable app.</div>
       <div style="margin-top:6px">
         <span class="prompt">$</span><span class="typed" id="typed"></span><span class="cursor" id="ttyCursor"></span>
       </div>
@@ -688,18 +691,18 @@
           <!-- 2. Home -->
           <div class="screen-view" id="view-home">
             <div class="home-screen">
-              <div class="kicker">POMODORO Â· ä¸“æ³¨</div>
-              <div class="title">ä¸‹ä¸€ä»¶è¦åšçš„äº‹</div>
+              <div class="kicker">POMODORO</div>
+              <div class="title">Next up.</div>
               <div class="time-big">25<span class="sep">:</span>00</div>
-              <div class="sub">å†™å®Œè¿™ä¸€èŠ‚ï¼Œä¼‘æ¯ 5 åˆ†é’Ÿ</div>
-              <div class="cta">å¼€å§‹ä¸“æ³¨</div>
+              <div class="sub">Write one section. Rest five minutes.</div>
+              <div class="cta">Focus now</div>
             </div>
           </div>
 
           <!-- 3. Timer -->
           <div class="screen-view" id="view-timer">
             <div class="timer-screen">
-              <div class="phase">FOCUS Â· ç¬¬ 1 è½®</div>
+              <div class="phase">FOCUS · ROUND 1</div>
               <div class="ring-wrap">
                 <svg viewBox="0 0 320 320">
                   <circle class="bg-ring" cx="160" cy="160" r="140"/>
@@ -707,12 +710,12 @@
                 </svg>
                 <div class="ring-label">
                   <div class="rl-time" id="ringTime">24:12</div>
-                  <div class="rl-tag">å‰©ä½™</div>
+                  <div class="rl-tag">REMAINING</div>
                 </div>
               </div>
               <div class="actions">
-                <div class="act-btn">æš‚åœ</div>
-                <div class="act-btn primary">è·³è¿‡</div>
+                <div class="act-btn">Pause</div>
+                <div class="act-btn primary">Skip</div>
               </div>
             </div>
           </div>
@@ -720,9 +723,9 @@
           <!-- 4. Stats -->
           <div class="screen-view" id="view-stats">
             <div class="stats-screen">
-              <div class="stats-label">æœ¬å‘¨ Â· ç»Ÿè®¡</div>
-              <div class="stats-hero">23<span class="unit">è½®</span></div>
-              <div class="stats-sub">æ¯”ä¸Šå‘¨å¤šå‡º 5 è½®</div>
+              <div class="stats-label">THIS WEEK</div>
+              <div class="stats-hero">23<span class="unit">rounds</span></div>
+              <div class="stats-sub">+5 from last week</div>
               <div class="chart" id="chart">
                 <div class="bar dim" style="height:30%"></div>
                 <div class="bar" style="height:52%"></div>
@@ -741,22 +744,22 @@
           <!-- 5. Settings -->
           <div class="screen-view" id="view-settings">
             <div class="settings-screen">
-              <div class="title-row">è®¾ç½®</div>
+              <div class="title-row">Settings</div>
               <div class="list">
                 <div class="row">
-                  <span class="k">ä¸“æ³¨æ—¶é•¿</span>
+                  <span class="k">Focus length</span>
                   <span class="v">25 MIN</span>
                 </div>
                 <div class="row">
-                  <span class="k">ç™½å™ªéŸ³</span>
+                  <span class="k">White noise</span>
                   <div class="toggle"></div>
                 </div>
                 <div class="row">
-                  <span class="k">æé†’é“ƒå£°</span>
+                  <span class="k">Ring alert</span>
                   <div class="toggle off"></div>
                 </div>
                 <div class="row">
-                  <span class="k">ä¸»é¢˜</span>
+                  <span class="k">Theme</span>
                   <span class="v">CLAUDE MIST</span>
                 </div>
               </div>
@@ -799,16 +802,16 @@
 
   <!-- Brand reveal -->
   <div class="brand-wall" id="brandWall">
-    <div class="brand-wordmark" id="brandWord">huashu<span class="dot">Â·</span>design</div>
+    <div class="brand-wordmark" id="brandWord">slide-promax<span class="dot">·</span>design</div>
     <div class="brand-underline" id="brandLine"></div>
-    <div class="brand-cn" id="brandCn">è¯´ä¸€å¥è¯ Â· æ‹¿å›žä¸€ä¸ª App</div>
+    <div class="brand-cn" id="brandCn">Say it. Get an app.</div>
   </div>
 
 </div>
 
 <script>
 (() => {
-  // â”€â”€ Scale to viewport (1920Ã—1080 canvas) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Scale to viewport (1920×1080 canvas) ─────────────────────────
   function fit() {
     const stage = document.getElementById('stage');
     const s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
@@ -817,7 +820,7 @@
   fit();
   window.addEventListener('resize', fit);
 
-  // â”€â”€ Easing â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Easing ───────────────────────────────────────────────────────
   const expoOut = t => (t <= 0 ? 0 : t >= 1 ? 1 : 1 - Math.pow(2, -10 * t));
   const expoIn  = t => (t <= 0 ? 0 : t >= 1 ? 1 : Math.pow(2, 10 * (t - 1)));
   const cubicInOut = t => t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2, 3)/2;
@@ -830,7 +833,7 @@
     return clamp((t - start) / (end - start), 0, 1);
   }
 
-  // â”€â”€ Elements â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Elements ─────────────────────────────────────────────────────
   const el = (id) => document.getElementById(id);
   const terminal = el('terminal');
   const comment  = el('comment');
@@ -855,13 +858,13 @@
   const brandCn = el('brandCn');
 
   // Typing text
-  const typeStr = 'make a pomodoro app';
+  const typeStr = 'make pomodoro app';
   function setTyping(progress) {
     const n = Math.floor(typeStr.length * progress);
     typed.textContent = typeStr.slice(0, n);
   }
 
-  // Show/hide views â€” hard swap (no cross-fade overlap)
+  // Show/hide views — hard swap (no cross-fade overlap)
   function showView(name) {
     Object.keys(views).forEach(k => {
       const isActive = (k === name);
@@ -879,7 +882,7 @@
     });
   }
 
-  // Play tap at screen coords (relative to .screen: 416Ã—876)
+  // Play tap at screen coords (relative to .screen: 416×876)
   function playTap(x, y) {
     tap.style.left = (x - 32) + 'px';
     tap.style.top = (y - 32) + 'px';
@@ -893,7 +896,7 @@
     setTimeout(() => { tap.style.opacity = '0'; }, 550);
   }
 
-  // â”€â”€ SFX via WebAudio â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── SFX via WebAudio ─────────────────────────────────────────────
   let audioCtx = null;
   function ac() {
     if (!audioCtx) {
@@ -941,7 +944,7 @@
     });
   }
 
-  // â”€â”€ Timeline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Timeline ─────────────────────────────────────────────────────
   const DURATION = 10.0;
 
   const sfxFired = new Set();
@@ -951,12 +954,12 @@
     fn();
   }
 
-  // Screen switch schedule (within Beat 2, 2.0s â†’ 8.0s)
-  // Tap coords are relative to the 416Ã—876 .screen
+  // Screen switch schedule (within Beat 2, 2.0s → 8.0s)
+  // Tap coords are relative to the 416×876 .screen
   const schedule = [
     { t: 2.0, view: 'wire',     tabIco: null,       tap: null },
-    { t: 3.1, view: 'home',     tabIco: 'home',     tap: null },                 // home materializes (no tap â€” it's the fill moment)
-    { t: 4.4, view: 'timer',    tabIco: 'timer',    tap: {x: 208, y: 624} },     // tap "å¼€å§‹ä¸“æ³¨" CTA
+    { t: 3.1, view: 'home',     tabIco: 'home',     tap: null },                 // home materializes (no tap — it's the fill moment)
+    { t: 4.4, view: 'timer',    tabIco: 'timer',    tap: {x: 208, y: 624} },     // tap "Start Focus" CTA
     { t: 6.3, view: 'stats',    tabIco: 'stats',    tap: {x: 300, y: 810} },     // tap stats tab
     { t: 7.5, view: 'settings', tabIco: 'settings', tap: {x: 370, y: 810} },     // tap settings tab
   ];
@@ -969,14 +972,14 @@
     if (!startTime) startTime = now;
     const t = (now - startTime) / 1000;
 
-    // â”€â”€ Beat 1: 0-2s â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    // Terminal fade in (0 â†’ 0.4s)
+    // ── Beat 1: 0-2s ─────────────────────────────────────────
+    // Terminal fade in (0 → 0.4s)
     {
       const k = expoOut(seg(t, 0.0, 0.4));
       terminal.style.opacity = k;
       terminal.style.transform = `translateY(-50%) translateX(${lerp(-30, 0, k)}px)`;
     }
-    // iPhone fade in (0.2 â†’ 0.9s)
+    // iPhone fade in (0.2 → 0.9s)
     {
       const k = expoOut(seg(t, 0.2, 0.9));
       phoneWrap.style.opacity = k;
@@ -994,7 +997,7 @@
       const k = expoOut(seg(t, 0.8, 1.2));
       comment.style.opacity = k * 0.82;
     }
-    // Typing (0.6 â†’ 1.9s)
+    // Typing (0.6 → 1.9s)
     {
       const k = cubicInOut(seg(t, 0.6, 1.9));
       setTyping(k);
@@ -1010,7 +1013,7 @@
     // Hide cursor when typing done
     ttyCursor.style.opacity = t > 1.85 ? '0' : '1';
 
-    // â”€â”€ Beat 2: 2-8s â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+    // ── Beat 2: 2-8s ─────────────────────────────────────────
     // Execute scheduled screen transitions
     while (scheduleIdx < schedule.length && t >= schedule[scheduleIdx].t) {
       const s = schedule[scheduleIdx];
@@ -1030,7 +1033,7 @@
       scheduleIdx++;
     }
 
-    // Timer ring animation: once timer appears (4.4s), animate ring from empty â†’ 42% filled
+    // Timer ring animation: once timer appears (4.4s), animate ring from empty → 42% filled
     if (t >= 4.4 && t < 6.3) {
       const ringT = clamp((t - 4.5) / 1.2, 0, 1);
       const fillPct = expoOut(ringT) * 0.42;
@@ -1038,14 +1041,14 @@
       // Set as both style AND attr so neither overrides the other
       fgRing.style.strokeDashoffset = offset;
       fgRing.setAttribute('stroke-dashoffset', offset);
-      // Count down visually: 24:12 â†’ 14:03
+      // Count down visually: 24:12 → 14:03
       const mins = Math.floor(lerp(24, 14, expoOut(ringT)));
       const secs = Math.floor(lerp(12, 3, expoOut(ringT)));
       ringTime.textContent = String(mins).padStart(2,'0') + ':' + String(secs).padStart(2,'0');
     }
 
-    // â”€â”€ Beat 3: 8-10s â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-    // Phone + terminal fade out fast (7.5 â†’ 7.9) so wall doesn't guillotine
+    // ── Beat 3: 8-10s ────────────────────────────────────────
+    // Phone + terminal fade out fast (7.5 → 7.9) so wall doesn't guillotine
     if (t >= 7.5) {
       const k = cubicOut(seg(t, 7.5, 7.9));
       phoneWrap.style.opacity = String(1 - k);
@@ -1054,7 +1057,7 @@
       terminal.style.transform = `translateY(-50%) scale(${lerp(1, 0.96, k)})`;
       connector.style.opacity = String(1 - k);
     }
-    // Brand wall slides up (7.9 â†’ 8.6) â€” starts AFTER phone is gone
+    // Brand wall slides up (7.9 → 8.6) — starts AFTER phone is gone
     {
       const k = expoOut(seg(t, 7.9, 8.6));
       brandWall.style.transform = `translateY(${lerp(100, 0, k)}%)`;

@@ -1,9 +1,9 @@
-﻿---
-name: shield-design
-description: shield-design — An all-in-one design capability using HTML to create high-fidelity prototypes, interactive demos, slide decks, animations, and design variations + acting as a design direction consultant + expert reviewer. HTML is a tool, not the medium; adapt to different expert roles (UX Designer / Animator / Presentation Designer / Prototyper) based on the task to avoid web design tropes. Trigger words: build a prototype, design demo, interactive prototype, HTML demo, animation demo, design variations, hi-fi design, UI mockup, prototype, design exploration, make an HTML page, create a visualization, app prototype, iOS prototype, mobile app mockup, export MP4, export GIF, 60fps video, design style, design direction, design philosophy, color scheme, visual style, recommend a style, pick a style, make a beautiful one, review, does it look good, review this design. **Core Capabilities**: Junior Designer workflow (declare assumptions+reasoning+placeholders first, then iterate), Anti-AI slop checklist, React+Babel best practices, Tweaks variable toggling, Speaker Notes implementation, Starter Components (presentation shell / variation canvas / animation engine / device frames), App Prototype exclusive rules (default to fetching real images from Wikimedia/Met/Unsplash, package every iPhone with an interactive AppPhone state manager, run Playwright click tests before delivery), Playwright validation, HTML Animation → MP4/GIF video export (25fps base + 60fps interpolation + palette-optimized GIF + 6 contextual BGMs + auto fading). **Fallback for Vague Requirements**: Design Direction Consultant mode — recommend 3 differentiated directions from 5 schools × 20 design philosophies (Pentagram Information Architecture / Field.io Motion Poetics / Kenya Hara Eastern Minimalism / Sagmeister Experimental Avant-Garde, etc.), display 24 pre-built showcases (8 scenarios × 3 styles), generate 3 visual demos side-by-side for the user to choose. **Post-Delivery Operations**: Expert-level 5-dimensional review (10 points each for Philosophical Consistency / Visual Hierarchy / Detail Execution / Functionality / Innovativeness + providing a remediation checklist).
+---
+name: slide-promax
+description: "Create high-fidelity HTML prototypes, interactive demos, slide decks, animations, design variations, infographics, and expert design reviews. Use when Codex needs app prototypes, presentation decks, MP4 or GIF motion demos, editable PPTX, visual systems, design reviews, or design direction options."
 ---
 
-# SHIELD-DESIGN · shield-design
+# Slide ProMax - slide-promax
 
 You are a designer operating with HTML, not a programmer. The user is your manager, and you produce deeply deliberate, expertly crafted design artifacts.
 
@@ -70,7 +70,7 @@ High-fidelity designs **must** organically grow from an existing context. Ask th
 
 > **This is the most critical constraint of v1, representing the absolute lifeblood of stability.** Whether the Agent executes this protocol determines whether the output quality is 40 points or 90 points. Do not skip any step.
 >
-> **v1.1 Refactor (2026-04-20)**: Upgraded from "Brand Asset Protocol" to "Core Asset Protocol". Previous variants hyper-focused on Hex colors and Typography, entirely omitting the absolute pillars of design: Logos / Product Imagery / UI Screenshots. Huashu's explicit phrasing: "Beyond so-called brand colors, we distinctly should find and utilize DJI's logo, utilizing Pocket 4's product imagery. If dealing with non-physical assets like websites or apps, a logo remains the uncompromisable base. This represents a vastly more fundamental logic than any 'brand design spec'. Otherwise, exactly what are we attempting to express?"
+> **v1.1 Refactor (2026-04-20)**: Upgraded from "Brand Asset Protocol" to "Core Asset Protocol". Previous variants hyper-focused on Hex colors and Typography, entirely omitting the absolute pillars of design: Logos / Product Imagery / UI Screenshots. Slide ProMax's principle: beyond brand colors, first secure the logo, product imagery, and UI screenshots that make the subject recognizable.
 
 **Trigger Condition**: The task involves a specific brand — the user mentions a product name / company name / distinct client (Stripe, Linear, Anthropic, Notion, Lovart, DJI, internal companies, etc.), indiscriminately of whether the user proactively supplied brand assets.
 
@@ -171,7 +171,7 @@ curl -A "Mozilla/5.0" -L "<hero-image-url>" -o assets/<brand>-brand/product-hero
 
 > **The rules governing Logos differ from other assets**. A Logo, if it exists, must be used (if absent, halt and query the user). Other assets (Product imagery/UI/Referential backgrounds) strictly adhere to the "5-10-2-8" quality threshold.
 >
-> 2026-04-20 Huashu's exact quote: "Our governing principle mandates searching across 5 layers, retrieving 10 total assets, finalizing onto 2 elite components. Each selected component requires a pure 8/10 rating. Sourcing fewer high-quality assets strictly supersedes polluting sequences with garbage purely for completion's sake."
+> 2026-04-20 Slide ProMax governing principle: search across 5 layers, retrieve 10 total assets, and finalize 2 elite components. Each selected component requires a pure 8/10 rating. Fewer high-quality assets are better than polluting sequences with low-quality filler.
 
 | Dimension | Standard | Anti-Pattern |
 |---|---|---|
@@ -189,7 +189,7 @@ curl -A "Mozilla/5.0" -L "<hero-image-url>" -o assets/<brand>-brand/product-hero
 5. **Independent Narrative Capability** · Capable of sustaining an autonomous plot role (Not merely functioning decorators).
 
 **Why this threshold operates identically as absolute law**:
-- Huashu's philosophy: **Absence strictly defeats mediocrity.** Mediocre filler vastly undermines nonexistent voids, polluting aesthetic judgments and signaling glaring "amateur" tones dynamically organically optimally intuitively purely.
+- Slide ProMax philosophy: **Absence strictly defeats mediocrity.** Mediocre filler undermines the design more than honest negative space or explicit placeholders.
 - **The quantified translation of "120% detailing on one element, 80% globally"**: 8 points is the baseline minimum for the "other 80%"; true Hero assets require 9-10 points natively simply dependably effortlessly precisely independently robustly smartly gracefully optimally.
 - Every visible pixel adds or detracts. A 7-point piece functions actively as a deduction.
 
@@ -265,7 +265,7 @@ This is intrinsically why §1.a (The Core Asset Protocol) serves as the hardest 
 - ✅ `text-wrap: pretty` + CSS Grid + Advanced CSS Structuring: Typographical details operate inherently as the "taste barrier" where AI normally fails; agents deploying these mimic elite human designers accurately.
 - ✅ Deploying `oklch()` or currently existing spec colors, **Never generating fresh colors arbitrarily**: Fabricating colors dynamically degrades brand clarity absolutely.
 - ✅ For imagery, strictly prioritize external AI generation (Gemini / Flash / Lovart); generating generic HTML pseudo-imagery operates solely accommodating precise data charting architectures.
-- ✅ In Chinese output, prioritize 「」 bounds instead of ""; this is correct publishing typography mimicking meticulously proofed outputs natively.
+- ✅ In non-English output, respect the target language's publishing typography instead of forcing English punctuation conventions.
 - ✅ Detail heavily (120%) inside localized focal points while running structurally effectively (80%) elsewhere. 
 
 #### 6.4 Anti-Pattern Isolation (Demonstration Elements)
@@ -326,7 +326,7 @@ Following advising 3 directions, **immediately verify** whether `assets/showcase
 
 | Target Venue | Target Struct |
 |------|------|
-| WeChat Content Headers | `assets/showcases/cover/` |
+| Article / Social Content Headers | `assets/showcases/cover/` |
 | PPT Data Sheets | `assets/showcases/ppt/` |
 | Vertical Infographics | `assets/showcases/infographic/` |
 | Profile / AI tools / / SaaS | `assets/showcases/website-*/` |
@@ -509,6 +509,7 @@ Read deeply according to the task assignment:
 | **Animation Audio Ratio Control** | `references/audio-design-rules.md` |
 | **Apple Gallery Layouts** | `references/apple-gallery-showcase.md` |
 | **Gallery/Ripple Focus Scopes** | `references/hero-animation-case-study.md` |
+| **Cinematic Workflow Demos** | `references/cinematic-patterns.md` |
 
 ## Cross-Agent Alignment (Execution Bounds)
 
@@ -531,9 +532,9 @@ Paths reference intrinsically against **root directories relative strictly onto 
 
 ## Skill Watermarking (Animations Only)
 
-**Strictly apply specifically across Animations ONLY** (HTML → MP4/GIF outputs). Apply the watermark "Created by shield-design" globally maintaining lineage tracing flawlessly uniquely. 
+**Strictly apply specifically across Animations ONLY** (HTML → MP4/GIF outputs). Apply the watermark "Created by Slide ProMax" globally to preserve lineage.
 
-- **Deploy On**: HTML exports destined exclusively towards WeChat, X, Reddit circulation actively effortlessly.
+- **Deploy On**: HTML exports destined for public social circulation such as X, Reddit, newsletters, or article embeds.
 - **Omit On**: Interactive App mockups, info-graphics, internal corporate slides, or whenever the user manually strictly decrees "omit branding borders" reliably.
 - **Unofficial Homage Videos**: Append "Unofficial Tribute · " circumventing copyright disputes directly intuitively.
 
@@ -544,7 +545,7 @@ Paths reference intrinsically against **root directories relative strictly onto 
   letterSpacing: '0.15em', fontFamily: 'monospace',
   pointerEvents: 'none', zIndex: 100,
 }}>
-  Created by shield-design
+  Created by Slide ProMax
 </div>
 ```
 

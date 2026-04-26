@@ -1,226 +1,267 @@
-﻿# SFX Library Â· shield-design
+# SFX Library · Slide ProMax
 
-> å…¨éƒ¨ç”± ElevenLabs Sound Generation API ç”Ÿæˆï¼Œè‹¹æžœå‘å¸ƒä¼šçº§éŸ³è´¨ã€‚
-> äº§å“çº§ SFX èµ„äº§åº“ï¼Œè¦†ç›–èŠ±å”åŠ¨ç”»/æ¼”ç¤º/äº§å“ Demo å…¨åœºæ™¯ã€‚
+This file describes the sound-effect inventory and selection logic used by animation and product-demo exports.
 
-**èµ„äº§ä½ç½®**ï¼š`assets/sfx/<category>/<name>.mp3`
-**æ€»æ•°**ï¼š37 ä¸ª SFXï¼ˆ30 æ‰¹é‡ç”Ÿæˆ + 7 ä¸ª v7b ä¿ç•™ï¼‰
-**ç”Ÿæˆæ¨¡åž‹**ï¼šElevenLabs Sound Generation APIï¼ˆprompt_influence 0.4ï¼‰
-**éŸ³è´¨**ï¼š44.1kHz MP3ï¼Œè‹¹æžœå‘å¸ƒä¼šçº§æ¸…æ™°åº¦ï¼Œæ— é¢å¤–æ··å“
+Use it together with:
 
----
+- `audio-design-rules.md` for mixing strategy and cue density.
+- `video-export.md` for export workflow.
+- `animation-best-practices.md` for motion timing.
 
-## ç›®å½•ç»“æž„
+## Asset Directory
 
-```
-assets/sfx/
-â”œâ”€â”€ keyboard/      type, type-fast, delete-key, space-tap, enter
-â”œâ”€â”€ ui/            click, click-soft, focus, hover-subtle, tap-finger, toggle-on
-â”œâ”€â”€ transition/    whoosh, whoosh-fast, swipe-horizontal, slide-in, dissolve
-â”œâ”€â”€ container/     card-snap, card-flip, stack-collapse, modal-open
-â”œâ”€â”€ feedback/      success-chime, error-tone, notification-pop, achievement
-â”œâ”€â”€ progress/      loading-tick, complete-done, generate-start
-â”œâ”€â”€ impact/        logo-reveal, logo-reveal-v2, brand-stamp, drop-thud
-â”œâ”€â”€ magic/         sparkle, ai-process, transform
-â””â”€â”€ terminal/      command-execute, output-appear, cursor-blink
+```text
+sfx/
+├── keyboard/      type, type-fast, delete-key, space-tap, enter
+├── ui/            click, click-soft, focus, hover-subtle, tap-finger, toggle-on
+├── transition/    whoosh, whoosh-fast, swipe-horizontal, slide-in, dissolve
+├── container/     card-snap, card-flip, stack-collapse, modal-open
+├── feedback/      success-chime, error-tone, notification-pop, achievement
+├── progress/      loading-tick, complete-done, generate-start
+├── impact/        logo-reveal, logo-reveal-v2, brand-stamp, drop-thud
+├── magic/         sparkle, ai-process, transform
+└── terminal/      command-execute, output-appear, cursor-blink
 ```
 
----
+Use exact paths in manifests and cue sheets so export scripts can locate the files deterministically.
 
-## å¿«é€Ÿç´¢å¼•
+## Quick Index
 
-### âŒ¨ï¸ Keyboardï¼ˆé”®ç›˜è¾“å…¥ï¼‰
+### Keyboard
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/keyboard/type.mp3` | 0.5s | å•é”®æ•²å‡»ï¼ˆmechanical keyboard single keyï¼‰ | mechanical keyboard single key press |
-| `sfx/keyboard/type-fast.mp3` | 1.5s | è¿žç»­å¿«é€Ÿæ‰“å­—ï¼ˆæ¼”ç¤ºè¾“å…¥æç¤ºè¯ï¼‰ | fast continuous typing rhythm, apple magic keyboard |
-| `sfx/keyboard/delete-key.mp3` | 0.5s | backspace å›žåˆ  | single backspace key, low pitched thud |
-| `sfx/keyboard/space-tap.mp3` | 0.5s | ç©ºæ ¼é”®è½»å‡» | soft spacebar tap, wide flat |
-| `sfx/keyboard/enter.mp3` | 0.5s | å›žè½¦ç¡®è®¤ï¼ˆv7b ä¿ç•™ï¼‰ | enter key press, crisp tactile |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/keyboard/type.mp3` | 0.5s | Single key press | mechanical keyboard single key press |
+| `sfx/keyboard/type-fast.mp3` | 1.5s | Continuous fast typing | fast continuous typing rhythm |
+| `sfx/keyboard/delete-key.mp3` | 0.5s | Backspace/delete action | single backspace key, low thud |
+| `sfx/keyboard/space-tap.mp3` | 0.5s | Spacebar tap | soft spacebar tap, wide flat key |
+| `sfx/keyboard/enter.mp3` | 0.5s | Enter/confirm key | enter key press, crisp tactile |
 
-### ðŸŽ¯ UIï¼ˆç•Œé¢äº¤äº’ï¼‰
+### UI
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/ui/click.mp3` | 0.5s | æ ‡å‡† UI ç‚¹å‡»ï¼ˆv7b ä¿ç•™ï¼‰ | crisp modern interface click |
-| `sfx/ui/click-soft.mp3` | 0.5s | æŸ”å’Œ UI clickï¼ˆæ¬¡è¦æŒ‰é’®/é“¾æŽ¥ï¼‰ | soft gentle button click, mid pitched |
-| `sfx/ui/focus.mp3` | 0.5s | å…ƒç´ èšç„¦/é€‰ä¸­ï¼ˆv7b ä¿ç•™ï¼‰ | subtle focus tone, element highlight |
-| `sfx/ui/hover-subtle.mp3` | 0.5s | æ‚¬åœæç¤ºï¼ˆå¾®ç§’çº§åé¦ˆï¼‰ | barely audible tick, air whisper |
-| `sfx/ui/tap-finger.mp3` | 0.5s | ç§»åŠ¨ç«¯ tapï¼ˆiOS ç•Œé¢ï¼‰ | finger tap on touchscreen, muted thud |
-| `sfx/ui/toggle-on.mp3` | 0.5s | å¼€å…³æ‰“å¼€ | ios toggle switch flip, satisfying click |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/ui/click.mp3` | 0.5s | Standard UI click | crisp modern interface click |
+| `sfx/ui/click-soft.mp3` | 0.5s | Secondary button/link | soft gentle button click |
+| `sfx/ui/focus.mp3` | 0.5s | Element focus/select | subtle focus tone, element highlight |
+| `sfx/ui/hover-subtle.mp3` | 0.5s | Hover feedback | barely audible tick, air whisper |
+| `sfx/ui/tap-finger.mp3` | 0.5s | Mobile tap | finger tap on touchscreen, muted thud |
+| `sfx/ui/toggle-on.mp3` | 0.5s | Toggle enabled | toggle switch flip, satisfying click |
 
-### ðŸŒŠ Transitionï¼ˆè¿‡æ¸¡ï¼‰
+### Transition
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/transition/whoosh.mp3` | 0.5s | æ ‡å‡† whooshï¼ˆv7b ä¿ç•™ï¼‰ | air whoosh transition |
-| `sfx/transition/whoosh-fast.mp3` | 0.6s | å¿«é€Ÿ whooshï¼ˆæ ‡é¢˜é—ªå…¥ã€æ ‡ç­¾åˆ‡æ¢ï¼‰ | quick fast air whoosh, cinematic |
-| `sfx/transition/swipe-horizontal.mp3` | 0.7s | æ¨ªå‘æ»‘åŠ¨ï¼ˆè½®æ’­ã€tab åˆ‡æ¢ï¼‰ | smooth left-to-right air movement |
-| `sfx/transition/slide-in.mp3` | 0.6s | å…ƒç´ æ»‘å…¥ï¼ˆside panelã€æŠ½å±‰ï¼‰ | smooth soft whoosh with arrival |
-| `sfx/transition/dissolve.mp3` | 0.8s | æŸ”åŒ–èžåŒ–ï¼ˆå›¾ç‰‡æ·¡å‡ºæ·¡å…¥ï¼‰ | soft dissolve, airy shimmer |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/transition/whoosh.mp3` | 0.8s | Normal scene transition | soft cinematic whoosh |
+| `sfx/transition/whoosh-fast.mp3` | 0.6s | Fast reveal / pre-impact | fast airy whoosh |
+| `sfx/transition/swipe-horizontal.mp3` | 0.7s | Horizontal panel movement | clean horizontal swipe |
+| `sfx/transition/slide-in.mp3` | 0.6s | Panel/card slides in | smooth UI panel slide |
+| `sfx/transition/dissolve.mp3` | 0.9s | Soft fade/dissolve | soft airy dissolve shimmer |
 
-### ðŸƒ Containerï¼ˆå¡ç‰‡/å®¹å™¨ï¼‰
+### Container
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/container/card-snap.mp3` | 0.5s | å¡ç‰‡å¸é™„/å®šä½ï¼ˆv7b ä¿ç•™ï¼‰ | card snap into place |
-| `sfx/container/card-flip.mp3` | 0.7s | å¡ç‰‡ç¿»è½¬ï¼ˆå‰åŽé¢åˆ‡æ¢ï¼‰ | playing card flip, crisp snap |
-| `sfx/container/stack-collapse.mp3` | 0.8s | å †å åˆæ‹¢ï¼ˆåˆ—è¡¨èšåˆï¼‰ | cards stacking, paper taps collapsing |
-| `sfx/container/modal-open.mp3` | 0.6s | æ¨¡æ€æ¡†æ‰“å¼€ | modal popping open, whoosh + thud |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/container/card-snap.mp3` | 0.5s | Card lands in place | soft card snap, paper and glass |
+| `sfx/container/card-flip.mp3` | 0.7s | Card flips | quick card flip, tactile |
+| `sfx/container/stack-collapse.mp3` | 0.8s | Multiple cards collapse | stacked papers collapse cleanly |
+| `sfx/container/modal-open.mp3` | 0.6s | Modal/panel opens | soft modal pop open |
 
-### ðŸ”” Feedbackï¼ˆé€šçŸ¥/åé¦ˆï¼‰
+### Feedback
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/feedback/success-chime.mp3` | 1.0s | æˆåŠŸæç¤ºï¼ˆæ”¯ä»˜æˆåŠŸã€ä»»åŠ¡å®Œæˆï¼‰ | two ascending bell tones, ios-style |
-| `sfx/feedback/error-tone.mp3` | 0.7s | é”™è¯¯æç¤ºï¼ˆè­¦å‘Šã€å¤±è´¥ï¼‰ | descending two-note warning, soft |
-| `sfx/feedback/notification-pop.mp3` | 0.6s | æ¶ˆæ¯å¼¹å‡ºï¼ˆtoastã€é€šçŸ¥ï¼‰ | notification bloop, ios message alert |
-| `sfx/feedback/achievement.mp3` | 1.5s | æˆå°±è¾¾æˆï¼ˆé‡Œç¨‹ç¢‘ã€å¾½ç« ï¼‰ | triumphant rising arpeggio, game-style |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/feedback/success-chime.mp3` | 1.0s | Success confirmation | two ascending bell tones |
+| `sfx/feedback/error-tone.mp3` | 0.7s | Error or warning | descending two-note warning |
+| `sfx/feedback/notification-pop.mp3` | 0.6s | Notification appears | small notification pop |
+| `sfx/feedback/achievement.mp3` | 1.5s | Major milestone | premium achievement chime |
 
-### â³ Progressï¼ˆè¿›åº¦/çŠ¶æ€ï¼‰
+### Progress
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/progress/loading-tick.mp3` | 0.5s | åŠ è½½è®¡æ—¶ï¼ˆè¿›åº¦æ¡èŠ‚æ‹ï¼‰ | soft short pulse, minimal ambient |
-| `sfx/progress/complete-done.mp3` | 0.8s | å®Œæˆç¡®è®¤ï¼ˆstep å®Œæˆï¼‰ | two ascending satisfying tones |
-| `sfx/progress/generate-start.mp3` | 0.8s | AI å¼€å§‹ç”Ÿæˆ | soft rising shimmer, magical whoosh |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/progress/loading-tick.mp3` | 0.5s | Loading/progress tick | minimal loading tick |
+| `sfx/progress/complete-done.mp3` | 0.8s | Process complete | completion done tone |
+| `sfx/progress/generate-start.mp3` | 0.8s | Generation begins | soft engine start, AI process |
 
-### ðŸ’¥ Impactï¼ˆå“ç‰Œ/å†²å‡»ï¼‰
+### Impact
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/impact/logo-reveal.mp3` | 0.7s | Logo impactï¼ˆv7b ä¿ç•™ï¼‰ | logo reveal thud |
-| `sfx/impact/logo-reveal-v2.mp3` | 1.5s | æ›´é•¿çš„ Logo impactï¼ˆç”µå½±æ„Ÿï¼‰ | cinematic bass hit with shimmer tail |
-| `sfx/impact/brand-stamp.mp3` | 1.0s | å°ç« é‡å‡»ï¼ˆè®¤è¯ã€ç›–ç« ï¼‰ | rubber stamp thud, paper contact |
-| `sfx/impact/drop-thud.mp3` | 0.7s | ç‰©ä»¶è½åœ°ï¼ˆæ’å…¥ã€æ”¾ç½®ï¼‰ | heavy thud, wood surface contact |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/impact/logo-reveal.mp3` | 1.2s | Logo appears | cinematic logo reveal |
+| `sfx/impact/logo-reveal-v2.mp3` | 1.5s | Strong logo landing | cinematic bass logo impact |
+| `sfx/impact/brand-stamp.mp3` | 0.8s | Brand stamp / final mark | clean brand stamp |
+| `sfx/impact/drop-thud.mp3` | 0.6s | Heavy object lands | soft heavy drop thud |
 
-### âœ¨ Magicï¼ˆAI å˜æ¢ï¼‰
+### Magic
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/magic/sparkle.mp3` | 0.8s | é­”æ³•é—ªå…‰ï¼ˆAI é«˜äº®ã€æƒŠå–œï¼‰ | bright twinkling stars, fairy dust |
-| `sfx/magic/ai-process.mp3` | 1.2s | AI å¤„ç†éŸ³ï¼ˆthinking çŠ¶æ€ï¼‰ | modulating digital hum with shimmer |
-| `sfx/magic/transform.mp3` | 1.0s | å˜æ¢è¿‡æ¸¡ï¼ˆmorph æ•ˆæžœï¼‰ | rising shimmer whoosh with sparkle tail |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/magic/sparkle.mp3` | 0.8s | Sparkle / reveal | bright twinkling chime |
+| `sfx/magic/ai-process.mp3` | 1.2s | AI processing loop | subtle digital process loop |
+| `sfx/magic/transform.mp3` | 1.0s | Transformation | shimmering transformation |
 
-### ðŸ’» Terminalï¼ˆå‘½ä»¤è¡Œï¼‰
+### Terminal
 
-| æ–‡ä»¶ | æ—¶é•¿ | ç”¨é€” | Prompt è¦ç‚¹ |
-|---|---|---|---|
-| `sfx/terminal/command-execute.mp3` | 0.5s | å‘½ä»¤æ‰§è¡Œ | crisp digital beep with tick, hacker ui |
-| `sfx/terminal/output-appear.mp3` | 0.6s | è¾“å‡ºå‡ºçŽ° | rapid digital ticks, retro printout |
-| `sfx/terminal/cursor-blink.mp3` | 0.5s | å…‰æ ‡é—ªçƒ | subtle soft digital pulse, rhythmic |
+| File | Duration | Use | Prompt keywords |
+|---|---:|---|---|
+| `sfx/terminal/command-execute.mp3` | 0.5s | Command runs | terminal command execute blip |
+| `sfx/terminal/output-appear.mp3` | 0.6s | Output appears | terminal output materializes |
+| `sfx/terminal/cursor-blink.mp3` | 0.4s | Cursor blink | tiny cursor blink tick |
 
----
+## Recommended Scene Recipes
 
-## æŒ‰åœºæ™¯æŽ¨èæ­é…
+### Terminal Interaction Demo
 
-### ðŸ’» Terminal äº¤äº’æ¼”ç¤º
-```
-type (0.5s) â†’ enter (0.5s) â†’ command-execute (0.5s) â†’ output-appear (0.6s)
-```
-å¾ªçŽ¯å…ƒç´ ï¼š`cursor-blink` ä½œä¸º idle æ—¶çš„çŽ¯å¢ƒéŸ³ã€‚
-
-### ðŸƒ å¡ç‰‡é€‰æ‹©æµç¨‹
-```
-hover-subtle (0.5s, UIæ‚¬åœ) â†’ click-soft (0.5s, ç‚¹å‡») â†’ card-snap (0.5s, å®šä½)
-```
-æˆ–è¿›é˜¶ç‰ˆï¼š`card-flip` åšå‰åŽé¢åˆ‡æ¢ã€‚
-
-### ðŸ¤– AI ç”Ÿæˆå…¨æµç¨‹
-```
-generate-start (0.8s, å¯åŠ¨) â†’ ai-process (1.2s, å¤„ç†) â†’ sparkle (0.8s, é—ªçŽ°) â†’ complete-done (0.8s, å®Œæˆ)
-```
-é”™è¯¯æ—¶ç”¨ `error-tone` æ›¿ä»£ `complete-done`ã€‚
-
-### ðŸŽ¬ Logo Revealï¼ˆå“ç‰Œæ—¶åˆ»ï¼‰
-```
-whoosh-fast (0.6s, é“ºåž«) â†’ logo-reveal-v2 (1.5s, è½ç‚¹) â†’ sparkle (0.8s, å°¾éŸµ)
-```
-ç®€ç‰ˆï¼š`whoosh â†’ logo-reveal`ï¼ˆç›´æŽ¥ v7b ä¸¤ä»¶å¥—ï¼‰ã€‚
-
-### ðŸ“± UI äº¤äº’æ¼”ç¤ºï¼ˆç§»åŠ¨ç«¯ï¼‰
-```
-tap-finger (0.5s, ç‚¹å‡») â†’ slide-in (0.6s, é¢æ¿æ»‘å…¥) â†’ toggle-on (0.5s, å¼€å…³)
-```
-å®ŒæˆåŽï¼š`success-chime` æˆ– `notification-pop`ã€‚
-
-### ðŸ“Š æ•°æ®å¯è§†åŒ–/ä»ªè¡¨ç›˜
-```
-loading-tick (0.5s, èŠ‚æ‹) Ã— N â†’ complete-done (0.8s, æ•°æ®åˆ°ä½) â†’ achievement (1.5s, æƒŠè‰³è½ç‚¹)
+```text
+type (0.5s)
+-> enter (0.5s)
+-> command-execute (0.5s)
+-> output-appear (0.6s)
 ```
 
-### ðŸŽ¯ è¡¨å•æäº¤æµç¨‹
-```
-click-soft (0.5s) â†’ loading-tick Ã—2 (1.0s) â†’ success-chime (1.0s)
-```
-å¤±è´¥åˆ†æ”¯ï¼š`error-tone (0.7s)`ã€‚
+Use for coding demos, CLI workflows, and developer-product animations.
 
-### ðŸª„ Magic Transform åœºæ™¯
-```
-whoosh-fast (0.6s) â†’ transform (1.0s) â†’ sparkle (0.8s)
-```
-é€‚åˆï¼šå…ƒç´ å˜å½¢ã€æ•ˆæžœå‰åŽå¯¹æ¯”ã€"AI é‡å†™"ç­‰æ¼”ç¤ºã€‚
+### Card Selection Flow
 
----
-
-## ä½¿ç”¨è§„èŒƒ
-
-### éŸ³é‡å»ºè®®ï¼ˆæ¥è‡ª apple-gallery-showcase.md éŸ³é¢‘åŒè½¨åˆ¶ï¼‰
-- **SFX ä¸»è½¨**ï¼š`1.0`ï¼ˆä¸åšè¡°å‡ï¼‰
-- **BGM èƒŒæ™¯è½¨**ï¼š`0.4 ~ 0.5`ï¼ˆSFX æ˜Žæ˜¾ç©¿é€ï¼‰
-- **å¤š SFX å åŠ **ï¼šç”¨ `amix=inputs=N:duration=longest:normalize=0` ä¿ç•™åŠ¨æ€èŒƒå›´
-
-### ffmpeg æ‹¼æŽ¥æ¨¡æ¿
-```bash
-# å• SFX å¯¹é½æ—¶é—´ç‚¹ï¼š
-ffmpeg -i video.mp4 -itsoffset 2.5 -i sfx/ui/click.mp3 \
-  -filter_complex "[0:a][1:a]amix=inputs=2:duration=longest:normalize=0[a]" \
-  -map 0:v -map "[a]" output.mp4
-
-# å¤š SFX + BGMï¼š
-ffmpeg -i video.mp4 \
-  -itsoffset 1.0 -i sfx/transition/whoosh-fast.mp3 \
-  -itsoffset 1.6 -i sfx/impact/logo-reveal-v2.mp3 \
-  -i bgm.mp3 \
-  -filter_complex "[3:a]volume=0.4[bgm];[0:a][1:a][2:a][bgm]amix=inputs=4:normalize=0[a]" \
-  -map 0:v -map "[a]" output.mp4
+```text
+hover-subtle (0.5s)
+-> click-soft (0.5s)
+-> card-snap (0.5s)
 ```
 
-### é€‰åž‹å†³ç­–æ ‘
-1. **æœ‰ tactile åŠ¨ä½œ**ï¼ˆæ‰“å­—/ç‚¹å‡»/æ»‘åŠ¨ï¼‰â†’ `keyboard/` or `ui/`
-2. **å…ƒç´ è¿›åœº/å‡ºåœº** â†’ `transition/`
-3. **å®¹å™¨å±‚æ“ä½œ**ï¼ˆå¡ç‰‡/æ¨¡æ€ï¼‰ â†’ `container/`
-4. **çŠ¶æ€åé¦ˆ**ï¼ˆæˆåŠŸ/å¤±è´¥/é€šçŸ¥ï¼‰ â†’ `feedback/`
-5. **è¿›åº¦/æ—¶é—´æµé€** â†’ `progress/`
-6. **å“ç‰Œè½ç‚¹/é‡è¦æ—¶åˆ»** â†’ `impact/`
-7. **AI é­”æ³•/å˜æ¢** â†’ `magic/`
-8. **å‘½ä»¤è¡Œ/ä»£ç æ¼”ç¤º** â†’ `terminal/`
+Use for option selection, gallery picking, and visual-direction demos.
 
-### é¿å…å éŸ³å †ç§¯
-- åŒä¸€ä¸ªæ—¶é—´ç‚¹ `max 2 ä¸ª SFX` å¹¶å‘
-- BGM é™åˆ° 0.3 ä»¥ä¸‹æ—¶å¯ä»¥æ”¾ 3 ä¸ª
-- å“ç‰Œ impact æ—¶æ¸…ç©ºå…¶ä»– SFXï¼ˆç•™ç©º 0.2s å†è½ç‚¹ï¼‰
+### AI Generation Flow
 
----
+```text
+generate-start (0.8s)
+-> ai-process (loop every 1.2s while processing)
+-> sparkle (0.8s)
+-> complete-done (0.8s)
+```
 
-## Prompt æ’°å†™åŽŸåˆ™ï¼ˆä¾›å¤ç”¨ï¼‰
+Use when the UI needs to show "thinking" without pretending the result appeared magically.
 
-å‚è€ƒé£Žæ ¼ï¼š`apple keynote, tight, minimal, no reverb unless ambient, crisp, elegant`
+### Logo Reveal
 
-**å¥½ prompt çš„ä¸‰è¦ç´ **ï¼š
-1. **å£°éŸ³ç‰©ç†æè¿°**ï¼šä»€ä¹ˆç‰©ä½“ã€ä»€ä¹ˆåŠ¨ä½œï¼ˆ"mechanical keyboard single key press"ï¼‰
-2. **è´¨æ„Ÿ/é£Žæ ¼é™å®š**ï¼šapple-style / ios-style / cinematic / retro
-3. **åä¾‹æŽ’é™¤**ï¼šno reverb / clean studio / minimal
+```text
+whoosh-fast (0.6s)
+-> logo-reveal-v2 (1.5s)
+-> sparkle (0.8s, optional tail)
+```
 
-âŒ "click sound"
-âœ… "crisp ui button click, clean modern interface sound, apple-style, high pitched"
+Short version:
 
-âŒ "magic"
-âœ… "bright twinkling stars sound, high pitched glittery chime, fairy dust"
+```text
+whoosh -> logo-reveal
+```
 
----
+Use only once per video. Repeating logo hits makes the audio feel cheap.
 
-## è¯¦è§
-- éŸ³é¢‘åŒè½¨åˆ¶ä¸Ž ffmpeg æ‹¼æŽ¥ï¼š`apple-gallery-showcase.md`
-- åŽŸå§‹ç”Ÿæˆè„šæœ¬ï¼š`/tmp/gen_sfx_batch.sh`ï¼ˆä¸€æ¬¡æ€§æ‰¹é‡ç”Ÿæˆå™¨ï¼‰
+### Mobile UI Interaction
+
+```text
+tap-finger (0.5s)
+-> slide-in (0.6s)
+-> toggle-on (0.5s)
+```
+
+Use for app prototypes, onboarding, settings, and mobile product demos.
+
+### Data Visualization / Dashboard
+
+```text
+loading-tick x N
+-> complete-done (0.8s)
+-> achievement (1.5s, optional if the result is a major reveal)
+```
+
+Keep ticks sparse. Dense dashboards become muddy if every metric makes a sound.
+
+### Form Submission
+
+```text
+click-soft (0.5s)
+-> loading-tick x2 (1.0s total)
+-> success-chime (1.0s)
+```
+
+For errors, replace `success-chime` with `error-tone` and avoid a harsh alarm unless the product genuinely requires urgency.
+
+### Magic Transform
+
+```text
+whoosh-fast (0.6s)
+-> transform (1.0s)
+-> sparkle (0.8s)
+```
+
+Use sparingly. If every transform sparkles, none of them feel special.
+
+## Selection Logic
+
+Choose SFX by the physical action being simulated:
+
+1. **Tactile action** such as typing, tapping, clicking, or swiping -> `keyboard/` or `ui/`.
+2. **Element entrance or exit** -> `transition/`.
+3. **Container operation** such as cards, modals, or panels -> `container/`.
+4. **State feedback** such as success, failure, or notification -> `feedback/`.
+5. **Progress or time flow** -> `progress/`.
+6. **Brand landing or important moment** -> `impact/`.
+7. **AI transformation or reveal** -> `magic/`.
+8. **Command-line or code demo** -> `terminal/`.
+
+## Density Rules
+
+- Use fewer sounds than visual beats.
+- Give important sounds room to breathe.
+- Keep most SFX shorter than 0.8s.
+- Avoid stacking more than two SFX in the same 200ms window.
+- Do not use impact sounds for ordinary UI clicks.
+- Keep one "hero sound" per short video.
+
+## Prompting New SFX
+
+When generating a missing SFX, describe:
+
+1. The physical source.
+2. The action.
+3. The desired material/tone.
+4. Exclusions such as no reverb, no crowd, no voice, no melody.
+
+Bad:
+
+```text
+click sound
+```
+
+Good:
+
+```text
+crisp modern UI button click, clean studio recording, short, high pitched,
+no reverb, no background noise
+```
+
+Bad:
+
+```text
+magic
+```
+
+Good:
+
+```text
+bright twinkling stars sound, high pitched glittery chime, fairy-dust feel,
+short tail, no melody, clean studio
+```
+
+## Delivery Checklist
+
+- [ ] Every cue aligns with a visible beat.
+- [ ] SFX density matches product personality.
+- [ ] No cue is used only because there was silence.
+- [ ] BGM leaves room for SFX.
+- [ ] Important impact sounds are not repeated.
+- [ ] All file paths exist.
+- [ ] Final audio is checked in the exported MP4, not only in the timeline.

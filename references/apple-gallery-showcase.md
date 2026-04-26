@@ -1,8 +1,8 @@
-﻿# Apple Gallery Showcase Â· Gallery Display Wall Animation Style
+# Apple Gallery Showcase · Gallery Display Wall Animation Style
 
 > Inspiration source: Claude Design official website hero video + Apple product page "Gallery wall" displays.
-> Real-world origin: shield-design release hero v5
-> Applicable Scenarios: **Product launch hero animations, skill capability demos, portfolio showcases**â€”any scenario where you need to display "multiple high-quality outputs" simultaneously while guiding the viewer's attention.
+> Real-world origin: Slide ProMax release hero v5
+> Applicable Scenarios: **Product launch hero animations, skill capability demos, portfolio showcases**—any scenario where you need to display "multiple high-quality outputs" simultaneously while guiding the viewer's attention.
 
 ---
 
@@ -26,7 +26,7 @@
 ```css
 :root {
   /* Light Gallery Palette */
-  --bg:         #F5F5F7;   /* Main canvas background â€” Apple official website gray */
+  --bg:         #F5F5F7;   /* Main canvas background — Apple official website gray */
   --bg-warm:    #FAF9F5;   /* Warm off-white variant */
   --ink:        #1D1D1F;   /* Primary text color */
   --ink-80:     #3A3A3D;
@@ -34,7 +34,7 @@
   --muted:      #86868B;   /* Secondary text */
   --dim:        #C7C7CC;
   --hairline:   #E5E5EA;   /* 1px border for cards */
-  --accent:     #D97757;   /* Terracotta orange â€” Claude brand */
+  --accent:     #D97757;   /* Terracotta orange — Claude brand */
   --accent-deep:#B85D3D;
 
   --serif-cn: "Noto Serif SC", "Songti SC", Georgia, serif;
@@ -74,7 +74,7 @@
 }
 ```
 
-**Counter-example**: Do not use edge-to-edge tiles (no padding, no borders, no shadow)â€”that is an expression for infographic density, not an exhibition.
+**Counter-example**: Do not use edge-to-edge tiles (no padding, no borders, no shadow)—that is an expression for infographic density, not an exhibition.
 
 ### 2. 3D Tilted Artwork Wall
 
@@ -86,7 +86,7 @@
   perspective-origin: 50% 45%;
 }
 .gallery-canvas {
-  width: 4320px;                         /* Canvas = 2.25Ã— viewport */
+  width: 4320px;                         /* Canvas = 2.25× viewport */
   height: 2520px;                        /* Leave room for panning */
   transform-origin: center center;
   transform: perspective(2400px)
@@ -102,11 +102,11 @@
 
 **Parameter sweet spots**:
 - rotateX: 10-15deg (Any more looks like an awards ceremony VIP photo-wall).
-- rotateY: Â±8-12deg (Sense of left/right symmetry).
-- rotateZ: Â±2-3deg ("This wasn't placed by a machine" human touch).
+- rotateY: ±8-12deg (Sense of left/right symmetry).
+- rotateZ: ±2-3deg ("This wasn't placed by a machine" human touch).
 - perspective: 2000-2800px (<2000 causes fisheye effect, >3000 approaches orthographic projection).
 
-### 3. 2Ã—2 Four-Corner Convergence (Alternate Scenario)
+### 3. 2×2 Four-Corner Convergence (Alternate Scenario)
 
 ```css
 .grid22 {
@@ -132,9 +132,9 @@ const cornerEntry = {
 
 ## Five Core Animation Modes
 
-### Mode A Â· Four-Corner Convergence (0.8-1.2s)
+### Mode A · Four-Corner Convergence (0.8-1.2s)
 
-4 elements glide in from the viewport's four corners while scaling from 0.85 â†’ 1.0, following an ease-out curve. Ideal for openings that "display multiple directional choices."
+4 elements glide in from the viewport's four corners while scaling from 0.85 → 1.0, following an ease-out curve. Ideal for openings that "display multiple directional choices."
 
 ```js
 const inP = easeOut(clampLerp(t, start, end));
@@ -142,9 +142,9 @@ card.style.transform = `translate3d(${(1-inP)*ce.dx}px, ${(1-inP)*ce.dy}px, 0) s
 card.style.opacity = inP;
 ```
 
-### Mode B Â· Selection Zoom + Others Glide Out (0.8s)
+### Mode B · Selection Zoom + Others Glide Out (0.8s)
 
-The selected card zooms from 1.0 â†’ 1.28, while the remaining cards fade out + blur + drift back toward the four corners:
+The selected card zooms from 1.0 → 1.28, while the remaining cards fade out + blur + drift back toward the four corners:
 
 ```js
 // Selected
@@ -156,7 +156,7 @@ card.style.filter = `blur(${outP * 1.5}px)`;
 
 **Key**: Unselected cards must blur, not just purely fade. Blur simulates depth of field, visually "pushing out" the selected card.
 
-### Mode C Â· Ripple Expansion (1.7s)
+### Mode C · Ripple Expansion (1.7s)
 
 Expanding outward from the center, delayed by distance, each card successively fades in + scales down from 1.25x to 0.94x ("camera pulling back"):
 
@@ -168,11 +168,11 @@ const delay = (dist / maxDist) * 0.8;
 const localT = Math.max(0, (t - rippleStart - delay) / 0.7);
 card.style.opacity = easeOut(Math.min(1, localT));
 
-// Concurrent overall scale 1.25â†’0.94
+// Concurrent overall scale 1.25→0.94
 const galleryScale = 1.25 - 0.31 * easeOut(rippleProgress);
 ```
 
-### Mode D Â· Sinusoidal Pan (Continuous Drifting)
+### Mode D · Sinusoidal Pan (Continuous Drifting)
 
 Leverage a combination of a sine wave + linear drift to avoid the "clear start and end" looped feeling of a marquee:
 
@@ -187,7 +187,7 @@ const clampedX = Math.max(-900, Math.min(900, panX));   // Prevent exposing the 
 - Linear drift `5-8 px/s` (Slower than a viewer's blink).
 - Amplitude `120-220 px` (Large enough to be felt, small enough not to induce dizziness).
 
-### Mode E Â· Focus Overlay (Focal Transition)
+### Mode E · Focus Overlay (Focal Transition)
 
 **Crucial Design**: The focus overlay is a **flat element** (not tilted) floating above the tilted canvas. The selected slide scales from its tile position (approx. 400x225) into the screen center (960x540). The background canvas does not change its tilt but **darkens to 45%**:
 
@@ -198,7 +198,7 @@ focusOverlay.style.height = (startH + (endH - startH) * focusIntensity) + 'px';
 focusOverlay.style.opacity = focusIntensity;
 
 // Background cards darken, but remain visible (Crucial! Do not use 100% mask)
-card.style.opacity = entryOp * (1 - 0.55 * focusIntensity);   // 1 â†’ 0.45
+card.style.opacity = entryOp * (1 - 0.55 * focusIntensity);   // 1 → 0.45
 card.style.filter = `brightness(${1 - 0.3 * focusIntensity})`;
 ```
 
@@ -280,7 +280,7 @@ It looks like there's no difference until you remove it, then you'll realize it 
 ```html
 <div class="corner-brand">
   <div class="mark"></div>
-  <div>HUASHU Â· DESIGN</div>
+  <div>SLIDE PROMAX - DESIGN</div>
 </div>
 ```
 
@@ -321,7 +321,7 @@ Only displays during the artwork-wall scenes, fading in and out. Feels like an a
 | Symptom | Cause | Solution |
 |---|---|---|
 | Looks like a PPT template | Cards are devoid of shadows / hairlines | Add a double-layer box-shadow + 1px border. |
-| Tilt feels cheap | Only `rotateY` was used without `rotateZ` | Add Â±2-3deg of `rotateZ` to break the geometric rigidity. |
+| Tilt feels cheap | Only `rotateY` was used without `rotateZ` | Add ±2-3deg of `rotateZ` to break the geometric rigidity. |
 | Pan feels "stuttery/laggy" | Using `setTimeout` or CSS keyframe looping | Use `rAF` + continuous sin/cos functions. |
 | Focus text is blurry | Reusing the low-res image from the gallery tiles | Use an independent overlay + direct raw-image `src`. |
 | Background looks too empty | Using pure `#F5F5F7` flat color | Overlay an SVG fractalNoise with 0.5 opacity. |
@@ -331,7 +331,7 @@ Only displays during the artwork-wall scenes, fading in and out. Feels like an a
 
 ## Quotes & Reference
 
-- Complete sample implementation: `/Users/alchain/Documents/Writing/01-Official-Account/Projects/2026.04-shield-design-release/Graphics/hero-animation-v5.html`
+- Complete sample implementation: `demos/hero-animation-v5.html`
 - Initial Inspiration: `claude.ai/design` hero video
 - Aesthetic references: Apple Product Pages, Dribbble shot compilation screens
 

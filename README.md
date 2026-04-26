@@ -1,7 +1,7 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=SHIELD%20DESIGN&fontSize=80&fontAlignY=35&desc=AI-Powered%20Presentation%20Engine&descAlignY=55&descAlign=50" alt="header" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=SLIDE%20PROMAX&fontSize=80&fontAlignY=35&desc=AI-Powered%20Presentation%20Engine&descAlignY=55&descAlign=50" alt="header" />
 
-# 💎 SHIELD-DESIGN
+# 💎 Slide ProMax
 
 **The Next-Generation Agent-Agnostic Design & Protocol Engine**
 
@@ -11,7 +11,7 @@
 [![Playwright Validation](https://img.shields.io/badge/Playwright-Automated_Testing-2EAD33.svg?style=for-the-badge&logo=playwright&logoColor=white)](#)
 
 <br />
-<img src="./src/hero-banner.png" width="100%" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" alt="SHIELD-DESIGN Engine Architecture" />
+<img src="./src/hero-banner.png" width="100%" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);" alt="Slide ProMax Engine Architecture" />
 </div>
 
 <br />
@@ -23,7 +23,7 @@
 3 to 30 minutes — you ship a **product launch animation**, a clickable App prototype, an editable PPT deck, or a print-grade infographic.
 
 <p align="center">
-  <img src="./src/hero-demo-alt.gif" width="100%" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" alt="SHIELD-DESIGN Output Demo">
+  <img src="./src/hero-demo-alt.gif" width="100%" style="border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" alt="Slide ProMax Output Demo">
 </p>
 
 Not "decent for AI" quality — it looks like a real design team made it. Give the skill your brand assets (logo, colors, UI screenshots) and it accurately reads your brand's voice; give it nothing and the built-in 20 design vocabularies still keep you totally out of AI slop territory.
@@ -33,7 +33,7 @@ Not "decent for AI" quality — it looks like a real design team made it. Give t
 ## 🚀 Install
 
 ```bash
-npx skills add DinhLucent/SHIELD-DESIGN
+npx skills add DinhLucent/Slide_ProMax
 ```
 
 Then just talk to your agent:
@@ -151,18 +151,18 @@ Rigorous avoidance of the visual common denominator of AI output (purple gradien
 
 ---
 
-## 🆚 SHIELD-DESIGN vs. Browser Design Tools
+## 🆚 Slide ProMax vs. Browser Design Tools
 
-Traditional browser graphic tools (like Figma or web-based AI design canvases) excel at GUI interaction. However, SHIELD-DESIGN is architected aggressively differently. Great hi-fi design doesn't start from a blank page; it grows from existing design context.
+Traditional browser graphic tools (like Figma or web-based AI design canvases) excel at GUI interaction. However, Slide ProMax is architected aggressively differently. Great hi-fi design doesn't start from a blank page; it grows from existing design context.
 
-| Feature | Browser-Based AI Tools | SHIELD-DESIGN |
+| Feature | Browser-Based AI Tools | Slide ProMax |
 |---|---|---|
 | **Form Factor** | Web product (used in browser) | Pure Skill (Execution runs in terminal/code editor) |
 | **Deliverables** | Flat Canvas designs / Screenshots | Functional HTML / MP4 / GIF / editable PPTX / PDF |
 | **Interaction** | GUI (click, drag, edit) | Conversation (tell agent, wait) |
 | **Complex Animation** | Extremely Limited | Stage + Sprite timeline · Native 60fps export tooling |
 
-While GUI tools act as an improved interface, SHIELD-DESIGN makes **the graphics-tool layer disappear altogether**.
+While GUI tools act as an improved interface, Slide ProMax makes **the graphics-tool layer disappear altogether**.
 
 ---
 

@@ -1,7 +1,7 @@
 {
-  "name": "shield-design",
+  "name": "slide-promax",
   "version": "1.0.0",
-  "description": "The Next-Generation Agent-Agnostic Design & Protocol Engine",
+  "description": "High-fidelity HTML design, presentation, prototype, and motion engine",
   "private": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

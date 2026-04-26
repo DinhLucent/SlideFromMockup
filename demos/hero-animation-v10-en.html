@@ -1,8 +1,8 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Huashu Design Â· Here's to the Agents (v10)</title>
+<title>Slide ProMax · Here's to the Agents (v10)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Noto+Serif+SC:wght@300;400;500;600&family=Inter:wght@100;200;300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -15,10 +15,10 @@
     --muted: rgba(255,255,255,0.40);
     --dim: rgba(255,255,255,0.18);
     --hairline: rgba(255,255,255,0.12);
-    --accent: #D97757;          /* terracotta â€” è‡´æ•¬ Anthropic è¡€ç»Ÿ */
+    --accent: #D97757;          /* terracotta — Anthropic lineage reference */
     --accent-deep: #B85D3D;
 
-    /* Claude Design palette â€” Act 0 ä¸“ç”¨ */
+    /* Claude Design palette — Act 0 only */
     --cd-bg: #F5F4F0;
     --cd-panel: #FFFFFF;
     --cd-ink: #1A1918;
@@ -388,7 +388,7 @@
   }
   .watermark.visible { opacity: 1; }
 
-  /* ============ Act 0 â€” Claude Design è‡´æ•¬ï¼ˆ+è®½åˆºï¼‰ ============ */
+  /* ============ Act 0 — Claude Design reference (+ critique) ============ */
   .act0 {
     background: #0a0a0a;
   }
@@ -738,7 +738,7 @@
   }
   .cd-caption .period { color: var(--accent); }
 
-  /* Act 0.5 â€” pivot */
+  /* Act 0.5 — pivot */
   .act05 {
     flex-direction: column;
   }
@@ -760,9 +760,9 @@
 
 <div class="stage" id="stage">
 
-  <div class="watermark" id="watermark">Created by shield-design</div>
+  <div class="watermark" id="watermark">Created by slide-promax</div>
 
-  <!-- ========== Act 0: Claude Design è‡´æ•¬ ========== -->
+  <!-- ========== Act 0: Claude Design reference ========== -->
   <div class="scene act0" id="act0ClaudeDesign">
     <div class="cd-browser" id="cdBrowser">
       <!-- Chrome bar -->
@@ -815,14 +815,14 @@
               <div class="cd-tweak-track"><div class="cd-tweak-thumb" id="cdThumb2" style="left: 40%;"></div></div>
             </div>
           </div>
-          <div class="cd-input">Describe what you want nextâ€¦</div>
+          <div class="cd-input">Describe what you want next…</div>
         </div>
         <div class="cd-canvas">
           <div class="cd-poster" id="cdPoster">
             <div class="cd-poster-left">
-              <div class="cd-poster-eyebrow">Anthropic Labs Â· Planning Day</div>
+              <div class="cd-poster-eyebrow">Anthropic Labs · Planning Day</div>
               <div class="cd-poster-title">HEMLARK<br/>RETREAT '26</div>
-              <div class="cd-poster-sub">June 14 Â· Full Day<br/>Pine Valley Lodge</div>
+              <div class="cd-poster-sub">June 14 · Full Day<br/>Pine Valley Lodge</div>
               <div class="cd-poster-pines">
                 <div class="cd-pine"></div>
                 <div class="cd-pine"></div>
@@ -908,7 +908,7 @@
         <span class="d red"></span>
         <span class="d yellow"></span>
         <span class="d green"></span>
-        <span class="tty-title">huashu â€” claude code</span>
+        <span class="tty-title">slide-promax — claude code</span>
       </div>
       <div class="tty-body">
         <span class="prompt">$</span><span class="typed" id="typed"></span><span class="cursor" id="cursor"></span>
@@ -938,10 +938,10 @@
   </div>
 
   <div class="scene act3" id="act3Brand">
-    <div class="brand-wordmark" id="wordmark">huashu<span class="accent">-</span>design</div>
+    <div class="brand-wordmark" id="wordmark">slide<span class="accent">-</span>promax</div>
     <div class="farewell-quote" id="farewell">For them, we built this.</div>
-    <div class="farewell-cn" id="farewellCn">Â· ä¸º ä»– ä»¬ Â· æˆ‘ ä»¬ é€  äº† è¿™ ä¸ª Â·</div>
-    <div class="brand-url" id="url">shield-design.ai/shield-design-hero</div>
+    <div class="farewell-cn" id="farewellCn">· BUILT FOR AGENTS ·</div>
+    <div class="brand-url" id="url">slide-promax.ai/slide-promax-hero</div>
   </div>
 
 </div>
@@ -967,7 +967,7 @@
     'preview-25-consciousness-prob.png','preview-26-divider-4.png','preview-27-cot-faithfulness.png','preview-28-alignment-faking.png',
     'preview-29-divider-5.png','preview-30-open-questions.png','preview-31-giving-back.png','preview-32-closing.png',
   ];
-  const BASE = '../../../2026.04-AIå¿ƒç†å­¦/æ¼”è®²PPT-åŒ—å¤§/';
+  const BASE = '../../../sample-assets/presentation/';
 
   // ---------- Build gallery ----------
   const COLS = 8, ROWS = 6, COUNT = COLS * ROWS;
@@ -1013,13 +1013,13 @@
   const T = {
     DURATION: 30.0,
 
-    // ===== Act 0: Claude Design è‡´æ•¬ (0 - 4s) =====
+    // ===== Act 0: Claude Design reference (0 - 4s) =====
     a0_in:   [0.3, 1.2],       // browser fade + scale in
-    a0_hold: [1.2, 3.4],       // tweaks è‡ªåŠ¨åŠ¨
-    a0_out:  [3.4, 4.0],       // browser é€€åœº
+    a0_hold: [1.2, 3.4],       // tweaks auto-motion
+    a0_out:  [3.4, 4.0],       // browser exits
 
-    cd_tweak_anim: [1.4, 3.3], // tweaks thumb è‡ªåŠ¨æ‹–åŠ¨çª—å£
-    cd_accent_switch: [2.1, 2.5], // accent color dot åˆ‡æ¢åˆ°æ·±ç»¿
+    cd_tweak_anim: [1.4, 3.3], // tweaks thumb auto-drags the window
+    cd_accent_switch: [2.1, 2.5], // accent color dot switches to deep green
 
     cd_caption_in:  [1.6, 2.2],
     cd_caption_hold:[2.2, 3.3],
@@ -1116,7 +1116,7 @@
   const urlEl = document.getElementById('url');
   const watermark = document.getElementById('watermark');
 
-  const COMMAND = '/shield-design åšä¸€ä»½å‘å¸ƒä¼šPPT';
+  const COMMAND = '/slide-promax create a launch deck';
 
   // ---------- Gallery transforms ----------
   const GALLERY_TILT = 'perspective(2400px) rotateX(14deg) rotateY(-10deg) rotateZ(-2deg)';
@@ -1140,7 +1140,7 @@
 
   // ---------- Render ----------
   function render(t) {
-    // ============ Act 0: Claude Design è‡´æ•¬ ============
+    // ============ Act 0: Claude Design reference ============
     if (t < T.a0_out[1]) {
       let op;
       if (t < T.a0_in[1]) op = lerp(t, T.a0_in[0], T.a0_in[1], 0, 1, expoOut);
@@ -1161,23 +1161,23 @@
       cdBrowser.style.transform = `translate(-50%, -50%) scale(${finalScale})`;
       cdBrowser.style.filter = blurOut > 0.1 ? `blur(${blurOut}px)` : '';
 
-      // Tweaks thumb è‡ªåŠ¨æ‹–åŠ¨ï¼ˆæ¨¡æ‹Ÿç”¨æˆ·åœ¨è°ƒèŠ‚ï¼‰
+      // Tweaks thumb auto-drags to simulate user adjustment
       const tw = clampLerp(t, T.cd_tweak_anim[0], T.cd_tweak_anim[1]);
-      // Headline slider: 58% â†’ 72% â†’ 62%
+      // Headline slider: 58% → 72% → 62%
       let headlinePct;
       if (tw < 0.5) headlinePct = 58 + (72 - 58) * easeInOut(tw * 2);
       else headlinePct = 72 + (62 - 72) * easeInOut((tw - 0.5) * 2);
       cdThumb1.style.left = headlinePct + '%';
-      // Density slider: 40% â†’ 55%
+      // Density slider: 40% → 55%
       const densityPct = 40 + 15 * easeInOut(tw);
       cdThumb2.style.left = densityPct + '%';
 
-      // Accent ä»Žæ©™åˆ‡æ¢åˆ°æ·±ç»¿ï¼ˆæ¨¡æ‹Ÿç”¨æˆ·åœ¨é€‰è‰²ï¼‰
+      // Accent switches from orange to deep green to simulate color selection
       const switched = t >= T.cd_accent_switch[0];
       if (switched) {
         cdDot1.classList.add('active');
         cdDot2.classList.remove('active');
-        // Poster é¢œè‰²è·Ÿç€å˜
+        // Poster color follows
         cdPoster.style.background = 'var(--cd-green)';
       } else {
         cdDot1.classList.remove('active');
@@ -1199,7 +1199,7 @@
       showScene('a0', 0);
     }
 
-    // ============ Act 0.5: Pivot â€” "But it isn't the future." ============
+    // ============ Act 0.5: Pivot — "But it isn't the future." ============
     if (t >= T.a05_in[0] - 0.1 && t < T.a05_out[1]) {
       let op;
       if (t < T.a05_in[1]) op = lerp(t, T.a05_in[0], T.a05_in[1], 0, 1, expoOut);
@@ -1227,7 +1227,7 @@
       else op = lerp(t, T.a1a_out[0], T.a1a_out[1], 1, 0, easeOut);
       showScene('a1a', op);
 
-      // Weight morph 100 â†’ 400 on "Here's to the Agents."
+      // Weight morph 100 → 400 on "Here's to the Agents."
       const morph = expoOut(clampLerp(t, T.a1a_in[0], T.a1a_in[1] + 0.6));
       const w = 100 + (400 - 100) * morph;
       heroLine.style.fontVariationSettings = `"wght" ${w.toFixed(0)}`;
@@ -1279,7 +1279,7 @@
       const glyphIn = clampLerp(t, T.a1c_in[0] + 0.15, T.a1c_in[1]);
       glyphDrag.style.opacity = expoOut(glyphIn);
 
-      // Animate slider thumb 30% â†’ 70% position during hold
+      // Animate slider thumb 30% → 70% position during hold
       const dragT = clampLerp(t, T.a1c_hold[0], T.a1c_hold[1] - 0.2);
       const leftPct = 30 + 40 * easeInOut(dragT);
       sliderThumb.style.left = leftPct + '%';

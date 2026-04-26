@@ -1,102 +1,103 @@
-﻿# Gallery Ripple + Multi-Focus Â· åœºæ™¯ç¼–æŽ’å“²å­¦
+# Gallery Ripple + Multi-Focus - Scene Choreography Philosophy
 
-> ä»Ž shield-design hero åŠ¨ç”» v9ï¼ˆ25 ç§’ï¼Œ8 åœºæ™¯ï¼‰é‡Œæç‚¼å‡ºçš„**ä¸€ç§å¯å¤ç”¨çš„è§†è§‰ç¼–æŽ’ç»“æž„**ã€‚
-> ä¸æ˜¯åŠ¨ç”»åˆ¶ä½œæµæ°´çº¿ï¼Œæ˜¯**ä»€ä¹ˆåœºæ™¯ä¸‹è¿™ç§ç¼–æŽ’æ˜¯"å¯¹çš„"**ã€‚
-> å®žæˆ˜å‚è€ƒï¼š[demos/hero-animation-v9.mp4](../demos/hero-animation-v9.mp4) Â· [https://www.shield-design.ai/shield-design-hero/](https://www.shield-design.ai/shield-design-hero/)
+> Extracted from the Slide ProMax hero animation v9: 25 seconds, 8 scenes. It describes **a reusable visual choreography structure**.
+> This is not an animation production pipeline. It explains **when this choreography is the right choice**.
+> Practical reference: `demos/hero-animation-v9.mp4`
 
-## ä¸€å¥è¯å…ˆè¡Œ
+## One-Sentence Rule
 
-> **å½“ä½ æœ‰ 20+ åŒè´¨è§†è§‰ç´ æã€åœºæ™¯éœ€è¦"è¡¨è¾¾è§„æ¨¡æ„Ÿå’Œæ·±åº¦"æ—¶ï¼Œä¼˜å…ˆè€ƒè™‘ Gallery Ripple + Multi-Focus è¿™å¥—ç¼–æŽ’ï¼Œè€Œä¸æ˜¯å †ç ŒæŽ’ç‰ˆã€‚**
+> **When you have 20+ homogeneous visual assets and the scene needs to communicate "scale and depth", prefer Gallery Ripple + Multi-Focus instead of stacked layout.**
 
-é€šç”¨ SaaS feature åŠ¨ç”»ã€äº§å“å‘å¸ƒä¼šã€skill æŽ¨å¹¿ã€ç³»åˆ—ä½œå“é›†å±•ç¤ºâ€”â€”åªè¦ç´ ææ•°é‡å¤Ÿã€é£Žæ ¼ä¸€è‡´ï¼Œè¿™å¥—ç»“æž„å‡ ä¹Žéƒ½èƒ½å‡ºæ•ˆæžœã€‚
-
----
-
-## è¿™ä¸ªæ‰‹æ³•ç©¶ç«Ÿåœ¨è¡¨è¾¾ä»€ä¹ˆ
-
-ä¸æ˜¯"ç§€ç´ æ"â€”â€”æ˜¯é€šè¿‡**ä¸¤ä¸ªèŠ‚å¥å˜åŒ–**è®²ä¸€ä¸ªå™äº‹ï¼š
-
-**ç¬¬ä¸€æ‹ Â· Ripple å±•å¼€ï¼ˆ~1.5sï¼‰**ï¼šä»Žä¸­å¿ƒå‘å››å‘¨æ‰©æ•£å‡º 48 å¼ å¡ç‰‡ï¼Œè§‚ä¼—è¢«"é‡"éœ‡ä½â€”â€”ã€Œå“¦ï¼Œè¿™ä¸œè¥¿æœ‰è¿™ä¹ˆå¤šäº§å‡ºã€ã€‚
-
-**ç¬¬äºŒæ‹ Â· Multi-Focusï¼ˆ~8sï¼Œ4 æ¬¡å¾ªçŽ¯ï¼‰**ï¼šé•œå¤´åœ¨æ…¢é€Ÿ pan çš„åŒæ—¶ï¼Œ4 æ¬¡æŠŠèƒŒæ™¯ dim + desaturateï¼ŒæŠŠæŸä¸€å¼ å¡å•ç‹¬æ”¾å¤§åˆ°å±å¹•ä¸­å¤®â€”â€”è§‚ä¼—ä»Ž"é‡çš„å†²å‡»"åˆ‡æ¢åˆ°"è´¨çš„å‡è§†"ï¼Œæ¯æ¬¡ 1.7s èŠ‚å¥ç¨³å®šã€‚
-
-**æ ¸å¿ƒå™äº‹ç»“æž„**ï¼š**è§„æ¨¡ï¼ˆRippleï¼‰ â†’ å‡è§†ï¼ˆFocus Ã— 4ï¼‰ â†’ æ·¡å‡ºï¼ˆWalloffï¼‰**ã€‚è¿™ä¸‰æ‹ç»„åˆèµ·æ¥è¡¨è¾¾çš„æ˜¯ã€ŒBreadth Ã— Depthã€â€”â€”ä¸åªæ˜¯èƒ½åšå¾ˆå¤šï¼Œæ¯ä¸€ä¸ªè¿˜éƒ½å€¼å¾—åœä¸‹æ¥çœ‹ã€‚
-
-å¯¹æ¯”ä¸€ä¸‹åä¾‹ï¼š
-
-| åšæ³• | è§‚ä¼—æ„ŸçŸ¥ |
-|------|---------|
-| 48 å¼ å¡é™æ€æŽ’åˆ—ï¼ˆæ²¡æœ‰ Rippleï¼‰| å¥½çœ‹ä½†æ— å™äº‹ï¼Œåƒä¸€å¼  grid screenshot |
-| ä¸€å¼ ä¸€å¼ å¿«åˆ‡ï¼ˆæ²¡æœ‰ Gallery contextï¼‰| åƒ slideshowï¼Œå¤±åŽ»"è§„æ¨¡æ„Ÿ" |
-| åªæœ‰ Ripple æ²¡æœ‰ Focus | éœ‡ä½äº†ä½†æ²¡è®©äººè®°ä½ä»»ä½•å…·ä½“ä¸€å¼  |
-| **Ripple + Focus Ã— 4ï¼ˆæœ¬é…æ–¹ï¼‰** | **å…ˆéœ‡æ’¼äºŽé‡ï¼Œå†å‡è§†äºŽè´¨ï¼Œæœ€åŽå¹³é™æ·¡å‡ºâ€”â€”å®Œæ•´æƒ…ç»ªå¼§çº¿** |
+Generic SaaS feature animations, product launch films, skill promotion videos, and series portfolio showcases can all use this structure as long as the asset volume is high enough and the visual style is consistent.
 
 ---
 
-## å‰ç½®æ¡ä»¶ï¼ˆå¿…é¡»å…¨éƒ¨æ»¡è¶³ï¼‰
+## What This Technique Actually Expresses
 
-è¿™å¥—ç¼–æŽ’**ä¸æ˜¯ä¸‡èƒ½çš„**ï¼Œä¸‹é¢ 4 æ¡ç¼ºä¸€ä¸å¯ï¼š
+It is not "showing materials". It tells a narrative through **two rhythm changes**:
 
-1. **ç´ æè§„æ¨¡ â‰¥ 20 å¼ ï¼Œæœ€å¥½ 30+**
-   å°‘äºŽ 20 å¼  Ripple ä¼šæ˜¾å¾—"ç©º"â€”â€”48 æ ¼é‡Œæ¯æ ¼éƒ½åœ¨åŠ¨æ‰æœ‰å¯†åº¦æ„Ÿã€‚v9 ç”¨äº† 48 æ ¼ Ã— 32 å¼ å›¾ï¼ˆå¾ªçŽ¯å¡«å……ï¼‰ã€‚
+**Beat 1 - Ripple expansion (~1.5s)**: 48 cards spread outward from the center. The audience is hit by quantity: "this thing produces this much output."
 
-2. **ç´ æè§†è§‰é£Žæ ¼ä¸€è‡´**
-   å…¨æ˜¯ 16:9 slide é¢„è§ˆ / å…¨æ˜¯ app æˆªå›¾ / å…¨æ˜¯å°é¢è®¾è®¡â€”â€”é•¿å®½æ¯”ã€è‰²è°ƒã€ç‰ˆå¼å¾—åƒæ˜¯"ä¸€å¥—"ã€‚æ··æ­ä¼šè®© Gallery çœ‹èµ·æ¥åƒå‰ªè´´æ¿ã€‚
+**Beat 2 - Multi-Focus (~8s, 4 loops)**: while the camera slowly pans, the background dims and desaturates 4 times, and one card is enlarged to the center each time. The viewer moves from "impact of quantity" to "attention to quality". Each focus lasts a stable 1.7s.
 
-3. **ç´ æå•ç‹¬æ”¾å¤§åŽä»æœ‰å¯è¯»ä¿¡æ¯**
-   Focus æ˜¯æŠŠæŸå¼ å¡æ”¾å¤§åˆ° 960px å®½ï¼Œå¦‚æžœåŽŸå›¾æ”¾å¤§åŽç³Šäº†æˆ–ä¿¡æ¯ç¨€è–„ï¼ŒFocus è¿™ä¸€æ‹å°±åºŸäº†ã€‚åå‘éªŒè¯ï¼šèƒ½ä¸èƒ½ä»Ž 48 å¼ é‡ŒæŒ‘å‡º 4 å¼ ä½œä¸º"æœ€æœ‰ä»£è¡¨æ€§"çš„ï¼ŸæŒ‘ä¸å‡ºæ¥å°±è¯´æ˜Žç´ æè´¨é‡ä¸é½ã€‚
+**Core narrative structure**: **Scale (Ripple) -> Focus (Focus x4) -> Fade-out (Walloff)**. Together these three beats express **Breadth x Depth**: not only can it produce many things, each individual output is also worth stopping to inspect.
 
-4. **åœºæ™¯æœ¬èº«æ˜¯ landscape æˆ– squareï¼Œä¸æ˜¯ç«–å±**
-   Gallery çš„ 3D å€¾æ–œï¼ˆ`rotateX(14deg) rotateY(-10deg)`ï¼‰éœ€è¦æ¨ªå‘å»¶ä¼¸æ„Ÿï¼Œç«–å±ä¼šè®©å€¾æ–œæ•ˆæžœçœ‹èµ·æ¥çª„ä¸”åˆ«æ‰­ã€‚
+Anti-examples:
 
-**ç¼ºæ¡ä»¶çš„åŽå¤‡è·¯å¾„**ï¼š
-
-| ç¼ºä»€ä¹ˆ | é€€åŒ–ä¸ºä»€ä¹ˆ |
-|-------|-----------|
-| ç´ æ < 20 å¼  | æ”¹ç”¨ã€Œ3-5 å¼ å¹¶æŽ’é™æ€å±•ç¤º + é€ä¸ª focusã€ |
-| é£Žæ ¼ä¸ä¸€è‡´ | æ”¹ç”¨ã€Œå°é¢ + 3 ç« èŠ‚å¤§å›¾ã€çš„ keynote-style |
-| ä¿¡æ¯ç¨€è–„ | æ”¹ç”¨ã€Œdata-driven dashboardã€æˆ–ã€Œé‡‘å¥ + å¤§å­—ã€ |
-| ç«–å±åœºæ™¯ | æ”¹ç”¨ã€Œvertical scroll + sticky cardsã€ |
+| Approach | Audience Perception |
+|---|---|
+| Static arrangement of 48 cards, no ripple | Pretty but has no narrative; it feels like a grid screenshot |
+| Fast one-by-one cuts without gallery context | Feels like a slideshow and loses the sense of scale |
+| Ripple without focus | Impressive but nothing specific is memorable |
+| **Ripple + Focus x4** | **First shock by quantity, then attention to quality, then calm fade-out: a complete emotional arc** |
 
 ---
 
-## æŠ€æœ¯é…æ–¹ï¼ˆv9 å®žæˆ˜å‚æ•°ï¼‰
+## Preconditions
 
-### 4-Layer ç»“æž„
+This choreography **is not universal**. All 4 conditions below must be satisfied:
 
+1. **Asset volume >= 20, ideally 30+**
+   Fewer than 20 assets makes the ripple feel empty. A 48-slot grid only feels dense when almost every slot is active. v9 used a 48-slot grid filled from 32 images with looping/reuse.
+
+2. **Assets share a consistent visual style**
+   They should all be 16:9 slide previews, all app screenshots, all covers, or another coherent family. Aspect ratio, tone, and layout must feel like a set. Mixed assets make the gallery look like a clipboard.
+
+3. **Each focused asset remains readable when enlarged**
+   Focus enlarges one card to about 960px wide. If the source image becomes blurry or information-thin at that size, the focus beat fails. Reverse test: can you pick 4 representative cards from the grid? If not, the asset quality is uneven.
+
+4. **The scene is landscape or square, not vertical**
+   The gallery's 3D tilt (`rotateX(14deg) rotateY(-10deg)`) needs horizontal expansion. On vertical screens it becomes narrow and awkward.
+
+Fallback paths when a condition is missing:
+
+| Missing Condition | Fallback |
+|---|---|
+| Fewer than 20 assets | Use 3-5 static side-by-side cards + sequential focus |
+| Inconsistent style | Use a cover + 3 chapter hero images in keynote style |
+| Thin information | Use a data-driven dashboard or quote + large typography |
+| Vertical screen | Use vertical scroll + sticky cards |
+
+---
+
+## Technical Recipe: v9 Battle-Tested Parameters
+
+### 4-Layer Structure
+
+```text
+viewport (1920x1080, perspective: 2400px)
+  -> canvas (4320x2520, large overflow) -> 3D tilt + pan
+      -> 8x6 grid = 48 cards (gap 40px, padding 60px)
+          -> img (16:9, border-radius 9px)
+      -> focus-overlay (absolute center, z-index 40)
+          -> img (matches selected slide)
 ```
-viewport (1920Ã—1080, perspective: 2400px)
-  â””â”€ canvas (4320Ã—2520, è¶…å¤§ overflow) â†’ 3D tilt + pan
-      â””â”€ 8Ã—6 grid = 48 cards (gap 40px, padding 60px)
-          â””â”€ img (16:9, border-radius 9px)
-      â””â”€ focus-overlay (absolute center, z-index 40)
-          â””â”€ img (matches selected slide)
-```
 
-**å…³é”®**ï¼šcanvas æ¯” viewport å¤§ 2.25 å€ï¼Œè¿™æ · pan æ‰æœ‰"çª¥è§†æ›´å¤§ä¸–ç•Œ"çš„æ„Ÿè§‰ã€‚
+**Key point**: the canvas is 2.25x larger than the viewport. This lets the pan feel like peeking into a larger world.
 
-### Ripple å±•å¼€ï¼ˆè·ç¦»å»¶è¿Ÿç®—æ³•ï¼‰
+### Ripple Expansion: Distance-Based Delay
 
 ```js
-// æ¯å¼ å¡çš„å…¥åœºæ—¶é—´ = è·ä¸­å¿ƒçš„è·ç¦» Ã— 0.8s å»¶è¿Ÿ
+// Each card's entrance time = distance from center x 0.8s delay.
 const col = i % 8, row = Math.floor(i / 8);
-const dc = col - 3.5, dr = row - 2.5;       // åˆ°ä¸­å¿ƒçš„ offset
+const dc = col - 3.5, dr = row - 2.5;       // offset from center
 const dist = Math.hypot(dc, dr);
 const maxDist = Math.hypot(3.5, 2.5);
-const delay = (dist / maxDist) * 0.8;       // 0 â†’ 0.8s
+const delay = (dist / maxDist) * 0.8;       // 0 -> 0.8s
 const localT = Math.max(0, (t - rippleStart - delay) / 0.7);
 const opacity = expoOut(Math.min(1, localT));
 ```
 
-**æ ¸å¿ƒå‚æ•°**ï¼š
-- æ€»æ—¶é•¿ 1.7sï¼ˆ`T.s3_ripple: [8.3, 10.0]`ï¼‰
-- æœ€å¤§å»¶è¿Ÿ 0.8sï¼ˆä¸­å¿ƒæœ€æ—©å‡ºï¼Œè§’è½æœ€æ™šï¼‰
-- æ¯å¼ å¡å…¥åœºæ—¶é•¿ 0.7s
-- Easing: `expoOut`ï¼ˆçˆ†å‘æ„Ÿï¼Œä¸æ˜¯å¹³æ»‘ï¼‰
+**Core parameters**:
 
-**åŒæ—¶åšçš„äº‹**ï¼šcanvas scale ä»Ž 1.25 â†’ 0.94ï¼ˆzoom out to revealï¼‰â€”â€” é…åˆå‡ºçŽ°çš„åŒæ­¥æŽ¨è¿œæ„Ÿã€‚
+- Total duration: 1.7s, such as `T.s3_ripple: [8.3, 10.0]`
+- Maximum delay: 0.8s; center appears earliest, corners latest
+- Each card entrance duration: 0.7s
+- Easing: `expoOut`; explosive, not merely smooth
 
-### Multi-Focusï¼ˆ4 æ¬¡èŠ‚å¥ï¼‰
+**At the same time**: canvas scale moves from 1.25 -> 0.94, a zoom-out-to-reveal motion that supports the ripple expansion.
+
+### Multi-Focus: 4 Rhythmic Beats
 
 ```js
 T.focuses = [
@@ -107,31 +108,33 @@ T.focuses = [
 ];
 ```
 
-**èŠ‚å¥è§„å¾‹**ï¼šæ¯ä¸ª focus 1.7sï¼Œé—´éš” 0.6s å–˜æ¯ã€‚æ€»è®¡ 8sï¼ˆ11.0â€“19.6sï¼‰ã€‚
+**Rhythm law**: each focus lasts 1.7s with a 0.6s breathing gap. Total duration is about 8s, from 11.0s to 19.6s.
 
-**æ¯æ¬¡ focus å†…éƒ¨**ï¼š
-- In ramp: 0.4sï¼ˆ`expoOut`ï¼‰
-- Hold: ä¸­é—´ 0.9sï¼ˆ`focusIntensity = 1`ï¼‰
-- Out ramp: 0.4sï¼ˆ`easeOut`ï¼‰
+Inside each focus:
 
-**èƒŒæ™¯å˜åŒ–ï¼ˆè¿™æ˜¯å…³é”®ï¼‰**ï¼š
+- In ramp: 0.4s with `expoOut`
+- Hold: middle 0.9s with `focusIntensity = 1`
+- Out ramp: 0.4s with `easeOut`
+
+**Background change, the critical part**:
 
 ```js
 if (focusIntensity > 0) {
   const dimOp = entryOp * (1 - 0.6 * focusIntensity);  // dim to 40%
-  const brt = 1 - 0.32 * focusIntensity;                // brightness 68%
-  const sat = 1 - 0.35 * focusIntensity;                // saturate 65%
+  const brt = 1 - 0.32 * focusIntensity;               // brightness 68%
+  const sat = 1 - 0.35 * focusIntensity;               // saturation 65%
   card.style.filter = `brightness(${brt}) saturate(${sat})`;
 }
 ```
 
-**ä¸åªæ˜¯ opacityâ€”â€”åŒæ—¶ desaturate + darken**ã€‚è¿™è®©å‰æ™¯ overlay çš„è‰²å½©"è·³å‡ºæ¥"ï¼Œè€Œä¸æ˜¯åªæ˜¯"å˜äº®ä¸€ç‚¹"ã€‚
+This is **not just opacity**. Desaturate and darken at the same time. That makes the foreground overlay's color pop out, instead of merely becoming "slightly brighter".
 
-**Focus overlay å°ºå¯¸åŠ¨ç”»**ï¼š
-- ä»Ž 400Ã—225ï¼ˆå…¥åœºï¼‰â†’ 960Ã—540ï¼ˆhold æ€ï¼‰
-- å¤–å›´æœ‰ 3 å±‚ shadow + 3px accent è‰² outline ringï¼Œå‘ˆçŽ°"è¢«æ¡†ä½çš„æ„Ÿè§‰"
+**Focus overlay size animation**:
 
-### Panï¼ˆæŒç»­æ„Ÿè®©é™æ­¢ä¸æ— èŠï¼‰
+- From 400x225 on entrance to 960x540 in hold state
+- Outer treatment: 3 shadow layers + 3px accent outline ring, producing the feeling that the selected output is framed and inspected
+
+### Pan: Continuous Motion Prevents Static Boredom
 
 ```js
 const panT = Math.max(0, t - 8.6);
@@ -139,112 +142,115 @@ const panX = Math.sin(panT * 0.12) * 220 - panT * 8;
 const panY = Math.cos(panT * 0.09) * 120 - panT * 5;
 ```
 
-- æ­£å¼¦æ³¢ + çº¿æ€§ drift åŒå±‚è¿åŠ¨â€”â€”ä¸æ˜¯çº¯å¾ªçŽ¯ï¼Œæ¯ä¸ªæ—¶åˆ»ä½ç½®éƒ½ä¸åŒ
-- X/Y é¢‘çŽ‡ä¸åŒï¼ˆ0.12 vs 0.09ï¼‰é¿å…è§†è§‰ä¸Šçœ‹å‡º"è§„å¾‹å¾ªçŽ¯"
-- clamp åœ¨ Â±900/500px é˜²æ­¢æ¼‚å‡º
+- Sine wave + linear drift creates two motion layers. It is not a pure loop; every moment lands in a different place.
+- X and Y use different frequencies, 0.12 vs 0.09, which prevents the viewer from seeing the loop pattern.
+- Clamp around +/-900px horizontally and +/-500px vertically to avoid drifting out.
 
-**ä¸ºä»€ä¹ˆä¸ç”¨çº¯çº¿æ€§ pan**ï¼šçº¯çº¿æ€§è§‚ä¼—ä¼š"é¢„æµ‹"ä¸‹ä¸€ç§’åœ¨å“ªï¼›æ­£å¼¦+drift è®©æ¯ä¸€ç§’éƒ½æ˜¯æ–°çš„ï¼Œ3D å€¾æ–œä¸‹äº§ç”Ÿ"å¾®æ™•èˆ¹æ„Ÿ"ï¼ˆå¥½çš„é‚£ç§ï¼‰ï¼Œæ³¨æ„åŠ›è¢«æ‹‰ä½ã€‚
+**Why not pure linear pan**: viewers predict where pure linear motion will be in the next second. Sine + drift keeps each moment slightly new. Under 3D tilt it creates a subtle drifting-vessel feeling, in the good sense, and holds attention.
 
 ---
 
-## 5 ä¸ªå¯å¤ç”¨æ¨¡å¼ï¼ˆä»Ž v6â†’v9 è¿­ä»£ä¸­è’¸é¦ï¼‰
+## 5 Reusable Patterns Distilled From v6 -> v9
 
-### 1. **expoOut ä½œä¸ºä¸» easingï¼Œä¸æ˜¯ cubicOut**
+### 1. Use `expoOut` as the primary easing, not `cubicOut`
 
-`easeOut = 1 - (1-t)Â³`ï¼ˆå¹³æ»‘ï¼‰vs `expoOut = 1 - 2^(-10t)`ï¼ˆçˆ†å‘åŽè¿…é€Ÿæ”¶æ•›ï¼‰ã€‚
+`easeOut = 1 - (1-t)^3`, smooth, versus `expoOut = 1 - 2^(-10t)`, explosive then quickly converging.
 
-**é€‰æ‹©ç†ç”±**ï¼šexpoOut çš„å‰ 30% å¾ˆå¿«è¾¾åˆ° 90%ï¼Œæ›´åƒç‰©ç†é˜»å°¼ï¼Œç¬¦åˆ"é‡çš„ä¸œè¥¿è½åœ°"çš„ç›´è§‰ã€‚ç‰¹åˆ«é€‚åˆï¼š
-- å¡ç‰‡å…¥åœºï¼ˆé‡é‡æ„Ÿï¼‰
-- Ripple æ‰©æ•£ï¼ˆå†²å‡»æ³¢ï¼‰
-- Brand æµ®èµ·ï¼ˆè½å®šæ„Ÿï¼‰
+**Why**: the first 30% of `expoOut` reaches about 90% quickly, closer to physical damping and the intuition of a heavy object landing. It is especially suitable for:
 
-**ä»€ä¹ˆæ—¶å€™ä»ç”¨ cubicOut**ï¼šfocus out rampã€å¯¹ç§°çš„å¾®åŠ¨æ•ˆã€‚
+- Card entrance, giving weight
+- Ripple expansion, giving shockwave feel
+- Brand lift, giving settled arrival
 
-### 2. **çº¸æ„Ÿåº•è‰² + èµ¤é™¶æ©™ accentï¼ˆAnthropic è¡€ç»Ÿï¼‰**
+**When to still use cubic/easeOut**: focus out ramps and symmetrical micro motion.
+
+### 2. Warm paper background + terracotta accent
 
 ```css
---bg: #F7F4EE;        /* æš–çº¸ */
---ink: #1D1D1F;       /* å‡ ä¹Žé»‘ */
---accent: #D97757;    /* èµ¤é™¶æ©™ */
---hairline: #E4DED2;  /* æš–çº¿æ¡ */
+--bg: #F7F4EE;        /* warm paper */
+--ink: #1D1D1F;       /* nearly black */
+--accent: #D97757;    /* terracotta */
+--hairline: #E4DED2;  /* warm line */
 ```
 
-**ä¸ºä»€ä¹ˆ**ï¼šæ¸©æš–åº•è‰²åœ¨ GIF åŽ‹ç¼©åŽä¾ç„¶æœ‰"å‘¼å¸æ„Ÿ"ï¼Œä¸åƒçº¯ç™½ä¼šæ˜¾å¾—"å±å¹•æ„Ÿ"ã€‚èµ¤é™¶æ©™ä½œä¸ºå”¯ä¸€ accent è´¯ç©¿ terminal promptã€dir-card é€‰ä¸­ã€cursorã€brand hyphenã€focus ringâ€”â€”æ‰€æœ‰è§†è§‰é”šç‚¹éƒ½è¢«è¿™ä¸€ä¸ªè‰²ä¸²èµ·æ¥ã€‚
+**Why**: a warm background still breathes after GIF compression. Pure white becomes screen-like and flat. Terracotta as the only accent ties together the terminal prompt, selected directory card, cursor, brand hyphen, and focus ring.
 
-**v5 æ•™è®­**ï¼šåŠ äº† noise overlay ä»¥æ¨¡æ‹Ÿ"çº¸çº¹"ï¼Œç»“æžœ GIF å¸§åŽ‹ç¼©å…¨åºŸï¼ˆæ¯å¸§éƒ½ä¸åŒï¼‰ã€‚v6 æ”¹ä¸º"åªç”¨åº•è‰² + æš– shadow"ï¼Œçº¸æ„Ÿä¿ç•™ 90%ï¼ŒGIF ä½“ç§¯ç¼©å° 60%ã€‚
+**v5 lesson**: a noise overlay was added to simulate paper texture, but GIF compression destroyed it because every frame differed. v6 changed to "background color + warm shadow only". It preserved 90% of the paper feeling and reduced GIF size by about 60%.
 
-### 3. **ä¸¤æ¡£ Shadow æ¨¡æ‹Ÿæ·±åº¦ï¼Œä¸ç”¨çœŸ 3D**
+### 3. Use two-level shadows to simulate depth instead of true 3D
 
 ```css
 .gallery-card.depth-near { box-shadow: 0 32px 80px -22px rgba(60,40,20,0.22), ... }
 .gallery-card.depth-far  { box-shadow: 0 14px 40px -16px rgba(60,40,20,0.10), ... }
 ```
 
-ç”¨ `sin(i Ã— 1.7) + cos(i Ã— 0.73)` ç¡®å®šæ€§ç®—æ³•ç»™æ¯å¼ å¡åˆ†é… near/mid/far ä¸‰æ¡£ shadowâ€”â€”**è§†è§‰ä¸Šæœ‰"ä¸‰ç»´å †å "æ„Ÿï¼Œä½†æ¯å¸§ transform å®Œå…¨ä¸å˜ï¼ŒGPU æ¶ˆè€— 0**ã€‚
+Use a deterministic formula such as `sin(i * 1.7) + cos(i * 0.73)` to assign near/mid/far shadow levels. Visually it creates a sense of 3D stacking, while each frame's transform stays static and GPU cost stays low.
 
-**çœŸ 3D çš„ä»£ä»·**ï¼šæ¯ä¸ª card å•ç‹¬ `translateZ`ï¼ŒGPU æ¯å¸§éƒ½åœ¨ç®— 48 ä¸ª transform + shadow blurã€‚v4 è¯•è¿‡ï¼ŒPlaywright å½•åˆ¶ 25fps éƒ½åƒåŠ›ã€‚v6 çš„ä¸¤æ¡£ shadow è‚‰çœ¼æ•ˆæžœå·®è· <5%ï¼Œä½†æˆæœ¬å·® 10 å€ã€‚
+**Cost of true 3D**: individual `translateZ` per card means the GPU computes 48 transforms plus shadow blur every frame. v4 tried this and struggled during 25fps Playwright recording. The two-level shadow method looks within roughly 5% of the real effect but costs far less.
 
-### 4. **å­—é‡å˜åŒ–ï¼ˆfont-variation-settingsï¼‰æ¯”å­—å·å˜åŒ–æ›´ç”µå½±æ„Ÿ**
+### 4. Font-weight morphing feels more cinematic than font-size morphing
 
 ```js
-const wght = 100 + (700 - 100) * morphP;  // 100 â†’ 700 over 0.9s
+const wght = 100 + (700 - 100) * morphP;  // 100 -> 700 over 0.9s
 wordmark.style.fontVariationSettings = `"wght" ${wght.toFixed(0)}`;
 ```
 
-Brand wordmark ä»Ž Thin â†’ Bold ç”¨ 0.9s æ¸å˜ï¼Œé…åˆ letter-spacing å¾®è°ƒï¼ˆ-0.045 â†’ -0.048emï¼‰ã€‚
+The brand wordmark morphs from Thin -> Bold over 0.9s, with slight letter-spacing adjustment such as `-0.045em -> -0.048em`.
 
-**ä¸ºä»€ä¹ˆæ¯”æ”¾å¤§ç¼©å°å¥½**ï¼š
-- æ”¾å¤§ç¼©å°è§‚ä¼—çœ‹è¿‡å¤ªå¤šï¼Œé¢„æœŸå›ºåŒ–
-- å­—é‡å˜åŒ–æ˜¯"å†…åœ¨çš„å……å®žæ„Ÿ"ï¼Œåƒæ°”çƒè¢«å¹æ»¡ï¼Œè€Œä¸æ˜¯"è¢«æŽ¨è¿‘"
-- variable fonts æ˜¯ 2020+ æ‰æ™®åŠçš„ç‰¹æ€§ï¼Œè§‚ä¼—ä¸‹æ„è¯†æ„Ÿè§‰"çŽ°ä»£"
+**Why this beats scale up/down**:
 
-**é™åˆ¶**ï¼šå¿…é¡»ç”¨æ”¯æŒ variable font çš„å­—ä½“ï¼ˆInter/Roboto Flex/Recursive ç­‰ï¼‰ã€‚æ™®é€šé™æ€å­—ä½“åªèƒ½æ‹Ÿæ€ï¼ˆåˆ‡æ¢å‡ ä¸ªå›ºå®š weight æœ‰è·³å˜ï¼‰ã€‚
+- Viewers have seen scale animations too often; the expectation is fixed.
+- Weight morphing feels like internal fullness, as if air is filling the form, rather than the word being pushed closer.
+- Variable fonts became common after 2020, so viewers subconsciously read it as modern.
 
-### 5. **Corner Brand ä½Žå¼ºåº¦æŒç»­ç­¾å**
+**Limit**: use a font that supports variable weight, such as Inter, Roboto Flex, Recursive, or equivalent. Static fonts can only fake it by switching fixed weights, which causes jumps.
 
-Gallery é˜¶æ®µå·¦ä¸Šè§’æœ‰ä¸ª `HUASHU Â· DESIGN` å°æ ‡è¯†ï¼Œ16% opacity è‰²å€¼ï¼Œ12px å­—å·ï¼Œå®½å­—è·ã€‚
+### 5. Low-intensity persistent corner signature
 
-**ä¸ºä»€ä¹ˆåŠ è¿™ä¸ª**ï¼š
-- Ripple çˆ†å‘åŽè§‚ä¼—å®¹æ˜“"å¤±ç„¦"ä¸è®°å¾—åœ¨çœ‹ä»€ä¹ˆï¼Œå·¦ä¸Šè§’è½»æ ‡ç¤ºå¸®åŠ© anchor
-- æ¯”å…¨å±å¤§ logo æ›´é«˜çº§â€”â€”åšå“ç‰Œçš„äººçŸ¥é“ï¼Œå“ç‰Œç­¾åä¸éœ€è¦å–Š
-- åœ¨ GIF è¢«æˆªå±åˆ†äº«æ—¶ä»ç•™ä¸‹å½’å±žä¿¡å·
+During the gallery phase, place a small `SLIDE PROMAX - DESIGN` identifier in the top-left corner: around 16% opacity, 12px, wide letter spacing.
 
-**è§„åˆ™**ï¼šåªåœ¨ä¸­æ®µï¼ˆç”»é¢ busyï¼‰å‡ºçŽ°ï¼Œå¼€åœºå…³é—­ï¼ˆä¸é® terminalï¼‰ï¼Œç»“å°¾å…³é—­ï¼ˆbrand reveal æ˜¯ä¸»è§’ï¼‰ã€‚
+**Why add it**:
 
----
+- After the ripple burst, viewers may lose the anchor of what they are watching. A light top-left identifier restores context.
+- It is more premium than a full-screen giant logo. People who do brand work know that signatures do not need to shout.
+- When a GIF is screenshotted or shared, the ownership signal remains.
 
-## åä¾‹ï¼šä»€ä¹ˆæ—¶å€™ä¸è¦ç”¨è¿™å¥—ç¼–æŽ’
-
-**âŒ äº§å“æ¼”ç¤ºï¼ˆè¦å±•ç¤ºåŠŸèƒ½çš„ï¼‰**ï¼šGallery è®©æ¯ä¸€å¼ éƒ½ä¸€é—ªè€Œè¿‡ï¼Œè§‚ä¼—è®°ä¸ä½ä»»ä½•ä¸€ä¸ªåŠŸèƒ½ã€‚æ”¹ç”¨ã€Œå•å± focus + tooltip æ ‡æ³¨ã€ã€‚
-
-**âŒ æ•°æ®é©±åŠ¨å†…å®¹**ï¼šè§‚ä¼—è¦è¯»æ•°å­—ï¼ŒGallery çš„å¿«é€ŸèŠ‚å¥ä¸ç»™æ—¶é—´è¯»ã€‚æ”¹ç”¨ã€Œæ•°æ®å›¾è¡¨ + é€é¡¹ revealã€ã€‚
-
-**âŒ æ•…äº‹å™äº‹**ï¼šGallery æ˜¯"å¹¶åˆ—"ç»“æž„ï¼Œæ•…äº‹éœ€è¦"å› æžœ"ã€‚æ”¹ç”¨ keynote ç« èŠ‚åˆ‡æ¢ã€‚
-
-**âŒ ç´ æåªæœ‰ 3-5 å¼ **ï¼šRipple å¯†åº¦ä¸å¤Ÿï¼Œçœ‹èµ·æ¥åƒ"è¡¥ä¸"ã€‚æ”¹ç”¨ã€Œé™æ€æŽ’åˆ— + é€å¼ é«˜äº®ã€ã€‚
-
-**âŒ ç«–å±ï¼ˆ9:16ï¼‰**ï¼š3D tilt éœ€è¦æ¨ªå‘å»¶ä¼¸ï¼Œç«–å±ä¼šè®©å€¾æ–œæ„Ÿè§‰"æ­ª"è€Œä¸æ˜¯"å±•å¼€"ã€‚
+**Rule**: show it only in the middle busy section. Hide it at the opening so it does not cover the terminal, and hide it at the end because the brand reveal is the protagonist.
 
 ---
 
-## å¦‚ä½•åˆ¤æ–­è‡ªå·±çš„ä»»åŠ¡é€‚ç”¨è¿™å¥—ç¼–æŽ’
+## Anti-Examples: When Not To Use This Choreography
 
-ä¸‰æ­¥å¿«é€Ÿæ£€æŸ¥ï¼š
+**Product demo that needs feature explanation**: Gallery makes every card flash by. The viewer will not remember any single feature. Use single-screen focus + tooltip annotation.
 
-**Step 1 Â· ç´ ææ•°é‡**ï¼šæ•°ä¸€ä¸‹ä½ æœ‰å¤šå°‘åŒç±»è§†è§‰ç´ æã€‚< 15 â†’ åœï¼›15-25 â†’ å‡‘ï¼›25+ â†’ ç›´æŽ¥ç”¨ã€‚
+**Data-driven content**: viewers need time to read numbers. Gallery pacing does not give them that time. Use data charts + sequential reveal.
 
-**Step 2 Â· ä¸€è‡´æ€§æµ‹è¯•**ï¼šæŠŠ 4 å¼ éšæœºç´ æå¹¶æŽ’æ”¾ï¼Œæ˜¯å¦åƒã€Œä¸€å¥—ã€ï¼Ÿä¸åƒ â†’ å…ˆç»Ÿä¸€é£Žæ ¼å†åšï¼Œæˆ–æ”¹æ–¹æ¡ˆã€‚
+**Story narrative**: Gallery is a parallel structure; stories need cause and effect. Use keynote-style chapter transitions.
 
-**Step 3 Â· å™äº‹åŒ¹é…**ï¼šä½ è¦è¡¨è¾¾çš„æ˜¯ã€ŒBreadth Ã— Depthã€ï¼ˆé‡ Ã— è´¨ï¼‰å—ï¼Ÿè¿˜æ˜¯ã€Œæµç¨‹ã€ã€ŒåŠŸèƒ½ã€ã€Œæ•…äº‹ã€ï¼Ÿä¸æ˜¯å‰è€…å°±åˆ«ç¡¬å¥—ã€‚
+**Only 3-5 assets**: ripple density is not enough. It looks patched together. Use static arrangement + sequential highlighting.
 
-ä¸‰æ­¥éƒ½ yesï¼Œç›´æŽ¥ fork v6 HTMLï¼Œæ”¹ `SLIDE_FILES` æ•°ç»„å’Œæ—¶é—´è½´å°±èƒ½å¤ç”¨ã€‚è°ƒè‰²æ¿æ”¹ `--bg / --accent / --ink`ï¼Œæ•´ä½“æ¢çš®ä¸æ¢éª¨ã€‚
+**Vertical 9:16 scene**: 3D tilt needs horizontal expansion. In vertical format it looks crooked rather than expansive.
 
 ---
 
-## ç›¸å…³ Reference
+## How To Judge Whether Your Task Fits This Choreography
 
-- å®Œæ•´æŠ€æœ¯æµç¨‹ï¼š[references/animations.md](animations.md) Â· [references/animation-best-practices.md](animation-best-practices.md)
-- åŠ¨ç”»å¯¼å‡ºæµæ°´çº¿ï¼š[references/video-export.md](video-export.md)
-- éŸ³é¢‘é…ç½®ï¼ˆBGM + SFX åŒè½¨ï¼‰ï¼š[references/audio-design-rules.md](audio-design-rules.md)
-- Apple ç”»å»Šé£Žæ ¼çš„æ¨ªå‘å‚è€ƒï¼š[references/apple-gallery-showcase.md](apple-gallery-showcase.md)
-- æº HTMLï¼ˆv6 + éŸ³é¢‘é›†æˆç‰ˆï¼‰ï¼š`www.shield-design.ai/shield-design-hero/index.html`
+Three-step quick check:
+
+**Step 1 - Asset quantity**: count how many same-type visual assets you have. Less than 15 -> stop. 15-25 -> possible but tight. 25+ -> use it confidently.
+
+**Step 2 - Consistency test**: place 4 random assets side by side. Do they feel like one set? If not, unify style first or choose another structure.
+
+**Step 3 - Narrative fit**: are you trying to express **Breadth x Depth**, meaning quantity x quality? Or are you expressing flow, features, or story? If it is not Breadth x Depth, do not force this pattern.
+
+If all three checks are yes, fork the v6/v9 HTML structure, replace the `SLIDE_FILES` array and timeline, and reuse it. Change `--bg / --accent / --ink` to reskin without changing the skeleton.
+
+---
+
+## Related References
+
+- Full technical flow: [references/animations.md](animations.md) and [references/animation-best-practices.md](animation-best-practices.md)
+- Animation export pipeline: [references/video-export.md](video-export.md)
+- Audio configuration, BGM + SFX dual-track: [references/audio-design-rules.md](audio-design-rules.md)
+- Apple gallery style reference: [references/apple-gallery-showcase.md](apple-gallery-showcase.md)
+- Source HTML: local `demos/hero-animation-v9/index.html` when available

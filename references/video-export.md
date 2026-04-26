@@ -1,209 +1,287 @@
-﻿# Video Exportï¼šHTML åŠ¨ç”»å¯¼å‡ºä¸º MP4/GIF
+# Video Export: HTML Animation to MP4/GIF
 
-åŠ¨ç”» HTML å®ŒæˆåŽï¼Œç”¨æˆ·å¸¸æƒ³ã€Œèƒ½å¯¼å‡ºè§†é¢‘å—ã€ã€‚è¿™ä»½æŒ‡å—ç»™å‡ºå®Œæ•´æµç¨‹ã€‚
+Use this reference when an HTML animation, hero sequence, product demo, or slide motion prototype needs to be delivered as video.
 
-## ä½•æ—¶å¯¼å‡º
+## When To Export
 
-**å¯¼å‡ºæ—¶æœº**ï¼š
-- åŠ¨ç”»å®Œæ•´è·‘é€šã€è§†è§‰éªŒè¯è¿‡ï¼ˆPlaywright æˆªå›¾ç¡®è®¤å„æ—¶é—´ç‚¹çŠ¶æ€æ­£ç¡®ï¼‰
-- ç”¨æˆ·åœ¨æµè§ˆå™¨é‡Œçœ‹è¿‡è‡³å°‘ä¸€æ¬¡ï¼Œè¡¨ç¤ºæ•ˆæžœ OK
-- **ä¸è¦**åœ¨åŠ¨ç”» bug æ²¡ä¿®å®Œçš„é˜¶æ®µå¯¼å‡ºâ€”â€”å¯¼å‡ºåˆ°è§†é¢‘åŽæ”¹èµ·æ¥æ›´è´µ
+Export video when the user needs:
 
-**ç”¨æˆ·å¯èƒ½è¯´çš„è§¦å‘è¯­**ï¼š
-- ã€Œèƒ½å¯¼å‡ºæˆè§†é¢‘å—ã€
-- ã€Œè½¬æˆ MP4ã€
-- ã€Œåšæˆ GIFã€
-- ã€Œ60fpsã€
+- A shareable MP4 preview.
+- A social clip.
+- A product-launch animation.
+- A motion-design review artifact.
+- A GIF thumbnail.
+- A recording that can be embedded in a deck, website, or issue.
 
-## äº§å‡ºè§„æ ¼
+Keep the HTML source as the upstream artifact. MP4, 60fps MP4, and GIF are derivatives.
 
-é»˜è®¤ä¸€æ¬¡ç»™ä¸‰ç§æ ¼å¼ï¼Œè®©ç”¨æˆ·é€‰ï¼š
+## Output Specifications
 
-| æ ¼å¼ | è§„æ ¼ | é€‚åˆåœºæ™¯ | å…¸åž‹å¤§å°ï¼ˆ30sï¼‰ |
-|---|---|---|---|
-| MP4 25fps | 1920Ã—1080 Â· H.264 Â· CRF 18 | å…¬ä¼—å·åµŒå…¥ã€è§†é¢‘å·ã€YouTube | 1-2 MB |
-| MP4 60fps | 1920Ã—1080 Â· minterpolate æ’å¸§ Â· H.264 Â· CRF 18 | é«˜å¸§çŽ‡å±•ç¤ºã€Bç«™ã€ä½œå“é›† | 1.5-3 MB |
-| GIF | 960Ã—540 Â· 15fps Â· palette ä¼˜åŒ– | Twitter/Xã€READMEã€Slack é¢„è§ˆ | 2-4 MB |
+Default delivery set:
 
-## å·¥å…·é“¾
+| Output | Default | Notes |
+|---|---:|---|
+| Base MP4 | 25fps or source fps | Good for review and small files. |
+| 60fps MP4 | frame-duplicated 60fps | Compatible with QuickTime/Safari/Chrome/VLC. |
+| GIF | 15fps | Use only for short previews. |
+| First/last frame PNG | optional but recommended | Verifies export start and end state. |
 
-ä¸¤ä¸ªè„šæœ¬åœ¨ `scripts/`ï¼š
+Recommended canvas:
 
-### 1. `render-video.js` â€” HTML â†’ MP4
+- 1920 x 1080 for standard landscape.
+- 1080 x 1920 for vertical social clips.
+- 1440 x 1080 or 1600 x 1200 only if the brief requires a 4:3-ish composition.
 
-å½•ä¸€ä¸ª 25fps çš„ MP4 åŸºç¡€ç‰ˆæœ¬ã€‚ä¾èµ–å…¨å±€ playwrightã€‚
+## Toolchain
 
-```bash
-NODE_PATH=$(npm root -g) node /path/to/claude-design/scripts/render-video.js <htmlæ–‡ä»¶>
-```
+### 1. `render-video.js`: HTML to MP4
 
-å¯é€‰å‚æ•°ï¼š
-- `--duration=30` åŠ¨ç”»æ—¶é•¿ï¼ˆç§’ï¼‰
-- `--width=1920 --height=1080` åˆ†è¾¨çŽ‡
-- `--trim=2.2` ä»Žè§†é¢‘å¼€å¤´è£æŽ‰çš„ç§’æ•°ï¼ˆåŽ»æŽ‰ reload + å­—ä½“åŠ è½½æ—¶é—´ï¼‰
-- `--fontwait=1.5` å­—ä½“åŠ è½½ç­‰å¾…æ—¶é—´ï¼ˆç§’ï¼‰ï¼Œå­—ä½“å¤šæ—¶è°ƒé«˜
+This script should:
 
-è¾“å‡ºï¼šä¸Ž HTML åŒç›®å½•ï¼ŒåŒå `.mp4`ã€‚
+1. Open the HTML with Playwright.
+2. Warm up fonts/assets in a throwaway context.
+3. Start a fresh recording context.
+4. Inject `window.__recording = true`.
+5. Wait for `window.__ready === true` when available.
+6. Call `window.__seek(0)` when available.
+7. Record for the declared duration.
+8. Convert Playwright WebM output to H.264 MP4 with ffmpeg.
 
-### 2. `add-music.sh` â€” MP4 + BGM â†’ MP4
-
-ç»™æ— å£° MP4 æ··å…¥èƒŒæ™¯éŸ³ä¹ï¼ŒæŒ‰åœºæ™¯ï¼ˆmoodï¼‰ä»Žå†…ç½® BGM åº“é‡Œé€‰ï¼Œä¹Ÿå¯è‡ªå¸¦éŸ³é¢‘ã€‚è‡ªåŠ¨åŒ¹é…æ—¶é•¿ã€åŠ æ·¡å…¥æ·¡å‡ºã€‚
-
-```bash
-bash add-music.sh <input.mp4> [--mood=<name>] [--music=<path>] [--out=<path>]
-```
-
-**å†…ç½® BGM åº“**ï¼ˆåœ¨ `assets/bgm-<mood>.mp3`ï¼‰ï¼š
-
-| `--mood=` | é£Žæ ¼ | é€‚é…åœºæ™¯ |
-|-----------|------|---------|
-| `tech`ï¼ˆé»˜è®¤ï¼‰ | Apple Silicon / è‹¹æžœå‘å¸ƒä¼šï¼Œæžç®€åˆæˆå™¨+é’¢ç´ | äº§å“å‘å¸ƒã€AIå·¥å…·ã€Skill å®£ä¼  |
-| `ad` | upbeat çŽ°ä»£ç”µå­ï¼Œæœ‰ build + drop | ç¤¾äº¤åª’ä½“å¹¿å‘Šã€äº§å“é¢„å‘Šã€ä¿ƒé”€ç‰‡ |
-| `educational` | æ¸©æš–æ˜Žäº®ã€è½»å‰ä»–/ç”µé’¢ç´ï¼Œinviting | ç§‘æ™®ã€æ•™ç¨‹ä»‹ç»ã€è¯¾ç¨‹é¢„å‘Š |
-| `educational-alt` | åŒç±»å¤‡é€‰ï¼Œæ¢ä¸€é¦–è¯•è¯• | åŒä¸Š |
-| `tutorial` | lo-fi çŽ¯å¢ƒéŸ³ï¼Œå‡ ä¹Žæ— å­˜åœ¨æ„Ÿ | è½¯ä»¶æ¼”ç¤ºã€ç¼–ç¨‹æ•™ç¨‹ã€é•¿æ¼”ç¤º |
-| `tutorial-alt` | åŒç±»å¤‡é€‰ | åŒä¸Š |
-
-**è¡Œä¸º**ï¼š
-- éŸ³ä¹æŒ‰è§†é¢‘æ—¶é•¿è£å‰ª
-- 0.3s æ·¡å…¥ + 1s æ·¡å‡ºï¼ˆé¿å…ç¡¬åˆ‡ï¼‰
-- è§†é¢‘æµ `-c:v copy` ä¸é‡ç¼–ç ï¼ŒéŸ³é¢‘ AAC 192k
-- `--music=<path>` ä¼˜å…ˆçº§é«˜äºŽ `--mood`ï¼Œå¯ä»¥ç›´æŽ¥æŒ‡å®šä»»æ„å¤–éƒ¨éŸ³é¢‘
-- ä¼ é”™ mood åä¼šåˆ—å‡ºæ‰€æœ‰å¯ç”¨é€‰é¡¹ï¼Œä¸ä¼šé™é»˜å¤±è´¥
-
-**å…¸åž‹æµæ°´çº¿**ï¼ˆåŠ¨ç”»å¯¼å‡ºä¸‰ä»¶å¥— + é…ä¹ï¼‰ï¼š
-```bash
-node render-video.js animation.html                        # å½•å±
-bash convert-formats.sh animation.mp4                      # æ´¾ç”Ÿ 60fps + GIF
-bash add-music.sh animation-60fps.mp4                      # åŠ é»˜è®¤ tech BGM
-# æˆ–é’ˆå¯¹ä¸åŒåœºæ™¯ï¼š
-bash add-music.sh tutorial-demo.mp4 --mood=tutorial
-bash add-music.sh product-promo.mp4 --mood=ad --out=promo-final.mp4
-```
-
-### 3. `convert-formats.sh` â€” MP4 â†’ 60fps MP4 + GIF
-
-ä»Žå·²æœ‰ MP4 ç”Ÿæˆ 60fps ç‰ˆæœ¬å’Œ GIFã€‚
+Example:
 
 ```bash
-bash /path/to/claude-design/scripts/convert-formats.sh <input.mp4> [gif_width] [--minterpolate]
+node scripts/render-video.js ./animation.html ./out/animation.mp4 --duration 12 --width 1920 --height 1080
 ```
 
-è¾“å‡ºï¼ˆä¸Žè¾“å…¥åŒç›®å½•ï¼‰ï¼š
-- `<name>-60fps.mp4` â€” é»˜è®¤ç”¨ `fps=60` å¸§å¤åˆ¶ï¼ˆå…¼å®¹æ€§å¹¿ï¼‰ï¼›åŠ  `--minterpolate` å¯ç”¨é«˜è´¨é‡æ’å¸§
-- `<name>.gif` â€” palette ä¼˜åŒ–çš„ GIFï¼ˆé»˜è®¤ 960 å®½ï¼Œå¯æ”¹ï¼‰
-
-**60fps æ¨¡å¼é€‰æ‹©**ï¼š
-
-| æ¨¡å¼ | å‘½ä»¤ | å…¼å®¹æ€§ | ä½¿ç”¨åœºæ™¯ |
-|---|---|---|---|
-| å¸§å¤åˆ¶ï¼ˆé»˜è®¤ï¼‰| `convert-formats.sh in.mp4` | QuickTime/Safari/Chrome/VLC å…¨é€š | é€šç”¨äº¤ä»˜ã€ä¸Šä¼ å¹³å°ã€ç¤¾äº¤åª’ä½“ |
-| minterpolate æ’å¸§ | `convert-formats.sh in.mp4 --minterpolate` | macOS QuickTime/Safari å¯èƒ½æ‹’æ‰“ | Bç«™ç­‰éœ€è¦çœŸæ’å¸§çš„å±•ç¤ºåœºæ™¯ï¼Œ**äº¤ä»˜å‰å¿…é¡»æœ¬åœ°æµ‹**ç›®æ ‡æ’­æ”¾å™¨ |
-
-ä¸ºä»€ä¹ˆé»˜è®¤æ”¹æˆå¸§å¤åˆ¶ï¼Ÿminterpolate è¾“å‡ºçš„ H.264 elementary stream æœ‰ known compat bugâ€”â€”ä¹‹å‰é»˜è®¤ minterpolate æ—¶å¤šæ¬¡è¸©åˆ°ã€ŒmacOS QuickTime æ‰“ä¸å¼€ã€çš„é—®é¢˜ã€‚è¯¦è§ `animation-pitfalls.md` Â§14ã€‚
-
-`gif_width` å‚æ•°ï¼š
-- 960ï¼ˆé»˜è®¤ï¼‰â€”â€” ç¤¾äº¤å¹³å°é€šç”¨
-- 1280 â€”â€” æ›´æ¸…æ™°ä½†æ–‡ä»¶æ›´å¤§
-- 600 â€”â€” Twitter/X ä¼˜å…ˆåŠ è½½
-
-## å®Œæ•´æµç¨‹ï¼ˆæ ‡å‡†æŽ¨èï¼‰
-
-ç”¨æˆ·è¯´ã€Œå¯¼å‡ºè§†é¢‘ã€åŽï¼š
+Useful flags:
 
 ```bash
-cd <é¡¹ç›®ç›®å½•>
-
-# å‡è®¾ $SKILL æŒ‡å‘æœ¬ skill çš„æ ¹ç›®å½•ï¼ˆè‡ªè¡ŒæŒ‰å®‰è£…ä½ç½®æ›¿æ¢ï¼‰
-
-# 1. å½• 25fps åŸºç¡€ MP4
-NODE_PATH=$(npm root -g) node "$SKILL/scripts/render-video.js" my-animation.html
-
-# 2. æ´¾ç”Ÿ 60fps MP4 å’Œ GIF
-bash "$SKILL/scripts/convert-formats.sh" my-animation.mp4
-
-# äº§å‡ºæ¸…å•ï¼š
-# my-animation.mp4         (25fps Â· 1-2 MB)
-# my-animation-60fps.mp4   (60fps Â· 1.5-3 MB)
-# my-animation.gif         (15fps Â· 2-4 MB)
+node scripts/render-video.js ./animation.html ./out/animation.mp4 --duration 12
+node scripts/render-video.js ./animation.html ./out/animation.mp4 --duration 12 --keep-chrome
+node scripts/render-video.js ./animation.html ./out/animation.mp4 --duration 12 --trim 0.2
+node scripts/render-video.js ./animation.html ./out/animation.mp4 --duration 12 --scale 2
 ```
 
-## æŠ€æœ¯ç»†èŠ‚ï¼ˆæŽ’é”™ç”¨ï¼‰
+### 2. Add Music or Sound Design
 
-### Playwright recordVideo çš„å‘
+If the animation has background music or SFX, combine tracks after the visual MP4 export.
 
-- å¸§çŽ‡å›ºå®š 25fpsï¼Œæ— æ³•ç›´æŽ¥å½• 60fpsï¼ˆChromium headless çš„ compositor ä¸Šé™ï¼‰
-- ä»Ž context åˆ›å»ºå°±å¼€å§‹å½•ï¼Œå¿…é¡»ç”¨ `trim` è£æŽ‰å‰é¢çš„åŠ è½½æ—¶é—´
-- é»˜è®¤ webm æ ¼å¼ï¼Œéœ€è¦ ffmpeg è½¬ H.264 MP4 æ‰èƒ½é€šç”¨æ’­æ”¾
-
-`render-video.js` å·²å¤„ç†ä»¥ä¸Šé—®é¢˜ã€‚
-
-### ffmpeg minterpolate å‚æ•°
-
-å½“å‰é…ç½®ï¼š`minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1`
-
-- `mi_mode=mci` â€” motion compensation interpolationï¼ˆè¿åŠ¨è¡¥å¿ï¼‰
-- `mc_mode=aobmc` â€” adaptive overlapped block motion compensation
-- `me_mode=bidir` â€” åŒå‘è¿åŠ¨ä¼°è®¡
-- `vsbmc=1` â€” å¯å˜ size block motion compensation
-
-å¯¹ CSS **transform åŠ¨ç”»**ï¼ˆtranslate/scale/rotateï¼‰æ•ˆæžœå¥½ã€‚
-å¯¹**çº¯ fade** å¯èƒ½äº§ç”Ÿè½»å¾® ghostingâ€”â€”å¦‚æžœç”¨æˆ·å«Œå¼ƒï¼Œé€€åŒ–ä¸ºç®€å•å¸§å¤åˆ¶ï¼š
+Recommended ffmpeg pattern:
 
 ```bash
-ffmpeg -i input.mp4 -r 60 -c:v libx264 ... output.mp4
+ffmpeg -y \
+  -i visual.mp4 \
+  -i music.wav \
+  -filter_complex "[1:a]volume=0.75[aud]" \
+  -map 0:v:0 \
+  -map "[aud]" \
+  -c:v copy \
+  -c:a aac \
+  -b:a 192k \
+  -shortest \
+  final.mp4
 ```
 
-### GIF palette ä¸ºä½•è¦ä¸¤é˜¶æ®µ
+For separate BGM and SFX:
 
-GIF åªèƒ½ 256 è‰²ã€‚ä¸€æ¬¡ pass çš„ GIF ä¼šæŠŠå…¨åŠ¨ç”»è‰²å½©åŽ‹åˆ° 256 è‰²é€šç”¨ paletteï¼Œå¯¹ç±³è‰²åº•+æ©™è‰²è¿™ç§ç»†è…»é…è‰²ä¼šç³Šã€‚
-
-ä¸¤é˜¶æ®µï¼š
-1. `palettegen=stats_mode=diff` â€”â€” å…ˆæ‰«æå…¨ç‰‡ï¼Œç”Ÿæˆ**é’ˆå¯¹æ­¤åŠ¨ç”»çš„ optimal palette**
-2. `paletteuse=dither=bayer:bayer_scale=5:diff_mode=rectangle` â€”â€” ç”¨è¿™ä¸ª palette ç¼–ç ï¼Œrectangle diff åªæ›´æ–°å˜åŒ–åŒºåŸŸï¼Œå¤§å¹…å‡å°æ–‡ä»¶
-
-å¯¹ fade è¿‡æ¸¡ç”¨ `dither=bayer` æ¯” `none` æ›´å¹³æ»‘ï¼Œä½†æ–‡ä»¶å¤§ä¸€ç‚¹ã€‚
-
-## Pre-flight checkï¼ˆå¯¼å‡ºå‰ï¼‰
-
-å¯¼å‡ºå‰ 30 ç§’è‡ªæ£€ï¼š
-
-- [ ] HTML åœ¨æµè§ˆå™¨é‡Œå®Œæ•´è·‘è¿‡ä¸€éï¼Œæ— æŽ§åˆ¶å°é”™è¯¯
-- [ ] åŠ¨ç”»ç¬¬ 0 å¸§æ˜¯å®Œæ•´åˆå§‹çŠ¶æ€ï¼ˆä¸æ˜¯ç©ºç™½åŠ è½½ä¸­ï¼‰
-- [ ] åŠ¨ç”»æœ€åŽä¸€å¸§æ˜¯ç¨³å®šçš„æ”¶å°¾çŠ¶æ€ï¼ˆä¸æ˜¯åŠæˆªï¼‰
-- [ ] å­—ä½“/å›¾ç‰‡/emoji å…¨éƒ¨æ­£å¸¸æ¸²æŸ“ï¼ˆå‚è€ƒ `animation-pitfalls.md`ï¼‰
-- [ ] Duration å‚æ•°ä¸Ž HTML é‡Œçš„å®žé™…åŠ¨ç”»æ—¶é•¿åŒ¹é…
-- [ ] HTML ä¸­ Stage æ£€æµ‹ `window.__recording` å¼ºåˆ¶ loop=falseï¼ˆæ‰‹å†™ Stage å¿…æŸ¥ï¼›ç”¨ `assets/animations.jsx` è‡ªå¸¦ï¼‰
-- [ ] ç»“å°¾ Sprite çš„ `fadeOut={0}`ï¼ˆè§†é¢‘æœ«å¸§ä¸æ·¡å‡ºï¼‰
-- [ ] å«ã€ŒCreated by shield-designã€æ°´å°ï¼ˆä»…åŠ¨ç”»åœºæ™¯å¿…åŠ ï¼›ç¬¬ä¸‰æ–¹å“ç‰Œä½œå“åŠ ã€Œéžå®˜æ–¹å‡ºå“ Â· ã€å‰ç¼€ã€‚è¯¦è§ SKILL.md Â§ã€ŒSkill æŽ¨å¹¿æ°´å°ã€ï¼‰
-
-## äº¤ä»˜æ—¶é™„å¸¦çš„è¯´æ˜Ž
-
-å¯¼å‡ºå®ŒæˆåŽç»™ç”¨æˆ·çš„æ ‡å‡†è¯´æ˜Žæ ¼å¼ï¼š
-
-```
-**å®Œæ•´äº¤ä»˜**
-
-| æ–‡ä»¶ | æ ¼å¼ | è§„æ ¼ | å¤§å° |
-|---|---|---|---|
-| foo.mp4 | MP4 | 1920Ã—1080 Â· 25fps Â· H.264 | X MB |
-| foo-60fps.mp4 | MP4 | 1920Ã—1080 Â· 60fpsï¼ˆè¿åŠ¨æ’å¸§ï¼‰Â· H.264 | X MB |
-| foo.gif | GIF | 960Ã—540 Â· 15fps Â· palette ä¼˜åŒ– | X MB |
-
-**è¯´æ˜Ž**
-- 60fps ç”¨ minterpolate åšè¿åŠ¨ä¼°è®¡æ’å¸§ï¼Œtransform åŠ¨ç”»æ•ˆæžœå¥½
-- GIF ç”¨ palette ä¼˜åŒ–ï¼Œ30s åŠ¨ç”»å¯åŽ‹åˆ° 3MB å·¦å³
-
-è¦æ¢å°ºå¯¸æˆ–å¸§çŽ‡è¯´ä¸€å£°ã€‚
+```bash
+ffmpeg -y \
+  -i visual.mp4 \
+  -i bgm.wav \
+  -i sfx.wav \
+  -filter_complex "[1:a]volume=0.55[bgm];[2:a]volume=1.0[sfx];[bgm][sfx]amix=inputs=2:duration=longest[aud]" \
+  -map 0:v:0 \
+  -map "[aud]" \
+  -c:v copy \
+  -c:a aac \
+  -b:a 192k \
+  -shortest \
+  final.mp4
 ```
 
-## å¸¸è§ç”¨æˆ·è¿½åŠ éœ€æ±‚
+See `audio-design-rules.md` and `sfx-library.md` before adding audio.
 
-| ç”¨æˆ·è¯´ | åº”å¯¹ |
-|---|---|
-| ã€Œå¤ªå¤§äº†ã€ | MP4ï¼šæé«˜ CRF åˆ° 23-28ï¼›GIFï¼šé™åˆ†è¾¨çŽ‡åˆ° 600 æˆ– fps åˆ° 10 |
-| ã€ŒGIF å¤ªç³Šã€ | æé«˜ `gif_width` åˆ° 1280ï¼›æˆ–è€…å»ºè®®ç”¨ MP4 ä»£æ›¿ï¼ˆå¾®ä¿¡æœ‹å‹åœˆä¹Ÿæ”¯æŒï¼‰ |
-| ã€Œè¦ç«–å± 9:16ã€ | æ”¹ HTML æºçš„ `--width=1080 --height=1920`ï¼Œé‡æ–°å½• |
-| ã€ŒåŠ æ°´å°ã€ | ffmpeg åŠ  `-vf "drawtext=..."` æˆ– `overlay=` ä¸€ä¸ª PNG |
-| ã€Œè¦é€æ˜ŽèƒŒæ™¯ã€ | MP4 ä¸æ”¯æŒ alphaï¼›ç”¨ WebM VP9 + alpha æˆ– APNG |
-| ã€Œè¦æ— æŸã€ | CRF æ”¹ 0 + preset veryslowï¼ˆæ–‡ä»¶ä¼šå¤§ 10 å€ï¼‰ |
+### 3. Convert Formats: MP4 to 60fps MP4 and GIF
+
+60fps compatibility mode:
+
+```bash
+ffmpeg -y \
+  -i animation.mp4 \
+  -vf "fps=60,format=yuv420p" \
+  -c:v libx264 \
+  -profile:v high \
+  -level 4.0 \
+  -pix_fmt yuv420p \
+  animation-60fps.mp4
+```
+
+High-quality interpolation is opt-in:
+
+```bash
+ffmpeg -y \
+  -i animation.mp4 \
+  -vf "minterpolate=fps=60:mi_mode=mci:mc_mode=aobmc:me_mode=bidir:vsbmc=1,format=yuv420p" \
+  -c:v libx264 \
+  -profile:v high \
+  -level 4.0 \
+  -pix_fmt yuv420p \
+  animation-60fps-interpolated.mp4
+```
+
+Only use interpolation after testing the target player. Compatibility is less predictable.
+
+GIF two-pass palette:
+
+```bash
+ffmpeg -y -i animation.mp4 \
+  -vf "fps=15,scale=960:-1:flags=lanczos,palettegen" \
+  palette.png
+
+ffmpeg -y -i animation.mp4 -i palette.png \
+  -lavfi "fps=15,scale=960:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5" \
+  animation.gif
+```
+
+## Complete Standard Flow
+
+Assume `$SKILL` points to this skill root. Replace paths as needed.
+
+```bash
+# 1. Record base MP4
+node "$SKILL/scripts/render-video.js" ./demo.html ./out/demo.mp4 --duration 12 --width 1920 --height 1080
+
+# 2. Derive 60fps MP4
+ffmpeg -y -i ./out/demo.mp4 -vf "fps=60,format=yuv420p" -c:v libx264 -profile:v high -level 4.0 -pix_fmt yuv420p ./out/demo-60fps.mp4
+
+# 3. Derive GIF
+ffmpeg -y -i ./out/demo.mp4 -vf "fps=15,scale=960:-1:flags=lanczos,palettegen" ./out/palette.png
+ffmpeg -y -i ./out/demo.mp4 -i ./out/palette.png -lavfi "fps=15,scale=960:-1:flags=lanczos[x];[x][1:v]paletteuse=dither=bayer:bayer_scale=5" ./out/demo.gif
+```
+
+Expected outputs:
+
+```text
+demo.mp4          base review file
+demo-60fps.mp4    platform-friendly MP4
+demo.gif          lightweight preview
+frame-0.png       optional first-frame QA
+frame-end.png     optional final-frame QA
+```
+
+## Technical Notes for Debugging
+
+### Playwright `recordVideo` Caveats
+
+- Recording starts at browser context creation, not at `page.goto`.
+- The video file is written only after the page/context closes.
+- The raw output is WebM; use ffmpeg for MP4 delivery.
+- Viewport size and `recordVideo.size` should match.
+- A page that visually looks ready is not necessarily animation-ready; wait for `window.__ready` when the HTML provides it.
+
+### `__ready` and `__seek`
+
+Good animation HTML should expose:
+
+```js
+window.__ready = true;
+window.__seek = (t) => render(t);
+```
+
+`__ready` means: fonts are ready, layout is stable, and the first animation frame is prepared.
+
+`__seek(0)` allows the recorder to force the source back to time zero after readiness. This protects against small startup offsets.
+
+### ffmpeg Trim
+
+Trim only small recording latency:
+
+```bash
+ffmpeg -y -ss 0.25 -i raw.webm -t 12 -c:v libx264 -pix_fmt yuv420p out.mp4
+```
+
+Do not use trimming to hide warmup frames or a wrong animation clock. Fix the HTML start protocol instead.
+
+### GIF Palette Rationale
+
+Direct GIF conversion often causes banding and oversized files. The two-pass palette method:
+
+1. Analyzes representative colors.
+2. Applies the palette with controlled dithering.
+
+This is especially important for gradients, shadows, and product UI captures.
+
+## Pre-Flight Check Before Export
+
+- [ ] HTML opens in the same mode the user will use (`file://` or server).
+- [ ] No console errors.
+- [ ] `document.fonts.ready` is used before measurement-sensitive layout.
+- [ ] `window.__ready` exists or the first frame is manually verified.
+- [ ] `window.__seek(0)` exists for timeline animations.
+- [ ] `window.__recording` disables loops.
+- [ ] Debug controls use `.no-record`.
+- [ ] There is no fake progress bar or timecode inside the video frame.
+- [ ] Duration matches the intended story, not just the page's auto-loop duration.
+- [ ] First and final frames are clear and intentional.
+- [ ] Audio is mixed with enough headroom if used.
+
+## Delivery Notes To Include
+
+When delivering video outputs, state:
+
+- Source HTML path.
+- MP4 path.
+- GIF path if generated.
+- Duration.
+- Resolution.
+- Frame rate.
+- Whether audio is included.
+- Any known tradeoff, such as editable PPTX text losing exact web typography.
+
+Example:
+
+```text
+Exported:
+- demo.mp4, 12s, 1920x1080, H.264, 25fps
+- demo-60fps.mp4, 12s, 1920x1080, H.264, 60fps compatibility mode
+- demo.gif, 960px wide, 15fps preview
+
+Verified:
+- first frame and final frame extracted
+- no console errors
+- debug chrome hidden
+```
+
+## Common Follow-Up Requests
+
+### "Make it smoother"
+
+First check the animation curves and timing in HTML. Do not default to interpolation. If source motion is choppy, 60fps output will not fix the design.
+
+### "Make the file smaller"
+
+Try:
+
+```bash
+ffmpeg -y -i input.mp4 -c:v libx264 -crf 24 -preset medium -pix_fmt yuv420p output-small.mp4
+```
+
+For GIF, reduce width, fps, or duration before lowering palette quality.
+
+### "Make it vertical"
+
+Do not crop the existing landscape MP4 unless the user accepts loss. Re-layout the HTML at `1080 x 1920` and re-record.
+
+### "Add music"
+
+Use audio references first. Keep BGM lower than SFX by roughly 6-8dB when both exist, and check the first and last second for abrupt cuts.
+
+### "The MP4 opens black in Safari/QuickTime"
+
+Re-encode with broad compatibility:
+
+```bash
+ffmpeg -y -i input.mp4 -c:v libx264 -profile:v high -level 4.0 -pix_fmt yuv420p -movflags +faststart output-compatible.mp4
+```
+
+Avoid `minterpolate` unless it has been tested in the target player.

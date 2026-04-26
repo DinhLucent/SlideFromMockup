@@ -169,7 +169,7 @@
  - Body text minimum **14px** (16px for elderly-friendly).
  - Mobile body text **16px** (To avoid iOS auto-zoom).
  - Hit targets (clickable elements) minimum **44x44px**.
- - Line height 1.5-1.7 (1.7-1.8 for Chinese text/dense languages).
+  - Line height 1.5-1.7 (1.7-1.8 for dense non-Latin scripts).
  
  ### Contrast
  

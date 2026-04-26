@@ -1,0 +1,4 @@
+interface:
+  display_name: "Slide ProMax"
+  short_description: "HTML prototypes, decks, motion, and design review"
+  default_prompt: "Use $slide-promax to create a polished HTML presentation, prototype, animation, or design review."

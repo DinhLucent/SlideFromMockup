@@ -1,189 +1,257 @@
-# Verification：输出验证流程
+# Verification: Output Review Workflow
 
-一些 design-agent 原生环境（如 Claude.ai Artifacts）有内置的 `fork_verifier_agent` 起 subagent 用 iframe 截图检查。大部分 agent 环境（Claude Code / Codex / Cursor / Trae / 等）里没有这个内置能力——用 Playwright 手动做就能覆盖相同的验证场景。
+Verification is mandatory before delivery. The agent must inspect the artifact in a browser, catch console/runtime errors, and verify that the output matches the requested format.
 
-## 验证清单
+## Verification Checklist
 
-每次产出HTML后，按这个清单做一遍：
+Use this sequence for websites, apps, decks, and animation exports. Skip a step only when the artifact type truly does not include that surface.
 
-### 1. 浏览器渲染检查（必做）
+### 1. Browser Rendering Check
 
-最基础：**HTML能不能打开**？在macOS上：
+Always render the output in a real browser.
 
-```bash
-open -a "Google Chrome" "/path/to/your/design.html"
+Required checks:
+
+- Page opens without a blank screen.
+- Initial viewport shows the intended first screen, not an intermediate loading state.
+- Images, fonts, icons, and videos load.
+- No visible fallback text or broken media icons.
+- Layout uses the intended canvas size or responsive viewport.
+- Text does not overlap, clip, or overflow buttons/cards/panels.
+
+For static HTML, double-click or open through `file://` when the handoff is a single file. For app projects, run the local server expected by the repo.
+
+### 2. Console Error Check
+
+Open DevTools or use Playwright to collect:
+
+- `pageerror`
+- `console.error`
+- failed network requests
+- CORS errors
+- missing local assets
+- unhandled promise rejections
+
+Warnings are not always blockers, but errors must be explained or fixed. A working visual page with hidden console exceptions is not considered verified.
+
+Example Playwright pattern:
+
+```js
+page.on("console", (msg) => {
+  if (msg.type() === "error") console.log("[console.error]", msg.text());
+});
+
+page.on("pageerror", (err) => {
+  console.log("[pageerror]", err.message);
+});
 ```
 
-或者用Playwright截图（下一节）。
+### 3. Multi-Viewport Check
 
-### 2. 控制台错误检查
+At minimum, inspect:
 
-HTML文件里最常见的问题是JS报错导致白屏。用Playwright跑一遍：
+- Desktop: `1440 x 900`
+- Wide desktop: `1920 x 1080`
+- Tablet: `1024 x 768`
+- Mobile: `390 x 844`
 
-```bash
-python ~/.claude/skills/claude-design/scripts/verify.py path/to/design.html
-```
+For fixed-format slides, inspect the target slide size and one scaled browser view. Fixed slide canvases should keep their aspect ratio instead of stretching.
 
-这个脚本会：
-1. 用headless chromium打开HTML
-2. 截图保存到项目目录
-3. 抓取控制台错误
-4. 报告status
+For responsive sites/apps, each viewport must be usable without horizontal scrolling unless the product intentionally uses a data table that requires it.
 
-详见`scripts/verify.py`。
+### 4. Interaction Check
 
-### 3. 多视口检查
+If the artifact has controls, verify the expected flows:
 
-如果是响应式设计，抓多个viewport：
+- Buttons respond and do not cause layout shifts.
+- Form controls accept input and preserve state.
+- Keyboard navigation works when relevant.
+- Menus, modals, tabs, accordions, filters, sliders, and toggles open and close correctly.
+- Hover/focus states are visible but do not resize fixed controls.
+- No click target is hidden behind an overlay.
 
-```bash
-python verify.py design.html --viewports 1920x1080,1440x900,768x1024,375x667
-```
+For prototypes, test at least one happy path and one reversal path, such as open modal then close, select filter then clear, or advance slide then return.
 
-### 4. 交互检查
+### 5. Slide-by-Slide Check
 
-Tweaks、动画、按钮切换——默认的静态截图看不到。**建议让用户自己开浏览器点一遍**，或者用Playwright录屏：
+For decks:
 
-```python
-page.video.record('interaction.mp4')
-```
+- Open the deck index and navigate every slide.
+- Open each standalone slide file directly if using multi-file architecture.
+- Confirm each slide has a stable label and expected order.
+- Check speaker notes if notes are part of the output.
+- Confirm page numbers, section labels, and repeated elements are consistent.
+- Verify PDF/PPTX exports after generation, not just the source HTML.
 
-### 5. 幻灯片逐页检查
-
-Deck类HTML，一张张截：
-
-```bash
-python verify.py deck.html --slides 10  # 截前10张
-```
-
-生成 `deck-slide-01.png`、`deck-slide-02.png`... 方便快速浏览。
+For `deck_stage.js` single-file decks, verify stage navigation and direct hash/route navigation if implemented.
 
 ## Playwright Setup
 
-首次使用需要：
+Install Playwright if the repo does not already provide it:
 
 ```bash
-# 如果还没装
-npm install -g playwright
+npm install -D playwright
 npx playwright install chromium
+```
 
-# 或者Python版
+Python alternative:
+
+```bash
 pip install playwright
-playwright install chromium
+python -m playwright install chromium
 ```
 
-如果用户已经全局安装 Playwright，直接用即可。
+Prefer the repo-local Playwright dependency for repeatable exports.
 
-## 截图最佳实践
+## Screenshot Best Practices
 
-### 截完整页面
+Screenshots are the fastest way to catch layout problems and communicate verification.
 
-```python
-page.screenshot(path='full.png', full_page=True)
+### Capture Full Page
+
+```js
+await page.screenshot({
+  path: "artifacts/full-page.png",
+  fullPage: true
+});
 ```
 
-### 截viewport
+### Capture Viewport
 
-```python
-page.screenshot(path='viewport.png')  # 默认只截可见区域
+```js
+await page.setViewportSize({ width: 1440, height: 900 });
+await page.screenshot({ path: "artifacts/viewport.png" });
 ```
 
-### 截特定元素
+### Capture a Specific Element
 
-```python
-element = page.query_selector('.hero-section')
-element.screenshot(path='hero.png')
+```js
+const el = page.locator(".slide").first();
+await el.screenshot({ path: "artifacts/slide-01.png" });
 ```
 
-### 高清截图
+### Capture High-Density Output
 
-```python
-page = browser.new_page(device_scale_factor=2)  # retina
+```js
+const context = await browser.newContext({
+  viewport: { width: 1440, height: 900 },
+  deviceScaleFactor: 2
+});
 ```
 
-### 等动画结束再截
+Use high-density captures for visual review. Use normal density for performance and automated regression checks.
 
-```python
-page.wait_for_timeout(2000)  # 等2秒让动画settle
-page.screenshot(...)
+### Wait for Animation and Fonts
+
+```js
+await page.goto(url, { waitUntil: "networkidle" });
+await page.evaluate(() => document.fonts && document.fonts.ready);
+await page.waitForTimeout(500);
 ```
 
-## 把截图发给用户
+For timeline animations, prefer a deterministic `window.__seek(t)` hook instead of waiting arbitrary milliseconds.
 
-### 本地截图直接打开
+## Sharing Screenshots With the User
+
+When working in the Codex desktop app, reference local screenshots with absolute paths in Markdown if visual confirmation is useful:
+
+```md
+![Preview](D:/MyProject/Slide_ProMax/artifacts/preview.png)
+```
+
+When the user only needs a status report, summarize the verification result instead of attaching every screenshot.
+
+## When Verification Fails
+
+### Blank Page
+
+Check in this order:
+
+1. Console errors and `pageerror`.
+2. Missing script paths.
+3. CORS caused by `file://` plus external JSX/module scripts.
+4. Fonts or assets blocking rendering.
+5. Runtime assumptions about `window`, `document`, or build-time globals.
+
+For single-file HTML delivery, inline critical scripts and assets or provide an explicit server command.
+
+### Animation Stutters or Starts Late
+
+Check:
+
+- `window.__ready` is paired with the first real animation frame.
+- `document.fonts.ready` gates layout-sensitive work.
+- `lastTick` starts as `null`.
+- The first exported frame is `t=0`.
+- Recording mode disables loops with `window.__recording`.
+
+See `animation-pitfalls.md` and `video-export.md`.
+
+### Font Looks Wrong
+
+Check:
+
+- Font URL loads under the current protocol.
+- Export waits for `document.fonts.ready`.
+- The target glyphs exist in the font.
+- PPTX export may intentionally fall back to system fonts if editable text is required.
+
+### Layout Is Misaligned
+
+Check:
+
+- Hard-coded dimensions versus responsive constraints.
+- Missing `position: relative` parent for absolute children.
+- Global CSS leakage in single-file decks.
+- Browser zoom and screenshot viewport.
+- Container aspect ratio for fixed-format slides.
+
+## Verification Is a Second Pair of Design Eyes
+
+Verification is not just an engineering checklist. It is the final design pass.
+
+Look for:
+
+- Visual hierarchy that matches the story.
+- Unintended clutter or filler UI.
+- Repeated components that should vary by slide/scene.
+- Excessive density.
+- Copy that does not fit the available space.
+- Contrast problems across light and dark scenes.
+- Controls that look decorative instead of usable.
+
+If the artifact looks functional but not finished, iterate before delivery.
+
+## Common Verification Commands
+
+Basic open, screenshot, and error collection:
 
 ```bash
-open screenshot.png
+node scripts/verify.js ./index.html --screenshot artifacts/preview.png
 ```
 
-用户会在自己的 Preview/Figma/VSCode/浏览器 里看。
-
-### 上传图床分享链接
-
-如果需要给远程协作者看（比如 Slack/飞书/微信），让用户用自己的图床工具或 MCP 上传：
+Multiple viewport pass:
 
 ```bash
-python ~/Documents/写作/tools/upload_image.py screenshot.png
+node scripts/verify.js ./index.html --viewports 390x844,1024x768,1440x900
 ```
 
-返回ImgBB的永久链接，可以粘贴到任何地方。
-
-## 验证出错时
-
-### 页面白屏
-
-控制台一定有错。先检查：
-
-1. React+Babel script tag的integrity hash对不对（见`react-setup.md`）
-2. 是不是`const styles = {...}`命名冲突
-3. 跨文件的组件有没有export到`window`
-4. JSX语法错误（babel.min.js不报错，换babel.js非压缩版）
-
-### 动画卡
-
-- 用Chrome DevTools Performance tab录一段
-- 找layout thrashing（频繁的reflow）
-- 动效优先用`transform`和`opacity`（GPU加速）
-
-### 字体不对
-
-- 检查`@font-face`的url是否可访问
-- 检查fallback字体
-- 中文字体加载慢：先显示fallback，加载完再切换
-
-### 布局错位
-
-- 检查`box-sizing: border-box`是否全局应用
-- 检查`*  margin: 0; padding: 0`reset
-- Chrome DevTools里打开gridlines看实际布局
-
-## 验证=设计师的第二双眼
-
-**永远要自己过一遍**。AI写代码时经常出现：
-
-- 看起来对但interaction有bug
-- 静态截图好但scroll时错位
-- 宽屏好看但窄屏崩
-- Dark mode忘了测
-- Tweaks切换后某些组件没响应
-
-**最后1分钟的验证可以省1小时的返工**。
-
-## 常用验证脚本命令
+Deck pass:
 
 ```bash
-# 基础：打开+截图+抓错
-python verify.py design.html
-
-# 多viewport
-python verify.py design.html --viewports 1920x1080,375x667
-
-# 多slide
-python verify.py deck.html --slides 10
-
-# 输出到指定目录
-python verify.py design.html --output ./screenshots/
-
-# headless=false，打开真实浏览器给你看
-python verify.py design.html --show
+node scripts/export_deck_pdf.mjs ./index.html ./artifacts/deck.pdf
 ```
+
+Output directory:
+
+```bash
+node scripts/verify.js ./index.html --out artifacts/verify
+```
+
+Visible browser mode:
+
+```bash
+node scripts/verify.js ./index.html --headed
+```
+
+If these helper scripts are not present in the current repo, use the same checks manually through Playwright.
