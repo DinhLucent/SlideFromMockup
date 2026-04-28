@@ -32,25 +32,54 @@ Not "decent for AI" quality — it looks like a real design team made it. Give t
 
 ## 🚀 Install
 
-Recommended one-line install for Codex, Antigravity, Claude Code, and Cursor:
+Recommended global install for Codex, Antigravity, Claude Code, Cursor, and the shared Agent Skills location:
 
 ```bash
-npx skills add DinhLucent/Slide_ProMax -g -y --copy --skill slide-promax --agent codex antigravity claude-code cursor
+npx github:DinhLucent/Slide_ProMax -- --global --agents codex,antigravity,claude-code,cursor,common
 ```
 
-Install globally to every supported agent:
+Project/workspace install:
 
 ```bash
-npx skills add DinhLucent/Slide_ProMax -g --all --copy
+npx github:DinhLucent/Slide_ProMax -- --project --agents codex,antigravity,claude-code,cursor,common
 ```
 
-Interactive install:
+Install from a local clone:
 
 ```bash
-npx skills add DinhLucent/Slide_ProMax
+npm run install:agents -- --global --agents all
 ```
 
-In interactive mode, the **Universal** group is already selected and covers Codex, Antigravity, Cursor, Cline, and several other agents. Use ↑/↓ to move, Space to select **Claude Code** from "Additional agents", then Enter to confirm.
+Why not rely only on `npx skills add`? Some versions install only into `.agents/skills`, which misses native user/project folders used by several agents. Slide ProMax ships its own installer and writes to both the shared Agent Skills location and platform-native locations.
+
+See `references/install-targets.md` for the target mapping and source notes.
+
+Default global targets:
+
+| Agent | Install targets |
+|---|---|
+| Shared Agent Skills | `~/.agents/skills/slide-promax` |
+| Codex | `~/.agents/skills/slide-promax` + compatibility mirror `~/.codex/skills/slide-promax` |
+| Claude Code | `~/.claude/skills/slide-promax` |
+| Cursor | `~/.cursor/skills/slide-promax` |
+| Antigravity | `~/.gemini/antigravity/skills/slide-promax` + compatibility mirror `~/.antigravity/skills/slide-promax` |
+
+Default project targets:
+
+| Agent | Install targets |
+|---|---|
+| Shared Agent Skills / Codex | `.agents/skills/slide-promax` |
+| Claude Code | `.claude/skills/slide-promax` |
+| Cursor | `.cursor/skills/slide-promax` |
+| Antigravity | `.agents/skills/slide-promax` + legacy `.agent/skills/slide-promax` + compatibility mirror `.antigravity/skills/slide-promax` |
+
+Useful installer flags:
+
+```bash
+node scripts/install.mjs --dry-run --global --project --agents all
+node scripts/install.mjs --global --agents claude-code,cursor --no-compat
+node scripts/install.mjs --project --agents antigravity --force
+```
 
 Then just talk to your agent:
 

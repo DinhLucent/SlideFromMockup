@@ -15,8 +15,10 @@ node_modules/
 .idea/
 .vscode/
 Thumbs.db
+.tmp-install-*/
 
 # Verification artifacts（截图、临时测试脚本）
 demos/_frames_*.png
 demos/_verify.js
 demos/_verify.mjs
+artifacts/

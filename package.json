@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "High-fidelity HTML design, presentation, prototype, and motion engine",
   "private": true,
+  "bin": {
+    "slide-promax": "scripts/install.mjs"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node scripts/install.mjs --dry-run --global --project --agents codex,antigravity,claude-code,cursor --home ./.tmp-install-home --cwd ./.tmp-install-project",
+    "install:agents": "node scripts/install.mjs",
     "export:pdf": "node scripts/export_deck_pdf.mjs",
     "export:pptx": "node scripts/export_deck_pptx.mjs",
     "export:video": "node scripts/render-video.js"
